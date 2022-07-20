@@ -1,0 +1,67 @@
+<form action="/question" method="post" >
+<div id="quiz">
+<!-- Gutter g-1 -->
+<div class="row g-1">
+  <div class="col">
+    <!-- Name input -->
+    <div class="form-outline">
+      <input type="text" id="form9Example1" class="form-control" />
+      <label class="form-label" for="form9Example1">Name</label>
+    </div>
+  </div>
+  <div class="col">
+    <!-- Email input -->
+    <div class="form-outline">
+      <input type="email" id="form9Example2" class="form-control" />
+      <label class="form-label" for="form9Example2">Email address</label>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- Gutter g-5 -->
+<div class="row g-5">
+  <div class="col">
+    <!-- Name input -->
+    <div class="form-outline">
+      <input type="text" id="form9Example3" class="form-control" />
+      <label class="form-label" for="form9Example3">Name</label>
+    </div>
+  </div>
+  <div class="col">
+    <!-- Email input -->
+    <div class="form-outline">
+      <input type="email" id="form9Example4" class="form-control" />
+      <label class="form-label" for="form9Example4">Email address</label>
+    </div>
+  </div>
+</div>
+<%#
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>
+<%# <input type="text" name="puzzles[question]">
+<input type="text" name="puzzles[option1]">
+<input type="text" name="puzzles[option2]">
+<input type="text" name="puzzles[option3]">
+<input type="text" name="puzzles[option4]">
+<button type="submit" id="btn" >Add</button> %>
+</form>
+<%# <div contenteditable="true" class="question" id="puzzles[question]">Type question here</div>
+<div contenteditable="true"class="option1" id="puzzles[option1]"><input type="checkbox" >Answer1</div>
+<div contenteditable="true"class="option2" id="puzzles[option2]"><input type="checkbox" >Answer2</div>
+<div contenteditable="true"class="option3" id="puzzles[option3]"><input type="checkbox">Answer3</div>
+<div contenteditable="true"class="option4" id="puzzles[option4]"><input type="checkbox">Answer4</div><br>
+<div id="add"></div> %>
+
+
+<%# <%= render partial: "form"%>
+
+</div><br>
+<script>
+function append(event) {
+   event.preventDefault();
+   document.getElementById("add").innerHTML += "<%= render partial: "form"%>"
+
+  //  document.getElementById("add").innerHTML += '<div id="quiz"><div contenteditable="true" class="question">Type question here</div><div contenteditable="true"class="option-1"><input type="checkbox">Answer1</div><div contenteditable="true"class="option-2"><input type="checkbox">Answer2</div><div contenteditable="true"class="option-3"><input type="checkbox">Answer3</div><div contenteditable="true"class="option-4"><input type="checkbox">Answer4</div><br></div><br>'
+}
+</script>

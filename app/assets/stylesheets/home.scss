@@ -1,176 +1,178 @@
-    // Place all the styles related to the home controller here.
-    // They will automatically be included in application.css.
-    // You can use Sass (SCSS) here: https://sass-lang.com/
-    // .home {
-    //     // background-color: #e7f1fa;
-    //     // background-color: #6ba4f0;
-    // }
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
-    * {
-        font-family: 'Raleway', sans-serif;
-        scroll-behavior: smooth;
-    }
-    
-    .home {
-        // background-image: url("working.jpg");
-        // background-size: 100% 100%;
-        font-weight: bold;
-        color: white;
-        height: 800px;
-        text-align: center;
-    }
-    
-    .bg-img {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: -10;
-        filter: brightness(50%);
-    }
-    
-    .home::before {
-        background: rgba(0, 0, 0, 0.65);
-    }
-    
-    .navbar {
-        box-shadow: none !important;
-        background-color: transparent!important;
-        color: white !important;
-    }
-    
-    .navbar-light .navbar-nav .nav-link {
-        color: white !important;
-        font-size: 20px;
-    }
-    
-    .btn {
-        box-shadow: none !important;
-    }
-    
-    .column1 #img {
-        border-radius: 10px;
-        height: 370px;
-        width: 350px;
-        margin-top: 22%;
-        // margin-bottom: 5%;
-        margin-left: 5%;
-        margin-right: 3%;
-    }
-    
-    .row-1 {
-        display: inline-flex;
-        margin-top: 8%;
-        margin-right: 3%;
-        margin-left: -1% // margin-bottom: 5%;
-    }
-    
-    .row-1 #img1 {
-        border-radius: 10px;
-        height: 400px;
-        width: 550px;
-        margin-right: 3%;
-    }
-    
-    .row-1 #img2 {
-        border-radius: 10px;
-        height: 200px;
-        margin-top: 23%;
-    }
-    
-    .row-2 {
-        display: inline-flex;
-        margin-top: 2%;
-        margin-left: -1%;
-    }
-    
-    .row-2 #img1 {
-        border-radius: 10px;
-        height: 200px;
-        width: 300px;
-        margin-right: 3%;
-    }
-    
-    .row-2 #img2 {
-        border-radius: 10px;
-        margin-right: 3%;
-        height: 400px;
-        width: 550px;
-        margin-bottom: 10%;
-    }
-    
-    .column2 #img {
-        margin-right: 5%;
-        margin-left: 3%;
-        height: 370px;
-        width: 350px;
-        margin-top: -35%;
-        border-radius: 10px;
-    }
-    
-    .lightbox {
-        margin-top: 15%;
-    }
-    
-    .heading {
-        margin-top: 15%;
-        text-align: center;
-    }
-    
-    nav {
-        /* box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%); */
-        // padding-top: 0.5625rem;
-        background: #291c7e;
-    }
-    
-    #btn {
-        font-weight: bold;
-        background-color: #ff574e;
-    }
-    
-    #btn:hover {
-        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-    
-    #login {
-        border: none;
-        background-color: transparent !important;
-        color: white;
-        font-weight: bold;
-        margin-left: -10px;
-    }
-    
-    #login:hover {
-        color: #ff574e;
-        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-    
-    .nav-item:hover {
-        background-color: #ff574e;
-        color: white;
-        border-radius: 10px;
-    }
-    
-    .nav-item {
-        margin-right: 10%;
-        padding: 5px 5px;
-    }
-    
-    #log {
-        margin-top: 2%;
-        background-color: #ff574e;
-        font-weight: bold;
-        width: 250px;
-        padding: 15px 15px;
-        border-radius: 10px;
-        font-size: 20px;
-    }
-    
-    #log:hover {
-        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-    
-    .container {
-        width: 1000px;
-    }
+            // Place all the styles related to the home controller here.
+            // They will automatically be included in application.css.
+            // You can use Sass (SCSS) here: https://sass-lang.com/
+            // .home {
+            //     // background-color: #e7f1fa;
+            //     // background-color: #6ba4f0;
+            // }
+            @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+            * {
+                font-family: 'Raleway', sans-serif;
+                scroll-behavior: smooth;
+            }
+            
+            .home {
+                // background-image: url("working.jpg");
+                // background-size: 100% 100%;
+                font-weight: bold;
+                color: white;
+                height: 800px;
+                text-align: center;
+            }
+            
+            .bg-img {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: -10;
+                filter: brightness(50%);
+            }
+            
+            .home::before {
+                background: rgba(0, 0, 0, 0.65);
+            }
+            
+            .navbar {
+                box-shadow: none !important;
+                background-color: transparent!important;
+                color: white !important;
+            }
+            
+            .navbar-light .navbar-nav .nav-link {
+                color: white !important;
+                font-size: 20px;
+            }
+            
+            .btn {
+                box-shadow: none !important;
+            }
+            
+            .column1 #img {
+                border-radius: 10px;
+                height: 370px;
+                width: 350px;
+                margin-top: 22%;
+                // margin-bottom: 5%;
+                margin-left: 5%;
+                margin-right: 3%;
+            }
+            
+            .row-1 {
+                display: inline-flex;
+                margin-top: 8%;
+                margin-right: 3%;
+                margin-left: -1% // margin-bottom: 5%;
+            }
+            
+            .row-1 #img1 {
+                border-radius: 10px;
+                height: 400px;
+                width: 550px;
+                margin-right: 3%;
+            }
+            
+            .row-1 #img2 {
+                border-radius: 10px;
+                height: 200px;
+                margin-top: 23%;
+            }
+            
+            .row-2 {
+                display: inline-flex;
+                margin-top: 2%;
+                margin-left: -1%;
+            }
+            
+            .row-2 #img1 {
+                border-radius: 10px;
+                height: 200px;
+                width: 300px;
+                margin-right: 3%;
+            }
+            
+            .row-2 #img2 {
+                border-radius: 10px;
+                margin-right: 3%;
+                height: 400px;
+                width: 550px;
+                margin-bottom: 10%;
+            }
+            
+            .column2 #img {
+                margin-right: 5%;
+                margin-left: 3%;
+                height: 370px;
+                width: 350px;
+                margin-top: -35%;
+                border-radius: 10px;
+            }
+            
+            .lightbox {
+                margin-top: 15%;
+            }
+            
+            .heading {
+                margin-top: 15%;
+                text-align: center;
+            }
+            
+            nav {
+                /* box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%); */
+                // padding-top: 0.5625rem;
+                background: #291c7e;
+            }
+            
+            #btn {
+                font-weight: bold;
+                background-color: #ff574e;
+            }
+            
+            #btn:hover {
+                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+            
+            #login {
+                border: none;
+                background-color: transparent !important;
+                color: white;
+                font-weight: bold;
+                margin-left: -10px;
+            }
+            
+            #login:hover {
+                color: #ff574e;
+                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+            
+            .nav-item:hover {
+                background-color: #ff574e;
+                color: white;
+                border-radius: 10px;
+            }
+            
+            .nav-item {
+                margin-right: 10%;
+                padding: 5px 5px;
+            }
+            
+            #log {
+                margin-top: 2%;
+                background-color: #ff574e;
+                font-weight: bold;
+                width: 250px;
+                padding: 15px 15px;
+                border-radius: 10px;
+                font-size: 20px;
+            }
+            
+            #log:hover {
+                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+            
+            .container {
+                width: 1000px;
+            }
+            
+            @media screen and (max-width: 600px) {}
