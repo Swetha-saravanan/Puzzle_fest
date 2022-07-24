@@ -1,0 +1,71 @@
+.contact_bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    filter: brightness(30%);
+}
+
+.contact_heading {
+    text-align: left;
+    color: white;
+    font-weight: bolder;
+    margin-top: 150px;
+    font-size: 60px;
+}
+
+.contact {
+    display: inline-block;
+    margin-left: 200px;
+}
+
+.contact_form input {
+    border-radius: 20px;
+    background-color: #909091;
+    color: black;
+    height: 50px;
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+.inline {
+    max-width: 400px;
+    margin: auto;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+    color: white !important;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.fa-messages {
+    color: white;
+}
+
+.review {
+    display: flex;
+}
+
+#call {
+    height: 600px;
+    margin-left: 200px;
+}

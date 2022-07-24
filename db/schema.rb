@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_20_004229) do
+ActiveRecord::Schema.define(version: 2022_07_24_083317) do
 
   create_table "puzzles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "question", null: false
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2022_07_20_004229) do
     t.string "option4", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "answer"
+    t.string "button"
   end
 
   create_table "quiz", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

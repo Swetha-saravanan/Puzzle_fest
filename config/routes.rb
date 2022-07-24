@@ -4,12 +4,16 @@ Rails.application.routes.draw do
   root 'users#index'
   get 'quiz/creategame'
   get 'home/load'
+  match '/other_index' , :to => 'users#other_index' , :via=>:get
   match '/add' , :to => 'home#edit' , :via=>:get
   match '/save', :to => 'users#create', :via => :post
   # match '/render' , :to => 'home#load' , :via => :get
   match '/create-session' ,:to=> 'session#signin_handle' , :via => :post
   match '/question' ,:to=> 'quiz#create' , :via => :post
  get 'users/login'
+ get 'home/about'
+ get 'home/contact'
+ get 'home/review'
 #  get 'quizzes/form'
 #  get 'quizzes/edit'
 #  get 'quizzes/index'
