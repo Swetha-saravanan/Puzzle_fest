@@ -1,9 +1,7 @@
-<div>
-<h1>HTml</h1>
-
-<%# <form action="/question" method="post" >
+<div class="create_game">
+<form action="/question" method="post" >
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-<%# <div class = "question">
+<div class = "question">
  <input type="text" name="question" class="qtn">
 </div>
 <div class="row1">
@@ -26,7 +24,7 @@
 <input type="text" name="option4"required>
 </div>
 <button type="submit" id="btn" name="button" value="Add">Add</button>
-</form> %>
+</form>
 <% if flash[:error]%>
 <p><%= flash[:error]%></p>
 <%end%><br>

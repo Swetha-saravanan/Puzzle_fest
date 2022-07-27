@@ -12,7 +12,7 @@
     text-align: left;
     color: white;
     font-weight: bolder;
-    margin-top: 150px;
+    margin-top: 100px;
     font-size: 60px;
 }
 
@@ -26,8 +26,14 @@
     background-color: #909091;
     color: black;
     height: 50px;
-    width: 350px;
+    width: 400px;
     margin-bottom: 10px;
+}
+
+textarea {
+    border-radius: 20px;
+    background-color: #909091;
+    color: black;
 }
 
 .inline {
@@ -47,14 +53,16 @@
 .icon {
     padding: 10px;
     min-width: 40px;
-    color: white !important;
+    color: black !important;
+    margin-top: 5px;
 }
 
 .input-field {
-    width: 100%;
+    // width: 700px;
     padding: 10px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 3px;
+    text-indent: 30px;
 }
 
 .fa-messages {
@@ -66,6 +74,36 @@
 }
 
 #call {
-    height: 600px;
-    margin-left: 200px;
+    margin-left: 400px;
+    margin-top: -100px;
+}
+
+::placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+}
+
+// review page
+.review_bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    filter: brightness(50%);
+}
+
+.review_form {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+
+.review_form input {
+    border-radius: 20px;
+    background-color: #909091;
+    color: black;
+    height: 50px;
+    width: 400px;
+    margin-bottom: 10px;
 }

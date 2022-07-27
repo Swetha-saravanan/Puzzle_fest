@@ -4,12 +4,26 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100px;
     width: 1000px;
-    margin-left: 20%;
+    margin-left: 15%;
     text-indent: 30px;
+    outline: none;
+}
+
+.create_game {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    width: 1400px;
+    height: 800px;
+    margin-left: 400px;
+    margin-top: 5%;
 }
 
 .qtn {
     border-radius: 10px;
+    background-color: white;
 }
 
 .row1 {
@@ -23,8 +37,9 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100px;
     width: 600px;
-    margin-left: 20%;
+    margin-left: 5%;
     display: flex;
+    text-align: center;
 }
 
 .row2 {
@@ -32,12 +47,14 @@
 }
 
 .row2 div {
-    margin-left: 24%;
+    margin-bottom: 10%;
+    margin-top: 5%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100px;
     width: 600px;
-    margin-left: 20%;
+    margin-left: 5%;
     display: flex;
+    text-align: center;
 }
 
 .question input[type=text] {
@@ -82,28 +99,35 @@ input[type=radio] {
     display: flex;
 }
 
-.list-row1 div {
+.list-row1 .option {
     margin-bottom: 5%;
     margin-top: 5%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100px;
     width: 600px;
-    margin-left: 20%;
+    margin-left: 5%;
     display: flex;
     text-align: center;
+}
+
+.choice {
+    width: 450px;
+    text-align: left;
+    margin-left: 30px;
+    border: none;
+    outline: none;
 }
 
 .list-row2 {
     display: flex;
 }
 
-.list-row2 div {
+.list-row2 .option {
     margin-bottom: 5%;
     margin-top: 5%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100px;
     width: 600px;
-    margin-left: 20%;
-    display: flex;
+    margin-left: 10%;
     text-indent: 30px;
 }
