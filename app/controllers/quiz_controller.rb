@@ -1,4 +1,8 @@
+$cur_display_question = nil
 class QuizController < ApplicationController
+  def index
+    @quiz = Puzzle.all
+  end
   def create
     question = params[:question]
     answer = Array.new
@@ -58,6 +62,24 @@ class QuizController < ApplicationController
       render plain: "Swetha"
     end
   end
+  def display
+    id = params[:id]
+    quiz= Puzzle.find(id)
+    $cur_display_question = quiz
+    redirect_to '/game'
+  end
+  def show
+    question = params[:kinds_of_question]
+    kind_of_question = Question.create!(
+      kind_of_question: question
+    )
+    if kind_of_question.save
+      puts "swetha"
+      $cur_display_question = nil
+      redirect_to '/game'
+
+    else
+      render plain: "fail"
+    end
+  end
 end
-
-

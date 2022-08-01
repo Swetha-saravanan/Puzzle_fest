@@ -43,14 +43,55 @@
             <%else%>
             <input type="text" name="option4" placeholder="Add answer 4"  required>
             <%end%>
-
         </div><br>
         <button type="submit" id="save" value="Add">Save</button>
         </form>
-    </div><br>
-    <% if flash[:error]%>
-        <p>
-            <%= flash[:error]%>
-        </p>
-        <%end%>
-            <br>
+    </div>
+</div>
+
+<div class="overflow">
+<% Question.all.each do |t|%>
+<%# <a href="/quiz/display/<%=t.id%>
+<%# "><%=image_tag( "1.png", alt: "like" ,class:"question_image")</a> %>
+<%case t.kind_of_question%>
+<%when "quiz"%>
+<a href="/quiz/display/<%=t.id%>"><%=image_tag( "1.png", alt: "like" ,class:"question_image") %></a>
+<% when "tf"%>
+<a href="/quiz/display/<%=t.id%>"><%=image_tag( "2.png", alt: "like" ,class:"question_image") %></a>
+<% when "fillup"%>
+<a href="/quiz/display/<%=t.id%>"><%=image_tag( "3.png", alt: "like" ,class:"question_image") %></a>
+<%end%>
+<%end%>
+
+<button type="submit" id="add_question" onclick="display()">Add question</button>
+</div>
+<div id ="kinds_of_questions" style="display:none">
+<%=image_tag( "1.png", alt: "like" , height:"100",width:"150") %>
+<button type="submit" name="questions[kinds_of_questions]" value="quiz" onclick="quiz()">Quiz</button><br>
+<%=image_tag( "2.png", alt: "like" ,height:"100",width:"150") %>
+<button type="submit" name="questions[kinds_of_questions]"value="tf"onclick="tf()">True or False</button><br>
+<%=image_tag( "3.png", alt: "like" ,height:"100",width:"150") %>
+<button type="submit" name="questions[kinds_of_questions]"value="fillup"onclick="fillup()">Fill up</button><br>
+</div>
+
+<script>
+function display() {
+    let div = document.getElementById("kinds_of_questions");
+    div.style.display = "block";
+
+}
+function quiz() {
+    window.location.href="/show"
+}
+function tf() {
+    window.location.href="/show"
+}
+function fillup() {
+    window.location.href="/show"
+}
+
+
+</script>
+
+
+

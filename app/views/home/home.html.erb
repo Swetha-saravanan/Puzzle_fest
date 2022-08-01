@@ -30,7 +30,7 @@
 </div>
 <div class="container">
 
-  <footer class="bg-dark text-center text-white">
+  <%# <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -75,7 +75,120 @@
     <a class="text-white" href="https://mdbootstrap.com/">SwethaMS</a>
   </div>
   <!-- Copyright -->
-</footer>
+</footer> %>
+
+
+<div class="user-register" id="user-register">
+<div class="index">
+    <%# <%=image_tag( "enroll.png", alt: "like" ,class: "reg-bg") %> %>
+
+        <div class="container">
+            <div class="whole" id="regis">
+
+
+                <div class="btn-holder">
+
+
+                    <button class="sign_up" onclick="Register()"> Sign up</button> <button class="sign_in" onclick="login()"> Log in</button>
+                </div>
+                <%# <div class="register_form">
+Create new account.<br>
+            <p>Already a member <a href='/users/login' style="color:red;text-decoration:none;">  Login</a><p>
+</div> %>
+                    <div class="signup" id="up">
+                        <form class="form-box px-3" action="/save" method="post" onsubmit="check()">
+                            <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-user"></i></span>
+                                <input type="text" name="users[name]" placeholder="Username" tabindex="10" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa fa-envelope-o"></i></span>
+                                <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-mobile"></i></span>
+                                <input type="email" name="users[phone_no]" placeholder="Phone number" tabindex="10" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-key"></i></span>
+                                <input type=" password" name="users[password]" placeholder="Create Password" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-key"></i></span>
+                                <input type="password" name="" placeholder="Confirm Password" required>
+                            </div>
+                            <div class="mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                                    <label class="custom-control-label" for="cb1">Show password</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-block ">
+              CREATE ACCOUNT
+            </button>
+                            </div>
+                            <div class="text-right">
+                                <a href="#" class="forget-link" style="color:#ff574e">
+              Forgot Password?
+            </a>
+                            </div>
+                        </form>
+                    </div>
+                    <%# <%=image_tag( "gl.webp", alt: "like" , class: "register_side") %>
+                        <%# </div> %>
+                            <div class="signin" id="in" style="display:none">
+                                <form class="form-box px-3" action="/create-session" method="post">
+                                    <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+                                    <div class="form-input">
+                                        <span><i class="fa fa-envelope-o"></i></span>
+                                        <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
+                                    </div>
+                                    <div class="form-input">
+                                        <span><i class="fa-solid fa-key"></i></span>
+                                        <input type="password" name="users[email]" placeholder="Password" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                                            <label class="custom-control-label" for="cb1">Show password</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-block ">
+                Log in
+              </button>
+                                    </div>
+                                    <div class="text-right">
+                                        <a href="#" class="forget-link" style="color:#ff574e">
+                Forgot Password?
+              </a>
+                                    </div>
+                                    <%# <hr class="my-4"> %>
+                                        <div class="mb-2" style="color:white">
+                                            Don't have an account?
+                                            <a href="/signup" class="register-link" style="color:#ff574e">
+                Signup
+              </a>
+                                        </div>
+                                </form>
+                            </div>
+            </div>
+            <script>
+                function Register() {
+                    document.getElementById("in").style.display = "none";
+                    document.getElementById("up").style.display = "block";
+
+                }
+
+                function login() {
+                    document.getElementById("up").style.display = "none";
+                    document.getElementById("in").style.display = "block";
+
+                }
+            </script>
+</div>
 
 </div>
 <script>

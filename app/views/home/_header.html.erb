@@ -28,8 +28,8 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Quiz</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+        <li class="nav-item"  onclick="displayUser()">
+          <%# <a class="nav-link" href="#">Contact</a> %> load
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Review</a>
@@ -48,7 +48,7 @@
       <!-- Notifications -->
       <div class="dropdown">
       <a href="/users/login">
-        <button type="button" id="btn"class="btn btn-primary me-3">
+        <button type="button" id="btn"class="btn btn-primary me-3" >
           Sign In
         </button></a>
         <ul
@@ -104,3 +104,11 @@
   </div>
   <!-- Container wrapper -->
 </nav>
+
+<script>
+function displayUser(){
+var user = document.getElementById("user-register");
+user.classList.toggle("user-register")
+console.log("ace");
+}
+</script>

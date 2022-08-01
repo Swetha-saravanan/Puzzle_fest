@@ -1,71 +1,57 @@
-<div class="signIn">
+<div class="index">
     <%=image_tag( "enroll.png", alt: "like" ,class: "reg-bg") %>
-        <div class="content">
-            <h1>Create new account.</h1>
-            <h2>Already a member
-                <a href='/users/login' style="color:red;text-decoration:none;">Login</a>
-            </h2>
-        </div>
-        <div class=" g-1">
-            <form action="/save" method="post" onsubmit="check()" class="inline">
-                <div class="col">
-                    <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
-                    <!-- Name input -->
-                    <div class="form-outline">
-                        <input type="text" id="form9Example1" name="users[name]" class="form-control" />
-                        <label class="form-label" for="form9Example1">Name</label>
-                        <div class="svg-holder">
 
-                            <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 448 512 "><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224
-                              256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z "/></svg>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="whole">
+
+
+                <div class="btn-holder">
+
+
+                    <button class="sign_up" onclick="Register()"> Sign up</button> <button class="sign_in" onclick="login()"> Log in</button>
                 </div>
-                <div class="col ">
-                    <!-- Email input -->
-                    <div class="form-outline ">
-                        <input type="email " id="form9Example2 " name="users[email] " class="form-control " />
-                        <label class="form-label" for="form9Example2 ">Email address</label>
-                        <div class="svg-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 512 512 "><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M464
-                            64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512
-                            176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z "/></svg>
-                        </div>
+                <%# <div class="register_form">
+Create new account.<br>
+            <p>Already a member <a href='/users/login' style="color:red;text-decoration:none;">  Login</a><p>
+</div> %>
+                    <div class="signup" id="up">
+                        <form class="form-box px-3" action="/save" method="post" onsubmit="check()">
+                            <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-user"></i></span>
+                                <input type="text" name="users[name]" placeholder="Username" tabindex="10" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa fa-envelope-o"></i></span>
+                                <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-mobile"></i></span>
+                                <input type="tel" name="users[phone_no]" placeholder="Phone number" tabindex="10" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-key"></i></span>
+                                <input type=" password" name="users[password]" placeholder="Create Password" required>
+                            </div>
+                            <div class="form-input">
+                                <span><i class="fa-solid fa-key"></i></span>
+                                <input type="password" name="" placeholder="Confirm Password" required>
+                            </div>
+                            <div class="mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                                    <label class="custom-control-label" for="cb1">Show password</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-block ">
+              CREATE ACCOUNT
+            </button>
+                            </div>
+                            <div class="text-right">
+                                <a href="#" class="forget-link" style="color:#ff574e">
+              Forgot Password?
+            </a>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <div class="col ">
-                    <div class="form-outline ">
-                        <input type="tel " name="users[phone_no] " id="form9Example2 " class="form-control " />
-                        <label class="form-label" for="form9Example2 ">Contact</label>
-                        <div class="svg-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 512 512 "><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M511.2
-                            387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22
-                            90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z "/></svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col ">
-                    <div class="form-outline ">
-                        <input type="password " name="users[password] " id="pwd " class="form-control " /><label class="form-label " for="pwd ">Password</label>
-                        <div class="svg-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 512 512 "><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M282.3
-                            343.7L248.1 376.1C244.5 381.5 238.4 384 232 384H192V424C192 437.3 181.3 448 168 448H128V488C128 501.3 117.3 512 104 512H24C10.75 512 0 501.3 0 488V408C0 401.6 2.529 395.5 7.029 391L168.3 229.7C162.9 212.8 160 194.7 160 176C160
-                            78.8 238.8 0 336 0C433.2 0 512 78.8 512 176C512 273.2 433.2 352 336 352C317.3 352 299.2 349.1 282.3 343.7zM376 176C398.1 176 416 158.1 416 136C416 113.9 398.1 96 376 96C353.9 96 336 113.9 336 136C336 158.1 353.9 176 376 176z "/></svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col ">
-                    <div class="form-outline ">
-                        <input type="password " name="users[password] " id="cpwd " class="form-control " />
-                        <label class="form-label" for="cpwd ">Confirm password</label>
-                        <div class="svg-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 512 512 "><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M282.3
-                            343.7L248.1 376.1C244.5 381.5 238.4 384 232 384H192V424C192 437.3 181.3 448 168 448H128V488C128 501.3 117.3 512 104 512H24C10.75 512 0 501.3 0 488V408C0 401.6 2.529 395.5 7.029 391L168.3 229.7C162.9 212.8 160 194.7 160 176C160
-                            78.8 238.8 0 336 0C433.2 0 512 78.8 512 176C512 273.2 433.2 352 336 352C317.3 352 299.2 349.1 282.3 343.7zM376 176C398.1 176 416 158.1 416 136C416 113.9 398.1 96 376 96C353.9 96 336 113.9 336 136C336 158.1 353.9 176 376 176z "/></svg>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit ">Register</button>
-            </form>
-        </div>
-</div>

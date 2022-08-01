@@ -19,6 +19,10 @@
     height: 800px;
     margin-left: 400px;
     margin-top: 5%;
+    // background-image: url('green_board.png');
+    // background-repeat: no-repeat;
+    // background-position: fixed;
+    // background-size: 100% 100%;
 }
 
 .qtn {
@@ -130,4 +134,27 @@ input[type=radio] {
     width: 600px;
     margin-left: 10%;
     text-indent: 30px;
+}
+
+.overflow {
+    width: 350px;
+    background-color: rgb(206, 206, 225);
+    padding: 10px 10px;
+    height: auto;
+}
+
+.add {
+    height: 20px;
+    width: 40px;
+}
+
+.quiz .col {
+    display: flex;
+}
+
+.question_image {
+    height: 200px;
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
