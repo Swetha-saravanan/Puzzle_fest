@@ -18,8 +18,8 @@ Rails.application.routes.draw do
  match '/update' ,:to=> 'quiz#edit' , :via => :get
  match '/game' ,:to=> 'quiz#game' , :via => :get
  get '/quiz/display/:id' , :to=>'quiz#display'
- match '/show' , :to=> 'quiz#show' , :via => :get
-
+ match '/show' , :to=> 'quiz#show' , :via => :post
+get 'quiz/form'
 #  get 'quizzes/form'
 #  get 'quizzes/edit'
 #  get 'quizzes/index'

@@ -1,97 +1,55 @@
 <div class="game">
-    <div id="question">
-        <form action="/question" method="post" id="main-form">
-            <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
-            <% if $cur_display_question %>
-            <textarea name="question" placeholder="Start type question here"><%=$cur_display_question["question"]%></textarea>
-            <% else %>
-            <textarea name="question" placeholder="Start type question here"></textarea>
-            <% end %>
-
-    </div>
-    <div class="vertical"></div>
-    <div id="answer">
-        <div class="opt1 opt">
-            <input type="radio" id="html" name="option" placeholder="Add answer" value="a">
-            <% if $cur_display_question %>
-            <input type="text" name="option1" placeholder="Add answer 1" value='<%= $cur_display_question["option1"] %>' required>
-            <% else%>
-            <input type="text" name="option1" placeholder="Add answer 1"  required>
-             <%end%>
-        </div><br>
-        <div class="opt2 opt">
-            <input type="radio" id="html" name="option" value="b">
-            <% if $cur_display_question %>
-            <input type="text" name="option2" placeholder="Add answer 2" value='<%= $cur_display_question["option2"] %>' required>
-            <% else%>
-            <input type="text" name="option2" placeholder="Add answer 2"  required>
-            <%end%>
-        </div><br>
-        <div class="opt3 opt">
-            <input type="radio" id="html" name="option" value="c">
-             <% if $cur_display_question %>
-            <input type="text" name="option3" placeholder="Add answer 3" value='<%= $cur_display_question["option3"] %>' required>
-            <%else%>
-            <input type="text" name="option3" placeholder="Add answer 3"  required>
-            <%end%>
-
-        </div><br>
-        <div class="opt4 opt">
-            <input type="radio" id="html" name="option" value="d">
-            <% if $cur_display_question %>
-            <input type="text" name="option4" placeholder="Add answer 4" value='<%= $cur_display_question["option4"] %>' required>
-            <%else%>
-            <input type="text" name="option4" placeholder="Add answer 4"  required>
-            <%end%>
-        </div><br>
-        <button type="submit" id="save" value="Add">Save</button>
-        </form>
-    </div>
-</div>
-
-<div class="overflow">
-<% Question.all.each do |t|%>
-<%# <a href="/quiz/display/<%=t.id%>
-<%# "><%=image_tag( "1.png", alt: "like" ,class:"question_image")</a> %>
+<%t=Question.last%>
 <%case t.kind_of_question%>
-<%when "quiz"%>
+<% when "Quiz"%>
+    <%= render partial:"quiz"%>
+<%when "True or false"%>
+    <%= render partial:"tf"%>
+<%when "Fillup"%>
+     <%= render partial:"fillup"%>
+<%else%>
+      <%= render partial: "quiz"%>
+<%end%>
+</div>
+<div class="overflow">
+<div class="images">
+<% Question.all.each do |t|%>
+<%case t.kind_of_question%>
+<%when "Quiz"%>
 <a href="/quiz/display/<%=t.id%>"><%=image_tag( "1.png", alt: "like" ,class:"question_image") %></a>
-<% when "tf"%>
+<% when "True or false"%>
 <a href="/quiz/display/<%=t.id%>"><%=image_tag( "2.png", alt: "like" ,class:"question_image") %></a>
-<% when "fillup"%>
+<% when "Fillup"%>
 <a href="/quiz/display/<%=t.id%>"><%=image_tag( "3.png", alt: "like" ,class:"question_image") %></a>
+ <%end%>
 <%end%>
-<%end%>
-
-<button type="submit" id="add_question" onclick="display()">Add question</button>
 </div>
-<div id ="kinds_of_questions" style="display:none">
-<%=image_tag( "1.png", alt: "like" , height:"100",width:"150") %>
-<button type="submit" name="questions[kinds_of_questions]" value="quiz" onclick="quiz()">Quiz</button><br>
-<%=image_tag( "2.png", alt: "like" ,height:"100",width:"150") %>
-<button type="submit" name="questions[kinds_of_questions]"value="tf"onclick="tf()">True or False</button><br>
-<%=image_tag( "3.png", alt: "like" ,height:"100",width:"150") %>
-<button type="submit" name="questions[kinds_of_questions]"value="fillup"onclick="fillup()">Fill up</button><br>
+<div class="add_qtn">
+<button type="submit" id="add_question" onclick="display()" >Add question</button>
 </div>
-
+</div>
+<div id ="kinds_of_questions" style="display:none;">
+  <form action="/show" method="post">
+<div>
+   <%=image_tag( "1.png", alt: "like" , height:"100",width:"150") %>
+   <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+   <input type="submit" name="kind_of_question" value="Quiz" ><br>
+</div><br>
+<div>
+   <%=image_tag( "2.png", alt: "like" ,height:"100",width:"150") %>
+   <input type="submit" name="kind_of_question" value="True or false" ><br>
+</div><br>
+<div>
+   <%=image_tag( "3.png", alt: "like" ,height:"100",width:"150") %>
+   <input type="submit" name="kind_of_question" value="Fillup">
+</div><br>
+</form>
+</div>
 <script>
 function display() {
     let div = document.getElementById("kinds_of_questions");
     div.style.display = "block";
 
 }
-function quiz() {
-    window.location.href="/show"
-}
-function tf() {
-    window.location.href="/show"
-}
-function fillup() {
-    window.location.href="/show"
-}
-
-
 </script>
-
-
 

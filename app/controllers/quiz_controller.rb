@@ -69,12 +69,12 @@ class QuizController < ApplicationController
     redirect_to '/game'
   end
   def show
-    question = params[:kinds_of_question]
-    kind_of_question = Question.create!(
+    question = params[:kind_of_question]
+    puts question
+    @question_save = Question.create!(
       kind_of_question: question
     )
-    if kind_of_question.save
-      puts "swetha"
+    if @question_save.save
       $cur_display_question = nil
       redirect_to '/game'
 

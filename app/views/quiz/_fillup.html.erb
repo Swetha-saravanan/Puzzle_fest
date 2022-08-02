@@ -1,0 +1,20 @@
+<div class="fillup_question">
+<div id="fill_question">
+<form action="/question" method="post" id="main-form" >
+<input type="hidden" name="authenticity_token" value=" form_authenticity_token">
+<% if $cur_display_question %>
+    <textarea name="question" placeholder="Start type question here"><%=$cur_display_question["question"]%></textarea>
+  <% else %>
+    <textarea name="question" placeholder="Start type question here"></textarea>
+  <% end %>
+</div>
+<div class="fillup">
+<% if $cur_display_question %>
+<input type="text" name="option1" placeholder="Type answer here .... " value='<%= $cur_display_question["option1"] %>' required>
+<% else%>
+<input type="text" name="option1" placeholder="Type answer here .... "  required>
+ <%end%>
+<button type="submit" id="save" value="Add">Save</button>
+</div>
+</form>
+</div>
