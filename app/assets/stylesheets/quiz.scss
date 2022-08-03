@@ -8,7 +8,7 @@
                             left: 50%;
                             top: 9%;
                         }
-                        
+
                         .game {
                             margin-left: 10%;
                             margin-top: 50px;
@@ -19,13 +19,13 @@
                             height: 750px;
                             width: 1500px;
                         }
-                        
+
                         #answer {
                             // left: 100%;
                             margin-left: 20%;
                             margin-top: 5%;
                         }
-                        
+
                         input[type='radio'] {
                             -webkit-appearance: none;
                             width: 20px;
@@ -35,11 +35,11 @@
                             outline: none;
                             box-shadow: 0 0 5px 0px #f1eac2;
                         }
-                        
+
                         input[type='radio']:hover {
                             box-shadow: 0 0 5px 0px#f1eac2;
                         }
-                        
+
                         input[type='radio']:before {
                             content: '';
                             display: block;
@@ -48,13 +48,13 @@
                             margin: 20% auto;
                             border-radius: 50%;
                         }
-                        
+
                         input[type='radio']:checked:before {
                             background-color: #f1eac2;
                             border: 2px solid#f1eac2;
                             accent-color: #f1eac2;
                         }
-                        
+
                         #answer input[type="text"] {
                             background-color: transparent;
                             border: none;
@@ -66,7 +66,7 @@
                             font-weight: bold;
                             font-size: 25px;
                         }
-                        
+
                         #fill_question textarea {
                             background-color: transparent;
                             border: none;
@@ -80,7 +80,7 @@
                             font-weight: bold;
                             color: #f1eac2;
                         }
-                        
+
                         #question textarea {
                             background-color: transparent;
                             border: none;
@@ -94,19 +94,19 @@
                             font-weight: bold;
                             color: #f1eac2;
                         }
-                        
+
                         .game input:focus {
                             outline: none !important;
                         }
-                        
+
                         .game textarea:focus {
                             outline: none !important;
                         }
-                        
+
                         .game ::placeholder {
                             color: #f1eac2;
                         }
-                        
+
                         #answer #save {
                             padding: 10px 10px;
                             width: 100px;
@@ -117,12 +117,12 @@
                             margin-left: 80%;
                             margin-top: 50%;
                         }
-                        
+
                         #answer #save:hover {
                             background-color: #f1eac2;
                             color: #2c4c3c
                         }
-                        
+
                         div.overflow {
                             overflow-x: auto;
                             overflow-y: hidden;
@@ -133,15 +133,15 @@
                             background-color: white !important;
                             white-space: nowrap;
                         }
-                        
+
                         .overflow div {
                             display: inline;
                         }
-                        
+
                         .overflow a {
                             color: white;
                         }
-                        
+
                         #add_question {
                             padding: 10px 10px;
                             width: 200px;
@@ -153,12 +153,12 @@
                             color: #f1eac2;
                             margin-bottom: 10px;
                         }
-                        
+
                         #add_question:hover {
                             background-color: #2c4c3c;
                             color: #f1eac2;
                         }
-                        
+
                         #kinds_of_questions div {
                             padding: 30px 30px;
                             outline: none;
@@ -167,7 +167,7 @@
                             height: 500px;
                             display: inline;
                         }
-                        
+
                         #kinds_of_questions {
                             background: #3e313547;
                             padding: 20px 20px;
@@ -176,7 +176,7 @@
                             border-radius: 20px;
                             position: absolute;
                         }
-                        
+
                         #kinds_of_questions input {
                             padding: 30px 30px;
                             border: none;
@@ -187,16 +187,16 @@
                             font-weight: bold;
                             margin-left: 10px;
                         }
-                        
+
                         #kinds_of_questions input:hover {
                             color: #f1eac2;
                             background-color: #2c4c3c
                         }
-                        
+
                         .fillup {
                             margin-left: 50%;
                         }
-                        
+
                         .fillup input {
                             height: 150px;
                             width: 500px;
@@ -208,7 +208,7 @@
                             font-size: 25px;
                             margin-left: 55%;
                         }
-                        
+
                         .fillup #save {
                             padding: 10px 10px;
                             width: 100px;
@@ -219,7 +219,7 @@
                             margin-top: 10%;
                             margin-left: 300%;
                         }
-                        
+
                         .fillup #save:hover {
                             background-color: #f1eac2;
                             color: #2c4c3c

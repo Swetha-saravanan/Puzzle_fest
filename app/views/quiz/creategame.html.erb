@@ -1,126 +1,14 @@
-<%# <%= render partial:"list"%>
-<%# <%= render partial:"form"%>
-<div class= "quiz">
-<div class="overflow col">
-<br>
-<%# <% Puzzle.all.each do |t|%>
-<%# <%case t.button%>
-<%# <%when "quiz"%>
-<%# <%=image_tag( "1.png", alt: "like" ,class:"question_image") %><br>
-<%# <% when "tf"%>
-<%# <%=image_tag( "2.png", alt: "like" ,class:"question_image") %><br>
-<%# <% when "fillup"%>
-<%# <%=image_tag( "3.png", alt: "like" ,class:"question_image") %><br>
-<%# <%end%>
-<%# <%end%>
-
- <select name="button">
-    <option value="">Select your question</option>
-    <option value="quiz">Quiz</option>
-    <option value="tf">True or false</option>
-    <option value="fillup">Fill up</option>
-    <%# <option value="audi">Audi</option> %>
-</select>
- </div><br>
-<div class="create_game col">
-
-<form action="/question" method="post" id="main-form" >
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-<div class = "question">
- <input type="text" name="question" class="qtn">
+<%= render partial:"home/header"%>
+<div class="creategame">
+<div class="cgame">
+<h2>CREATE QUIZ</h2><br>
+<a href="form"><%= image_tag("create_game.jpg", alt: "like" , class:"img_game") %></a></div>
+<div class="hosting_game">
+<h2>HOSTING QUIZ</h2><br>
+<%= image_tag("hosting.jpg", alt: "like" , class:"img_game") %></div>
+<div class="dashboards">
+<h2>DASHBOARDS</h2><br>
+<%= image_tag("reports.webp", alt: "like" , class:"img_game") %></div>
 </div>
-<div class="row1">
-<div class="opt1 option">
-<input type="radio" id="html" name="option" value="a">
-<input type="text" name="option1"required>
-</div>
-<div class="opt2 option" >
-<input type="radio" id="html" name="option"  value="b">
-<input type="text" name="option2" required>
-</div>
-</div>
-<div class="row2">
-<div class="opt3 option">
-<input type="radio" id="html" name="option" value="c">
-<input type="text" name="option3"  required>
-</div>
-<div class="opt4 option">
-<input type="radio" id="html" name="option" value="d">
-<input type="text" name="option4" required>
-</div>
-</div>
- <p id="message"></p>
-<select name="button" id="koq">
-      <option value="">Select your question</option>
-    <option value="quiz">Quiz</option>
-    <option value="tf">True or false</option>
-    <option value="fillup">Fill up</option>
-    <%# <option value="audi">Audi</option> %>
-  </select>
-
-<button type="submit" id="add" value="Add">Add</button>
-</form>
-
-
-</div>
-<% if flash[:error]%>
-<p><%= flash[:error]%></p>
-<%end%>
-
-</div>
-<%Puzzle.last do |t| %>
-   <%if t.button =="Add" %>
-  <%= render partial:"form"%>
-   <%end%>
-<%end%>
-<script>
-
-    // jQuery(function($) {
-    //   $("#main-form").autosave({
-    //     callbacks: {
-    //       trigger: ["change", function() {
-    //         var self = this;
-
-    //         $("[name=save]").click(function() {
-    //           self.save();
-    //         });
-    //       }],
-    //       save: {
-    //         method: "post",
-    //         url: "/question"
-    //         options: {
-    //           success: function() {
-    //             alert("saved!");
-    //           }
-    //         }
-    //       }
-    //     }
-    //   });
-    // });
-  jQuery(document).ready(function($){
-
-    $("#main-form").autosave({
-			url: "/question",//set the php file that updates the database
-			method: "post",
-			grouped: true,//send data for all fields with the autosave
-    		       success: function(data) {//on a successful update...
-        		$("#message").html("Data updated successfully").show();//...show a message...
-				setTimeout('fadeMessage()',1500);//...and then fade it out after an interval
-    		},
-			send: function(){//on a save...
-        		$("#message").html("Sending data....");//..show a message
-			},
-    		dataType: "html"
-		});
-
-       function fadeMessage(){
-		$('#message').fadeOut('slow');//just a function to fade out the message
-	}
-  })
-
-
-</script>
-
-
+<%= image_tag("quizbg.webp", alt: "like" ,class: "quiz_bg") %>
 

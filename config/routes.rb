@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/home'
+  get 'assessments/display'
+  root 'home#home'
   get 'users/index'
-  root 'users#other_index'
   get 'quiz/creategame'
   get 'home/load'
   match '/other_index' , :to => 'users#other_index' , :via=>:get
@@ -16,10 +16,12 @@ Rails.application.routes.draw do
  get 'home/review'
  get 'users/other_index'
  match '/update' ,:to=> 'quiz#edit' , :via => :get
- match '/game' ,:to=> 'quiz#game' , :via => :get
+ match '/game' , :to=> 'quiz#game' , :via => :get
+ match '/assessment', :to=>'assessments#store' , :via => :post
  get '/quiz/display/:id' , :to=>'quiz#display'
  match '/show' , :to=> 'quiz#show' , :via => :post
 get 'quiz/form'
+get 'quiz/game'
 #  get 'quizzes/form'
 #  get 'quizzes/edit'
 #  get 'quizzes/index'

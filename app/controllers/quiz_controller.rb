@@ -15,34 +15,74 @@ class QuizController < ApplicationController
     opt4 = params[:option4]
     answer.push(opt4)
     ans = params[:option]
-    btn = params[:button]
-
-    if answer != answer.uniq
-      flash[:error] = "Duplicate Options"
-    elsif ans==nil
-      flash[:error] = "Choose the answer"
+    assessment = Assessment.last
+    question_type = Question.last
+    if question_type
+         case question_type.kind_of_question
+         when "True or false"
+         @quiz = Puzzle.create!(
+          question: question,
+          option1: opt1,
+          option2: opt2,
+          answer: ans,
+          kind_of_question: question_type.kind_of_question,
+          assessments_id:assessment.id )
+         when "Fillup"
+         @quiz = Puzzle.create!(
+          question: question,
+          option1: opt1,
+          answer: opt1,
+          kind_of_question: question_type.kind_of_question,
+          assessments_id:assessment.id
+          )
+        else
+          if answer != answer.uniq
+          flash[:error] = "Duplicate Options"
+          elsif ans==nil
+          flash[:error] = "Choose the answer"
+          else
+          @quiz = Puzzle.create!(
+          question: question,
+          option1: opt1,
+          option2: opt2,
+          option3: opt3,
+          option4: opt4,
+          answer: ans,
+          kind_of_question: question_type.kind_of_question,
+          assessments_id:assessment.id
+          )
+          end
+        end
     else
-    @quiz = Puzzle.create!(
-      question: question,
-      option1: opt1,
-      option2: opt2,
-      option3: opt3,
-      option4: opt4,
-      answer: ans,
-      button: btn
-    )
-      if @quiz.save
-        redirect_to '/quiz/creategame'
-      else
-        render plain: "Swetha"
-      end
+        if answer != answer.uniq
+        flash[:error] = "Duplicate Options"
+        elsif ans==nil
+        flash[:error] = "Choose the answer"
+        else
+        @quiz = Puzzle.create!(
+        question: question,
+        option1: opt1,
+        option2: opt2,
+        option3: opt3,
+        option4: opt4,
+        answer: ans,
+        assessments_id:assessment.id
+      )
+        end
     end
+      if @quiz.save
+        redirect_to '/quiz/game'
+      else
+        redirect_to '/quiz/game'
+      end
 
   end
   def edit
     question = params[:question]
     opt1 = params[:option1]
+    p opt1
     opt2 = params[:option2]
+    p opt2
     opt3 = params[:option3]
     opt4 = params[:option4]
     ans = params[:option]
@@ -56,11 +96,12 @@ class QuizController < ApplicationController
       answer: ans,
       button: btn
     )
-    if @quiz.save
-      redirect_to '/quiz/creategame'
-    else
+     if @quiz.save
+      # redirect_to '/quiz/game'
+      render plain:"Success"
+     else
       render plain: "Swetha"
-    end
+     end
   end
   def display
     id = params[:id]
@@ -82,4 +123,5 @@ class QuizController < ApplicationController
       render plain: "fail"
     end
   end
+
 end

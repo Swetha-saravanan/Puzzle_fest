@@ -1,6 +1,6 @@
 <div id="question">
 <form action="/question" method="post" id="main-form" >
- <input type="hidden" name="authenticity_token" value=" form_authenticity_token">
+ <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
   <% if $cur_display_question %>
     <textarea name="question" placeholder="Start type question here"><%=$cur_display_question["question"]%></textarea>
   <% else %>
@@ -14,15 +14,15 @@
 <% if $cur_display_question %>
 <input type="text" name="option1" placeholder="TRUE" value='<%= $cur_display_question["option1"] %>' required>
 <% else%>
-<input type="text" name="option1" placeholder="TRUE"  required>
+<input type="text" name="option1" placeholder="TRUE"  value="TRUE">
  <%end%>
 </div><br>
 <div class="opt2 opt">
 <input type="radio" id="html" name="option"  value="b">
 <% if $cur_display_question %>
-<input type="text" name="option1" placeholder="TRUE" value='<%= $cur_display_question["option1"] %>' required>
+<input type="text" name="option2" placeholder="TRUE" value='<%= $cur_display_question["option2"] %>' required>
 <% else%>
-<input type="text" name="option1" placeholder="FALSE"  required>
+<input type="text" name="option2" placeholder="FALSE"  value="FALSE">
  <%end%>
 </div>
 <button type="submit" id="save" value="Add">Save</button>

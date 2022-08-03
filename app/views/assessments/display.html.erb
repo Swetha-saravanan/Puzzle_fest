@@ -1,0 +1,9 @@
+<div class="host">
+<% Assessment.all.each do |t|%>
+<div class="assessment_name">
+<%= t.name%>
+
+</div>
+<%end%>
+</div>
+<%=image_tag( "host.jpeg", alt: "like" ,class: "host-bg") %>

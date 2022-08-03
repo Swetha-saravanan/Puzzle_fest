@@ -1,42 +1,41 @@
-
-                            <div class="signin" id="in" >
-                                <form class="form-box px-3" action="/create-session" method="post">
-                                    <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
-                                    <div class="form-input">
-                                        <span><i class="fa fa-envelope-o"></i></span>
-                                        <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
-                                    </div>
-                                    <div class="form-input">
-                                        <span><i class="fa-solid fa-key"></i></span>
-                                        <input type="password" name="users[email]" placeholder="Password" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="cb1" name="">
-                                            <label class="custom-control-label" for="cb1">Show password</label>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <button type="submit" class="btn btn-block ">
-                Log in
-              </button>
-                                    </div>
-                                    <div class="text-right">
-                                        <a href="#" class="forget-link" style="color:#ff574e">
-                Forgot Password?
-              </a>
-                                    </div>
-                                    <%# <hr class="my-4"> %>
-                                        <div class="mb-2" style="color:black">
-                                            Don't have an account?
-                                            <a href="/signup" class="register-link" style="color:#ff574e">
-                Signup
-              </a>
-                                        </div>
-                                </form>
-                            </div>
+<div class="signin" id="in">
+<div>
+    <form class="form-box px-3" action="/create-session" method="post">
+        <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+        <div class="form-input">
+            <span><i class="fa fa-envelope-o"></i></span>
+            <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
+        </div>
+        <div class="form-input">
+            <span><i class="fa-solid fa-key"></i></span>
+            <input type="password" name="users[email]" placeholder="Password" required>
+        </div>
+        <div class="mb-3">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                <label class="custom-control-label" for="cb1">Show password</label>
             </div>
-
-
-
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-block ">
+                Log in
+            </button>
+        </div>
+        <div class="text-right">
+            <a href="#" class="forget-link" style="color:#ff574e">
+                Forgot Password?
+            </a>
+        </div>
+            <div class="mb-2" style="color:black">
+                Don't have an account?
+                <a href="index" class="register-link" style="color:#ff574e">
+                    Signup
+                </a>
+            </div>
+    </form>
+</div>
+<div>
+<%=image_tag( "login_bg.webp", alt: "like", class:"login_image" ) %>
+</div>
+</div>
 

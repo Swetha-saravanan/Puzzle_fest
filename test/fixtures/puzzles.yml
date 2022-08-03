@@ -6,6 +6,7 @@ one:
   option2: MyString
   option3: MyString
   option4: MyString
+  answer: MyString
 
 two:
   question: MyString
@@ -13,3 +14,4 @@ two:
   option2: MyString
   option3: MyString
   option4: MyString
+  answer: MyString

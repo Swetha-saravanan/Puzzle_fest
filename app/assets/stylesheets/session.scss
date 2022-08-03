@@ -23,7 +23,7 @@ body {
 }
 
 .form-input input {
-    width: 100%;
+    width: 120%;
     height: 45px;
     padding-left: 40px;
     margin-bottom: 20px;
@@ -128,12 +128,36 @@ body {
 
 .signin {
     background-color: white;
-    padding: 30px 20px;
     position: relative;
-    height: 500px;
+    height: 700px;
+    width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
+    margin-left: 17%;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.signin div {
+    margin-left: 5%;
+}
+
+.login_image {
+    height: 700px;
+    width: 620px;
+    border-left: 20px;
+    margin-left: 15%;
+    border-radius: 20px;
+}
+
+.signup_image {
+    height: 700px;
+    width: 620px;
+    border-left: 20px;
+    margin-left: 15%;
+    border-radius: 20px;
 }
 
 .index button:hover {
@@ -191,9 +215,3 @@ body {
     padding: 20px;
     position: absolute;
 }
-
-// .pop-left {
-//     // right: -100%;
-//     display: none;
-//     transition: all ease-in-out 0.5s;
-// }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_29_121235) do
+ActiveRecord::Schema.define(version: 2022_08_03_070555) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -40,16 +40,26 @@ ActiveRecord::Schema.define(version: 2022_07_29_121235) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "puzzles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "question", null: false
-    t.string "option1", null: false
-    t.string "option2", null: false
-    t.string "option3", null: false
-    t.string "option4", null: false
+  create_table "assessments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["users_id"], name: "index_assessments_on_users_id"
+  end
+
+  create_table "puzzles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "question", null: false
+    t.string "option1"
+    t.string "option2"
+    t.string "option3"
+    t.string "option4"
     t.string "answer"
-    t.string "button"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "kind_of_question"
+    t.bigint "assessments_id"
+    t.index ["assessments_id"], name: "index_puzzles_on_assessments_id"
   end
 
   create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -84,5 +94,4 @@ ActiveRecord::Schema.define(version: 2022_07_29_121235) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "questions", "puzzles", column: "puzzles_id"
 end
