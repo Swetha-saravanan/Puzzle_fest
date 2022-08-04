@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     # )
     #   redirect_to '/users/login'
   end
-
+  
   private
   def user_params
       params.require(:users).permit(:name,:email,:phone_no,:password)

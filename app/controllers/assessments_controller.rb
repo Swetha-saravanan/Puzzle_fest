@@ -14,4 +14,11 @@ class AssessmentsController < ApplicationController
       redirect_to '/quiz/form'
     end
   end
+  def quiz
+    id = params[:id]
+    record = Puzzle.where(assessments_id: 1)
+    $quiz_record = record
+    p $quiz_record
+    redirect_to '/assessments/display_questions'
+  end
 end

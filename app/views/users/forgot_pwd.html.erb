@@ -1,0 +1,27 @@
+<div class="signin" id="in">
+<div>
+    <form class="form-box px-3" action="/create-session" method="post">
+        <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+        <div class="form-input">
+            <span><i class="fa fa-envelope-o"></i></span>
+            <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-block ">
+                Reset password
+            </button>
+        </div>
+
+            <div class="mb-2" style="color:black">
+                Back to
+                <a href="login" class="register-link" style="color:#ff574e">
+                    Login
+                </a>
+            </div>
+    </form>
+</div>
+<div>
+<%=image_tag( "fpwd.jpeg", alt: "like", class:"fpwd_image" ) %>
+</div>
+</div>

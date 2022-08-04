@@ -1,5 +1,7 @@
 <div class="game">
+<%# <button class="all_save"> Save </button> %>
     <div>
+        <% count = Assessment.count%>
         <%l = Assessment.last%>
             <%if l%>
                 <div class="assessment_title">
@@ -42,9 +44,10 @@
 </div>
 <div class="overflow">
     <div class="images">
-        <div  id="1" onclick="show()">
+             <a href="/quiz/display1/1" id="">
             <%=image_tag( "1.png", alt: "like" ,class:"question_image") %>
-        </div>
+            </a>
+
         <%Question.all.each do |t|%>
             <%case t.kind_of_question%>
                 <% when "Quiz" %>
@@ -85,7 +88,7 @@
             <%=image_tag( "3.png", alt: "like" ,height:"100",width:"150") %>
                 <input type="submit" name="kind_of_question" value="Fillup">
         </div><br>
-        <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
     </form>
 </div>
 <script>
@@ -93,6 +96,6 @@
         let div = document.getElementById("kinds_of_questions");
         div.style.display = "block";
     }
-    
+
 </script>
 

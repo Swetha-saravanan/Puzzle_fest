@@ -36,7 +36,8 @@
 
         </div><br>
         <div class="opt4 opt">
-            <input type="radio" id="html" name="option" value="d">
+            <input type="radio" id="html" name="option" value="d">$cur_display_question
+
             <% if $cur_display_question %>
             <input type="text" name="option4" placeholder="Add answer 4" value='<%= $cur_display_question["option4"] %>' required>
             <%else%>

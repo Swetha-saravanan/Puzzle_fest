@@ -1,0 +1,26 @@
+<% if $quiz_record%>
+ <% $quiz_record.all.each do |t|%>
+
+<%case t.kind_of_question%>
+   <%when "Quiz"%>
+         <%= render partial:"/quiz/quiz"%>
+    <%when "True or false"%>
+         <%= render partial:"/quiz/tf"%>
+    <%when "Fillup"%>
+         <%= render partial:"/quiz/fillup"%>
+    <%else%>
+         <%= render partial:"/quiz/quiz"%>
+<%end%>
+ <%= t.id%>
+<%= t.question%>
+<%= t.option1%>
+<%= t.option2%>
+<%= t.option3%>
+<%= t.option4%>
+<%= t.answer%>
+<%= t.kind_of_question%>
+<%= t.assessments_id%>
+<%end%>
+
+<%else%>
+<%end%>

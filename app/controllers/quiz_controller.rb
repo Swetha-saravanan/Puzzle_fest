@@ -103,9 +103,15 @@ class QuizController < ApplicationController
       render plain: "Swetha"
      end
   end
+  def display1
+    id = params[:id]
+    quiz= Puzzle.find(id.to_i)
+    $cur_display_question = quiz
+    redirect_to '/game'
+  end
   def display
     id = params[:id]
-    quiz= Puzzle.find(id)
+    quiz= Puzzle.find(id.to_i+1)
     $cur_display_question = quiz
     redirect_to '/game'
   end

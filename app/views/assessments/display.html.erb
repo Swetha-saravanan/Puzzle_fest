@@ -1,8 +1,9 @@
 <div class="host">
 <% Assessment.all.each do |t|%>
 <div class="assessment_name">
-<%= t.name%>
-
+<%= t.name%><br>
+<%= Puzzle.where(assessments_id: 1).count%>
+<a href="/display_questions/<%=t.id%>"><button>start</button></a>
 </div>
 <%end%>
 </div>

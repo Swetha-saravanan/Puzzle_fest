@@ -10,6 +10,10 @@ class SessionController < ApplicationController
      end
 
   end
+  def logout
+    session.clear
+    redirect_to '/'
+  end
   private
   def user_params
     params.require(:users).permit(:email,:password)
