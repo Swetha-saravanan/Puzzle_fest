@@ -1,26 +1,59 @@
-<% if $quiz_record%>
- <% $quiz_record.all.each do |t|%>
 
-<%case t.kind_of_question%>
-   <%when "Quiz"%>
-         <%= render partial:"/quiz/quiz"%>
-    <%when "True or false"%>
-         <%= render partial:"/quiz/tf"%>
-    <%when "Fillup"%>
-         <%= render partial:"/quiz/fillup"%>
-    <%else%>
-         <%= render partial:"/quiz/quiz"%>
-<%end%>
- <%= t.id%>
-<%= t.question%>
-<%= t.option1%>
-<%= t.option2%>
-<%= t.option3%>
-<%= t.option4%>
-<%= t.answer%>
-<%= t.kind_of_question%>
-<%= t.assessments_id%>
-<%end%>
+<div id="disp_questions">
+<%$record.each do |t|%>
+<div class="disp_quiz" style="display:none;">
+<%=t.question%>
 
-<%else%>
+<%=t.option1%>
+<%=t.option2%>
+<%=t.option3%>
+<%=t.option4%>
+</div>
 <%end%>
+</div>
+<div id="time_count">1
+</div>
+<script>
+function display_show(){
+  let divs = document.getElementById("disp_questions");
+  let len = divs.getElementsByClassName("disp_quiz").length;
+  console.log(len);
+  for (let index = 0; index < len; index++) {
+    console.log(index);
+    setTimeout(() => {
+      if(index==0){
+        divs.getElementsByClassName("disp_quiz")[index].style.display="block";
+      }else{
+        for (let i = index; i < len; i--) {
+          console.log(i);
+        }
+      }
+
+  }, 60000*index);
+  }
+     timerss();
+}
+display_show();
+function timerss(){
+  let timer = document.getElementById("time_count");
+  let con = 1
+
+  let timers = setInterval(() => {
+     timer.innerHTML = con++;
+  }, 1000);
+
+  setTimeout(() => {
+    clearInterval(timers);
+timerss();
+    }, 60000);
+}
+
+</script>
+
+
+
+
+
+
+
+

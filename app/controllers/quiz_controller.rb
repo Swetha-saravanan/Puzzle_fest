@@ -1,7 +1,9 @@
 $cur_display_question = nil
 class QuizController < ApplicationController
   def index
-    @quiz = Puzzle.all
+    quiz = Puzzle.all
+    p quiz
+    redirect_to '/assessments/display_questions'
   end
   def create
     question = params[:question]
@@ -118,10 +120,14 @@ class QuizController < ApplicationController
   def show
     question = params[:kind_of_question]
     puts question
+    assessments = Assessment.last
     @question_save = Question.create!(
-      kind_of_question: question
+    kind_of_question: question,
+    assessments_id: assessments.id
+
     )
     if @question_save.save
+      $question_records = Question.all
       $cur_display_question = nil
       redirect_to '/game'
 

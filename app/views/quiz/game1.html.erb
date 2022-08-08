@@ -1,0 +1,101 @@
+<div class="game">
+<%# <button class="all_save"> Save </button> %>
+    <div>
+        <% count = Assessment.count%>
+        <%l = Assessment.last%>
+            <%if l%>
+                <div class="assessment_title">
+                    <h1>
+                        <%=l.name%>
+                    </h1>
+                </div>
+
+            <%end%>
+    </div>
+    <span><i class="fa-solid fa-timer"></i></span>
+       <% if $cur_display_question%>
+            <% case $cur_display_question.kind_of_question%>
+               <%when "Quiz"%>
+                    <%= render partial:"quiz"%>
+                <%when "True or false"%>
+                     <%= render partial:"tf"%>
+                <%when "Fillup"%>
+                     <%= render partial:"fillup"%>
+                <%else%>
+                    <%= render partial:"quiz"%>
+                <%end%>
+       <%else%>
+    <%t=Question.last%>
+        <% if t%>
+            <%case t.kind_of_question%>
+                <%when "Quiz"%>
+                    <%= render partial:"quiz"%>
+                <%when "True or false"%>
+                     <%= render partial:"tf"%>
+                 <%when "Fillup"%>
+                     <%= render partial:"fillup"%>
+                 <%else%>
+                    <%= render partial:"quiz"%>
+                 <%end%>
+         <%else%>
+                <%= render partial: "quiz"%>
+         <%end%>
+    <%end%>
+
+</div>
+<div class="overflow">
+    <div class="images">
+             <a href="/quiz/display1/1" id="">
+            <%=image_tag( "1.png", alt: "like" ,class:"question_image") %>
+            </a>
+<%$question_records = Question.where(assessments_id: l.id)%>
+        <%$question_records.all.each do |t|%>
+            <%case t.kind_of_question%>
+                <% when "Quiz" %>
+                <a href="/quiz/display/<%=t.id%>" id="<%=t.id%>">
+                    <%=image_tag( "1.png", alt: "like" ,class:"question_image" ) %>
+                </a>
+                <% when "True or false"%>
+                <a href="/quiz/display/<%=t.id%>" id="<%=t.id%>">
+                    <%=image_tag( "2.png", alt: "like" ,class:"question_image") %>
+                </a>
+                <% when "Fillup"%>
+                 <a href="/quiz/display/<%=t.id%>" id="<%=t.id%>">
+                     <%=image_tag( "3.png", alt: "like" ,class:"question_image") %>
+                </a>
+                <%else%>
+                <a href="/quiz/display/<%=t.id%>" id="<%=t.id%>">
+                    <%=image_tag( "1.png", alt: "like" ,class:"question_image") %>
+                 </a>
+            <%end%>
+        <%end%>
+    </div>
+    <div class="add_qtn">
+        <button type="submit" id="add_question" onclick="display()">Add question</button>
+    </div>
+</div>
+<div id="kinds_of_questions" style="display:none;">
+    <form action="/show" method="post">
+        <div>
+            <%=image_tag( "1.png", alt: "like" , height:"100",width:"150") %>
+                <input type="submit" name="kind_of_question" value="Quiz"><br>
+
+        </div><br>
+        <div>
+            <%=image_tag( "2.png", alt: "like" ,height:"100",width:"150") %>
+                <input type="submit" name="kind_of_question" value="True or false"><br>
+        </div><br>
+        <div>
+            <%=image_tag( "3.png", alt: "like" ,height:"100",width:"150") %>
+                <input type="submit" name="kind_of_question" value="Fillup">
+        </div><br>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    </form>
+</div>
+<script>
+    function display() {
+        let div = document.getElementById("kinds_of_questions");
+        div.style.display = "block";
+    }
+
+</script>

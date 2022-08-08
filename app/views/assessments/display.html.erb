@@ -2,7 +2,9 @@
 <% Assessment.all.each do |t|%>
 <div class="assessment_name">
 <%= t.name%><br>
-<%= Puzzle.where(assessments_id: 1).count%>
+<%= Puzzle.where(assessments_id: t.id).count%>
+<%=image_tag( "puzzle.avif", alt: "like", height:"100",width:"120") %>
+
 <a href="/display_questions/<%=t.id%>"><button>start</button></a>
 </div>
 <%end%>

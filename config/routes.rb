@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 get 'quiz/form'
 get 'quiz/game'
 get 'home/profile'
+get 'quiz/index'
+get 'quiz/game1'
 get 'assessments/display_questions'
 #  get 'quizzes/form'
 #  get 'quizzes/edit'

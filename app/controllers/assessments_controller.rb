@@ -9,6 +9,9 @@ class AssessmentsController < ApplicationController
     )
     if @assessment.save
       session[:cur_assessment] = name
+      assessment = Assessment.last
+      $question_records = Question.where(assessments_id: assessment.id)
+      p $question_records
       redirect_to '/quiz/game'
     else
       redirect_to '/quiz/form'
@@ -16,9 +19,9 @@ class AssessmentsController < ApplicationController
   end
   def quiz
     id = params[:id]
-    record = Puzzle.where(assessments_id: 1)
-    $quiz_record = record
-    p $quiz_record
+    $record = Puzzle.where(assessments_id:id)
+    # $quiz_record = record
+    p $record
     redirect_to '/assessments/display_questions'
   end
 end
