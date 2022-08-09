@@ -17,6 +17,16 @@ class QuizController < ApplicationController
     opt4 = params[:option4]
     answer.push(opt4)
     ans = params[:option]
+    case ans
+    when "a"
+      @ans = opt1
+    when "b"
+      @ans=opt2
+    when "c"
+      @ans = opt3
+    when "d"
+      @ans = opt4
+    end
     assessment = Assessment.last
     question_type = Question.last
     if question_type
@@ -28,14 +38,16 @@ class QuizController < ApplicationController
           option2: opt2,
           answer: ans,
           kind_of_question: question_type.kind_of_question,
-          assessments_id:assessment.id )
+          assessments_id:assessment.id,
+          correct_answer: @ans)
          when "Fillup"
          @quiz = Puzzle.create!(
           question: question,
           option1: opt1,
           answer: opt1,
           kind_of_question: question_type.kind_of_question,
-          assessments_id:assessment.id
+          assessments_id:assessment.id,
+          correct_answer: opt1
           )
         else
           if answer != answer.uniq
@@ -51,7 +63,8 @@ class QuizController < ApplicationController
           option4: opt4,
           answer: ans,
           kind_of_question: question_type.kind_of_question,
-          assessments_id:assessment.id
+          assessments_id:assessment.id,
+          correct_answer: @ans
           )
           end
         end
@@ -68,7 +81,8 @@ class QuizController < ApplicationController
         option3: opt3,
         option4: opt4,
         answer: ans,
-        assessments_id:assessment.id
+        assessments_id:assessment.id,
+        correct_answer: @ans
       )
         end
     end

@@ -1,0 +1,14 @@
+// Place all the styles related to the reports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.reports {
+    display: flex;
+}
+.dashboard {
+    height:100%;
+    width: 25%;
+    background: green;
+}
+.reports_table {
+    width: 100%;
+}

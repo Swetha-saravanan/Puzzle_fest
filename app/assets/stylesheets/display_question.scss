@@ -153,9 +153,37 @@ body{
     height: 100px;
     border-radius: 20px;
 }
-.disp_row input[type='radio']{
-    accent-color: white !important;
-    background: white;
+.disp_row input{
+  background-color: transparent;
+  color:white;
+  font-weight: bold;
+  border: none;
+  outline:none;
+
+
+}
+.disp_row_fillup div {
+    display:inline-flex;
+    background-color: #DF4C44;
+    padding: 10px 10px;
+    margin-top:100px;
+    text-align: center;
+    color:white;
+    margin-left: 300px;
+    width: 500px;
+    height: 100px;
+    border-radius: 20px;
+}
+.disp_row_fillup input {
+    height: 60px;
+    width: 400px;
+    border-radius: 20px;
+    border:none;
+}
+
+.radio_p{
+    margin-left: 60px;
+    margin-top: 12px;
 }
 
 

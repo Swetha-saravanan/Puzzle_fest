@@ -1,5 +1,5 @@
-<%t= User.last%>
-<% if t%>
+<% logged_user = User.find(session[:id]) %>
+<% if logged_user %>
 <nav class="navbar navbar-expand-lg navbar-light ">
   <!-- Container wrapper -->
   <div class="container-fluid">
@@ -85,7 +85,7 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" href="/home/profile"><%= t.name%></a>
+            <a class="dropdown-item" href="/home/profile"><%= logged_user["name"]%></a>
           </li>
           <li>
             <a class="dropdown-item" href="#">Settings</a>

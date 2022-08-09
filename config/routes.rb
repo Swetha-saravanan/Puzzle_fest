@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reports/display_reports'
   get 'assessments/display'
   root 'home#home'
   get 'users/index'
@@ -30,6 +31,7 @@ get 'home/profile'
 get 'quiz/index'
 get 'quiz/game1'
 get 'assessments/display_questions'
+match '/reports_save' , :to => 'assessments#reports_save' , :via => :post
 #  get 'quizzes/form'
 #  get 'quizzes/edit'
 #  get 'quizzes/index'

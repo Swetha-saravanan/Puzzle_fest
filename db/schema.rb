@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_05_110743) do
+ActiveRecord::Schema.define(version: 2022_08_09_061039) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_110743) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "kind_of_question"
     t.bigint "assessments_id"
+    t.string "correct_answer"
     t.index ["assessments_id"], name: "index_puzzles_on_assessments_id"
   end
 
@@ -80,6 +81,19 @@ ActiveRecord::Schema.define(version: 2022_08_05_110743) do
     t.string "option4", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "user_answer"
+    t.bigint "users_id"
+    t.bigint "assessments_id"
+    t.integer "score"
+    t.time "time_limit"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "correct_answer"
+    t.index ["assessments_id"], name: "index_reports_on_assessments_id"
+    t.index ["users_id"], name: "index_reports_on_users_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

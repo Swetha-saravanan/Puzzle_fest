@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_answer: MyString
+  users: 
+  assessments: 
+  score: 1
+  time_limit: 2022-08-08 22:22:30
+
+two:
+  user_answer: MyString
+  users: 
+  assessments: 
+  score: 1
+  time_limit: 2022-08-08 22:22:30
