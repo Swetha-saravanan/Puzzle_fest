@@ -36,11 +36,7 @@ Rails.application.routes.draw do
   match '/reports_save', to: 'assessments#reports_save', via: :post
   get 'assessments/game_pin'
   match '/check_equal', to: 'reports#check', via: :post
-  #  get 'quizzes/form'
-  #  get 'quizzes/edit'
-  #  get 'quizzes/index'
-  #  get 'quizzes/new'
-  #  get 'quizzes/show'
+  get 'quiz/quiztemplate'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

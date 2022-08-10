@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 $cur_display_question = nil
 class QuizController < ApplicationController
   def index
@@ -88,7 +87,6 @@ class QuizController < ApplicationController
           correct_answer: @ans
         )
     end
-    end
     redirect_to '/quiz/game'
   end
 
@@ -151,3 +149,4 @@ class QuizController < ApplicationController
     end
   end
 end
+
