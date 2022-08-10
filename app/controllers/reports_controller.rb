@@ -1,4 +1,15 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
-  def display_reports
+  def display_reports; end
+
+  def check
+    grandom = params[:g_random].to_i
+    input_random = params[:input_random].to_i
+    if grandom == input_random
+      redirect_to '/assessments/display_questions'
+    else
+      redirect_to '/assessments/game_pin'
+    end
   end
 end

@@ -1,0 +1,25 @@
+<div>
+<%= $random_no%>
+<form action="/check_equal" method="post">
+<input type="hidden" value="<%= $random_no%>" name="g_random">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+<input type="text" id="random_no" name="input_random"required>
+<button type="submit" >Enter</button>
+</form>
+</div>
+<script>
+function check() {
+    str1 = parseInt("<%= $random_no%>");
+    console.log(str1)
+    str2 = parseInt(document.getElementById("random_no").value);
+    console.log(str2)
+    if (str1 ==str2) {
+        console.log("swetha");
+        window.location.href="assessments/display_questions";
+    }
+    else {
+        console.log("game_pin")
+        window.location.href="assessments/game_pin";
+    }
+}
+</script>

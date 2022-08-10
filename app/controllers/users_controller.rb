@@ -1,14 +1,13 @@
-class UsersController < ApplicationController
-  def index
+# frozen_string_literal: true
 
-  end
-  def other_index
-  end
+class UsersController < ApplicationController
+  def index; end
+
+  def other_index; end
+
   def create
     user = User.new(user_params)
-    if user.save
-       redirect_to '/users/login'
-    end
+    redirect_to '/users/login' if user.save
     # user = User.create!(
     #   name: params[:name],
     #   email: params[:email],
@@ -17,9 +16,10 @@ class UsersController < ApplicationController
     # )
     #   redirect_to '/users/login'
   end
-  
+
   private
+
   def user_params
-      params.require(:users).permit(:name,:email,:phone_no,:password)
+    params.require(:users).permit(:name, :email, :phone_no, :password)
   end
 end
