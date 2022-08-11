@@ -2,6 +2,8 @@
 <% logged_user = User.find(session[:id]) %>
 <% if logged_user %>
 <div class="dashboard">Swetha</div>
+<canvas id="myChart" width="200px" height="100px" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
+
 <div class="reports_table">
 <table class="table table-hover">
 
@@ -18,8 +20,8 @@
     <tr>
       <th scope="row">1</th>
       <td><%=t.score%></td>
-      <td><%= t.assessments_id%></td>
       <td><%=t.id%></td>
+      <td><%=%></td>
     </tr>
 
     <%end%>

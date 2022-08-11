@@ -77,16 +77,16 @@
 <div id="kinds_of_questions" style="display:none;">
     <form action="/show" method="post">
         <div>
-            <%=image_tag( "1.png", alt: "like" , height:"100",width:"150") %>
+            <%=image_tag( "quiz.png", alt: "like" , height:"100",width:"100") %>
                 <input type="submit" name="kind_of_question" value="Quiz"><br>
 
         </div><br>
         <div>
-            <%=image_tag( "2.png", alt: "like" ,height:"100",width:"150") %>
+            <%=image_tag( "tf.png", alt: "like" ,height:"100",width:"100") %>
                 <input type="submit" name="kind_of_question" value="True or false"><br>
         </div><br>
         <div>
-            <%=image_tag( "3.png", alt: "like" ,height:"100",width:"150") %>
+            <%=image_tag( "fillup.png", alt: "like" ,height:"100",width:"100") %>
                 <input type="submit" name="kind_of_question" value="Fillup">
         </div><br>
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />

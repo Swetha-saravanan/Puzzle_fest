@@ -1,19 +1,22 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
-  def display; end
+  def display
+ end
 
   def store
     name = params[:name]
+    random_no = 6.times.map { rand(10) }.join
     @assessment = Assessment.create!(
-      name: name
+      name: name,
+      random_no: random_no
     )
     if @assessment.save
       session[:cur_assessment] = name
       assessment = Assessment.last
       $question_records = Question.where(assessments_id: assessment.id)
       p $question_records
-      redirect_to '/quiz/game'
+      redirect_to '/assessments/quiz_design'
     else
       redirect_to '/quiz/form'
     end
@@ -23,7 +26,7 @@ class AssessmentsController < ApplicationController
     id = params[:id]
     $record = Puzzle.where(assessments_id: id)
     # $quiz_record = record
-    $random_no = 6.times.map { rand(10) }.join
+
     # p $record
     redirect_to '/assessments/game_pin'
   end

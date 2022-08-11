@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   get 'reports/display_reports'
   get 'assessments/display'
-  root 'home#home'
+  root 'home#home_design'
   get 'users/index'
   get 'quiz/creategame'
   get 'home/load'
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'quiz/form'
   get 'quiz/game'
   get 'home/profile'
+  get 'home/home_design'
   get 'quiz/index'
   get 'quiz/game1'
   get 'assessments/display_questions'
@@ -37,6 +38,12 @@ Rails.application.routes.draw do
   get 'assessments/game_pin'
   match '/check_equal', to: 'reports#check', via: :post
   get 'quiz/quiztemplate'
+  get 'assessments/quiz'
+  get 'assessments/quiz_design'
+  get 'assessments/tf_design'
+  get 'assessments/fillup_design'
+  get 'assessments/test'
+  match '/edit'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

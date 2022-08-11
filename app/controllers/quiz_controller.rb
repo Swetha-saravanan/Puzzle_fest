@@ -87,7 +87,7 @@ class QuizController < ApplicationController
           correct_answer: @ans
         )
     end
-    redirect_to '/quiz/game'
+    redirect_to '/assessments/quiz_design'
   end
 
   def edit
