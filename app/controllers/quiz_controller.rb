@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 $cur_display_question = nil
 class QuizController < ApplicationController
   def index
@@ -54,38 +55,38 @@ class QuizController < ApplicationController
         )
       else
         if answer != answer.uniq
-        flash[:error] = 'Duplicate Options'
+          flash[:error] = 'Duplicate Options'
         elsif ans.nil?
-        flash[:error] = 'Choose the answer'
+          flash[:error] = 'Choose the answer'
         else
-        @quiz = Puzzle.create!(
-          question: question,
-          option1: opt1,
-          option2: opt2,
-          option3: opt3,
-          option4: opt4,
-          answer: ans,
-          kind_of_question: question_type.kind_of_question,
-          assessments_id: assessment.id,
-          correct_answer: @ans
-        )
+          @quiz = Puzzle.create!(
+            question: question,
+            option1: opt1,
+            option2: opt2,
+            option3: opt3,
+            option4: opt4,
+            answer: ans,
+            kind_of_question: question_type.kind_of_question,
+            assessments_id: assessment.id,
+            correct_answer: @ans
+          )
         end
       end
     elsif answer != answer.uniq
       flash[:error] = 'Duplicate Options'
     elsif ans.nil?
-        flash[:error] = 'Choose the answer'
+      flash[:error] = 'Choose the answer'
     else
-        @quiz = Puzzle.create!(
-          question: question,
-          option1: opt1,
-          option2: opt2,
-          option3: opt3,
-          option4: opt4,
-          answer: ans,
-          assessments_id: assessment.id,
-          correct_answer: @ans
-        )
+      @quiz = Puzzle.create!(
+        question: question,
+        option1: opt1,
+        option2: opt2,
+        option3: opt3,
+        option4: opt4,
+        answer: ans,
+        assessments_id: assessment.id,
+        correct_answer: @ans
+      )
     end
     redirect_to '/assessments/quiz_design'
   end
@@ -149,4 +150,3 @@ class QuizController < ApplicationController
     end
   end
 end
-

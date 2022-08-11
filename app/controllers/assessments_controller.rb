@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
-  def display
- end
+  def display; end
 
   def store
     name = params[:name]
