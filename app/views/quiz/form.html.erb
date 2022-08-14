@@ -1,8 +1,15 @@
 <div class="assessment">
 <form action="/assessment" method="post">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
    <input type="text" name="name" placeholder="Assessment name ..." required><br>
+   <textarea placeholder="Assessment description" > </textarea><br>
+
+   <div class="upload">
+   <i class="fa-solid fa-image" id="icon"></i><br>
+   <input type="file" class="file-input" title="Select images here"><br>
+
+   </div>
+   <input type="text" name="category"  placeholder="Category">
    <button type="submit" class="submit">Next</button>
-   <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
 </form>
 </div>
-<%=image_tag( "enroll.png", alt: "like" ,class: "reg-bg") %>

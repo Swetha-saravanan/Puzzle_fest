@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'home#home_design'
   get 'reports/display_reports'
   get 'assessments/display'
-  root 'home#home_design'
   get 'users/index'
   get 'quiz/creategame'
   get 'home/load'
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'home/contact'
   get 'home/review'
-  get 'users/other_index'
   match '/update', to: 'quiz#edit', via: :get
   match '/game', to: 'quiz#game', via: :get
   match '/assessment', to: 'assessments#store', via: :post
@@ -28,7 +27,6 @@ Rails.application.routes.draw do
   get '/quiz/display1/:id', to: 'quiz#display1'
   match '/show', to: 'quiz#show', via: :post
   get 'quiz/form'
-  get 'quiz/game'
   get 'home/profile'
   get 'home/home_design'
   get 'quiz/index'
@@ -43,7 +41,9 @@ Rails.application.routes.draw do
   get 'assessments/tf_design'
   get 'assessments/fillup_design'
   get 'assessments/test'
-  match '/edit'
-
+  match '/edit_page/:id' , to: "assessments#edit_page" , via: :get
+  match 'edit/:id' , to: "assessments#edit" , via: :post
+  match 'delete/:id' , to:"assessments#delete" , via: :get
+  get 'assessments/game'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

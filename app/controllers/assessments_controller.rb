@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
-  def display; end
+  def display
+  end
 
   def store
     name = params[:name]
@@ -56,4 +57,63 @@ class AssessmentsController < ApplicationController
     $record = Puzzle.where('id > ? AND assessments_id = ?', id.to_i, assessments_id) if reports.save
     redirect_to '/assessments/display_questions'
   end
+
+  def edit_page
+    $puzzles = Puzzle.find_by(id: params[:id])
+    p $puzzles.question
+    redirect_to '/assessments/quiz_design'
+  end
+
+  def edit
+    @find= Puzzle.find(params[:id])
+    p params[:kind_of_question]
+    case params[:kind_of_question]
+    when "Quiz"
+    @edit_save =@find.update(
+      question: params[:question],
+      option1: params[:option1],
+      option2: params[:option2],
+      option3: params[:option3],
+      option4: params[:option4],
+      # images: params[:images],
+      answer: params[:answer],
+      kind_of_question: params[:kind_of_question],
+      assessments_id: params[:assessments_id],
+      correct_answer: params[:correct_answer]
+    )
+    when "True or false"
+    @edit_save = @find.update(
+      question: params[:question],
+      option1: params[:option1],
+      option2: params[:option2],
+      answer: params[:answer],
+      kind_of_question: params[:kind_of_question],
+      assessments_id: params[:assessments_id],
+      correct_answer: params[:correct_answer],
+      # images: params[:images]
+    )
+    when "Fillup"
+    @edit_save = @find.update(
+      question: params[:question],
+      option1: params[:option1],
+      answer: params[:option1],
+      kind_of_question: params[:kind_of_question],
+      assessments_id: params[:assessments_id],
+      correct_answer: params[:correct_answer],
+      # images: params[:images]
+    )
+    end
+    # if @edit_save.save!
+    #   redirect_to 'assessments/quiz_design'
+    # else
+    #   render plain:"Fail"
+    # end
+  end
+  def delete
+    find= Puzzle.find(params[:id].to_i)
+    find.destroy
+    redirect_to 'assessments/quiz_design'
+
+  end
+
 end

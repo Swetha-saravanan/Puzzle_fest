@@ -20,6 +20,7 @@ class QuizController < ApplicationController
     opt4 = params[:option4]
     answer.push(opt4)
     ans = params[:option]
+    images = params[:images]
     case ans
     when 'a'
       @ans = opt1
@@ -42,7 +43,8 @@ class QuizController < ApplicationController
           answer: ans,
           kind_of_question: question_type.kind_of_question,
           assessments_id: assessment.id,
-          correct_answer: @ans
+          correct_answer: @ans,
+          images: images
         )
       when 'Fillup'
         @quiz = Puzzle.create!(
@@ -51,7 +53,8 @@ class QuizController < ApplicationController
           answer: opt1,
           kind_of_question: question_type.kind_of_question,
           assessments_id: assessment.id,
-          correct_answer: opt1
+          correct_answer: opt1,
+          images: images
         )
       else
         if answer != answer.uniq
@@ -68,7 +71,8 @@ class QuizController < ApplicationController
             answer: ans,
             kind_of_question: question_type.kind_of_question,
             assessments_id: assessment.id,
-            correct_answer: @ans
+            correct_answer: @ans,
+            images: images
           )
         end
       end
@@ -85,7 +89,8 @@ class QuizController < ApplicationController
         option4: opt4,
         answer: ans,
         assessments_id: assessment.id,
-        correct_answer: @ans
+        correct_answer: @ans,
+        images: images
       )
     end
     redirect_to '/assessments/quiz_design'
