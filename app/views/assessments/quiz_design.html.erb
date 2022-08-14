@@ -1,9 +1,10 @@
 <div class="container-fluid quiz_main_div" id="quiz-page">
 <div class="row" id="quiz-row-div">
 <div class="col-4" id="scroller-div">
-     <div class="question-header"><h1>Questions</h1></div>
+<% assessment= Assessment.last%>
+     <div class="question-header"><h1> Assessment title : <%=assessment.name%></h1><br><h3>Questions</h3></div>
      <div class="scroll-questions">
-       <% assessment= Assessment.last%>
+
        <% qtn_type = Puzzle.where(assessments_id: assessment.id)%>
       <% qtn_type.each do |t|%>
        <div class="ques-div">

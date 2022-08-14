@@ -5,11 +5,20 @@ class AssessmentsController < ApplicationController
   end
 
   def store
+    cur_userid = User.find_by(id: session[:users_id])
+    id = params[:id]
     name = params[:name]
+    category = params[:category]
+    description = params[:description]
+    images = params[:images]
     random_no = 6.times.map { rand(10) }.join
     @assessment = Assessment.create!(
       name: name,
-      random_no: random_no
+      users_id: id,
+      random_no: random_no,
+      category: category,
+      description: description,
+      images: images
     )
     if @assessment.save
       session[:cur_assessment] = name
@@ -61,56 +70,61 @@ class AssessmentsController < ApplicationController
   def edit_page
     $puzzles = Puzzle.find_by(id: params[:id])
     p $puzzles.question
-    redirect_to '/assessments/quiz_design'
+    redirect_to '/assessments/quiz_design1'
   end
 
   def edit
     @find= Puzzle.find(params[:id])
-    p params[:kind_of_question]
-    case params[:kind_of_question]
+    @question = params[:question]
+      @option1 = params[:option1]
+      @option2 = params[:option2]
+      @option3 = params[:option3]
+      @option4 = params[:option4]
+     @kind = params[:kind_of_question]
+     @answer = params[:answer]
+     @assessments_id = params[:assessments_id]
+     @corect_ans = params[:correct_answer]
+    case @kind
     when "Quiz"
-    @edit_save =@find.update(
-      question: params[:question],
-      option1: params[:option1],
-      option2: params[:option2],
-      option3: params[:option3],
-      option4: params[:option4],
+    @edit_save =@find.update!(
+      question: @question,
+      option1: @option1,
+      option2: @option2,
+      option3: @option3,
+      option4: @option4,
       # images: params[:images],
-      answer: params[:answer],
-      kind_of_question: params[:kind_of_question],
-      assessments_id: params[:assessments_id],
-      correct_answer: params[:correct_answer]
+      answer: @answer,
+      kind_of_question: @kind,
+      assessments_id: @assessments_id,
+      correct_answer: @correct_ans
     )
     when "True or false"
-    @edit_save = @find.update(
-      question: params[:question],
-      option1: params[:option1],
-      option2: params[:option2],
-      answer: params[:answer],
-      kind_of_question: params[:kind_of_question],
-      assessments_id: params[:assessments_id],
-      correct_answer: params[:correct_answer],
+    @edit_save = @find.update!(
+      question: @question,
+      option1: @option1,
+      option2:@option2,
+      answer: @answer,
+      kind_of_question: @kind,
+      assessments_id: @assessments_id,
+      correct_answer: @correct_ans,
       # images: params[:images]
     )
     when "Fillup"
-    @edit_save = @find.update(
-      question: params[:question],
-      option1: params[:option1],
-      answer: params[:option1],
-      kind_of_question: params[:kind_of_question],
-      assessments_id: params[:assessments_id],
-      correct_answer: params[:correct_answer],
+    @edit_save = @find.update!(
+      question: @question,
+      option1: @option1,
+      answer: @option1,
+      kind_of_question: @kind,
+      assessments_id: @assessments_id,
+      correct_answer: @correct_ans,
       # images: params[:images]
     )
     end
-    # if @edit_save.save!
-    #   redirect_to 'assessments/quiz_design'
-    # else
-    #   render plain:"Fail"
-    # end
-  end
+    $puzzles=nil
+    redirect_to '/assessments/quiz_design'
+    end
   def delete
-    find= Puzzle.find(params[:id].to_i)
+    find= Puzzle.find_by(id: params[:id])
     find.destroy
     redirect_to 'assessments/quiz_design'
 

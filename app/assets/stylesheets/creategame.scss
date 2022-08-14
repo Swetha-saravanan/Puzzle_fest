@@ -195,53 +195,62 @@
         padding-left: 15px;
         color: #0c0101a1;
     }
-
-    .assessment {
-        height: 70%;
+    .assessment div {
+        display:flex;
+      }
+    .assessment-form {
+        height: 650px;
         width: 70%;
-        margin-top: 10%;
+        margin-top: 7%;
         margin-left: 15%;
         background-color: rgb(227, 255, 223);
         padding: 30px 30px;
         border-radius: 20px;
     }
-
-    .assessment input {
+    .assessment-form .assessment-details {
+        display: inline-flex;
+    }
+    .assessment-form .assessment-details input {
+        margin-right: 10px;
+    }
+    .assessment-form input {
         border: none;
         outline: none;
         border-radius: 20px;
         padding: 20px 20px;
         width: 50%;
+        // margin-left: 10px;
         background-color:#88c681;
         margin-bottom: 10px;
         // background-color: #21502f;
         color: white !important;
         font-weight: bold;
         font-size: 20px;
+
     }
-    .assessment textarea {
+    .assessment-form textarea {
         background-color:#88c681;
         border: none;
         height: 100px;
-        width: 600px;
+        width: 700px;
         color: black !important;
         resize:none;
     }
-    .assessment .upload {
+    .assessment-form .upload {
         background-color: #88c681;
         border: none;
         outline:none;
         border-radius:  20px;
-        height: 20%;
-        width: 30%;
+        height: 35%;
+        width: 700px;
     }
-    .assessment .upload #icon {
+    .assessment-form .upload #icon {
         font-size: 40px;
         padding-left: 43%;
-        padding-top: 20%
+        padding-top: 10%
     }
 
-    .assessment .submit {
+    .assessment-form .submit {
         border: none;
         outline: none;
         border-radius: 20px;
@@ -249,7 +258,7 @@
         font-size: 20px;
         width: 200px;
         padding: 10px 10px;
-        margin-left: 70px;
+        margin-left: 100px;
     }
 
     .assessment_title {
@@ -261,23 +270,30 @@
     .assessment_title h1 {
         color: black !important;
     }
-    .assessment .submit {
-        width: 10%;
-        height: 100%;
+    .assessment-form .submit {
+        width: 30%;
+        height: 10%;
         border-radius: 5px;
         border: none;
         background-color: #21502f;
         color: white;
         font-size: 20px;
         margin-top: 20px;
+        // text-align: center;
+        margin-left: 200px;
     }
 
-    .assessment .submit:hover {
+    .assessment-form .submit:hover {
         background-color: white;
         color: #21502f;
         border: 1px solid #21502f;
     }
-   .assessment .file-input::-webkit-file-upload-button {
+    .assessment #create_quiz #create {
+        height: 700px;
+        width: 800px;
+        margin-top: -100px;
+    }
+   .assessment-form .file-input::-webkit-file-upload-button {
         visibility: hidden;
       }
      .assessment .file-input::before {
@@ -294,9 +310,19 @@
         color: transparent;
 
      }
-  .assessment .file-input {
-    width: 50%;
-    margin-left: 30%;
+    //  .assessment #create_quiz {
+    //   margin-left: 30%;
+    //   margin-top: -20%;
 
+    //  }
+
+
+  .assessment .file-input {
+    margin-top: 120px;
+    width: 500px;
+    margin-left: -300px;
   }
+//   .assessment .category {
+
+//   }
 

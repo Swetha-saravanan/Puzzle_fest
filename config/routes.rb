@@ -45,5 +45,6 @@ Rails.application.routes.draw do
   match 'edit/:id' , to: "assessments#edit" , via: :post
   match 'delete/:id' , to:"assessments#delete" , via: :get
   get 'assessments/game'
+  get 'assessments/quiz_design1'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -31,7 +31,7 @@ class QuizController < ApplicationController
     when 'd'
       @ans = opt4
     end
-    assessment = Assessment.last
+    @assessment = Assessment.last
     question_type = Question.last
     if question_type
       case question_type.kind_of_question
@@ -42,7 +42,7 @@ class QuizController < ApplicationController
           option2: opt2,
           answer: ans,
           kind_of_question: question_type.kind_of_question,
-          assessments_id: assessment.id,
+          assessments_id: @assessment.id,
           correct_answer: @ans,
           images: images
         )
@@ -52,7 +52,7 @@ class QuizController < ApplicationController
           option1: opt1,
           answer: opt1,
           kind_of_question: question_type.kind_of_question,
-          assessments_id: assessment.id,
+          assessments_id: @assessment.id,
           correct_answer: opt1,
           images: images
         )
@@ -70,7 +70,7 @@ class QuizController < ApplicationController
             option4: opt4,
             answer: ans,
             kind_of_question: question_type.kind_of_question,
-            assessments_id: assessment.id,
+            assessments_id: @assessment.id,
             correct_answer: @ans,
             images: images
           )
@@ -88,7 +88,7 @@ class QuizController < ApplicationController
         option3: opt3,
         option4: opt4,
         answer: ans,
-        assessments_id: assessment.id,
+        assessments_id: @assessment.id,
         correct_answer: @ans,
         images: images
       )
