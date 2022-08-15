@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'play/display'
   root 'home#home_design'
   get 'reports/display_reports'
   get 'assessments/display'
@@ -46,5 +47,9 @@ Rails.application.routes.draw do
   match 'delete/:id' , to:"assessments#delete" , via: :get
   get 'assessments/game'
   get 'assessments/quiz_design1'
+  get 'assessments/explore'
+  get 'assessments/library'
+  match 'display_pin/:id' , to: 'play#display_gamepin' , via: :get
+  get 'assessments/display_gamepin'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

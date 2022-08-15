@@ -138,18 +138,18 @@ class QuizController < ApplicationController
   end
 
   def show
-    question = params[:kind_of_question]
-    puts question
-    assessments = Assessment.last
+    @question = params[:kind_of_question]
+    puts @question
+    @assessments = Assessment.last
+    p @assessments.id
     @question_save = Question.create!(
-      kind_of_question: question,
-      assessments_id: assessments.id
+      kind_of_question: @question,
+      assessments_id: @assessments.id
     )
     if @question_save.save
       $question_records = Question.all
       $cur_display_question = nil
-      redirect_to '/game'
-
+      redirect_to '/assessments/quiz_design'
     else
       render plain: 'fail'
     end

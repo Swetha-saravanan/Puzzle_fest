@@ -5,7 +5,7 @@ class AssessmentsController < ApplicationController
   end
 
   def store
-    cur_userid = User.find_by(id: session[:users_id])
+    cur_userid = User.find_by(id: session[:id])
     id = params[:id]
     name = params[:name]
     category = params[:category]
@@ -14,7 +14,7 @@ class AssessmentsController < ApplicationController
     random_no = 6.times.map { rand(10) }.join
     @assessment = Assessment.create!(
       name: name,
-      users_id: id,
+      users_id: cur_userid,
       random_no: random_no,
       category: category,
       description: description,

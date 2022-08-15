@@ -1,0 +1,55 @@
+// Place all the styles related to the play controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.display_gamepin{
+   margin-top: 1%;
+    background-color:  #2c4c3c;
+    height: 200px;
+    width:70%;
+    border-radius: 20px;
+    margin-left: 15%;
+}
+.display_gamepin .display-content {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 50px 50px;
+    font-size: 50px;
+}
+.display-players {
+    background-image: url('green_board.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: fixed;
+    height: 700px;
+    width: 100%;
+    margin-top: 50px;
+
+}
+.display-players .count {
+    margin-left: 90%;
+    padding-top: 5%;
+    color:#f1eac2;
+    font-size:20px;
+
+}
+.display-players #player-icon {
+    font-size: 30px;
+    margin-right: 10px;
+}
+.display-players .players-name {
+    color:#f1eac2;
+   height: 100%;
+   width:100%;
+   display:inline-flex;
+   margin-left: 200px;
+
+
+}
+.display-players .players-name p{
+   margin-right: 20px;
+   font-weight: bold;
+   font-size: 30px;
+
+
+}

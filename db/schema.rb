@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_14_080609) do
+ActiveRecord::Schema.define(version: 2022_08_15_063100) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,23 @@ ActiveRecord::Schema.define(version: 2022_08_14_080609) do
     t.index ["users_id"], name: "index_assessments_on_users_id"
   end
 
+  create_table "games", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "random_no"
+    t.bigint "assessments_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assessments_id"], name: "index_games_on_assessments_id"
+  end
+
+  create_table "players", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "users_id"
+    t.bigint "assessments_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assessments_id"], name: "index_players_on_assessments_id"
+    t.index ["users_id"], name: "index_players_on_users_id"
+  end
+
   create_table "puzzles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "question", null: false
     t.string "option1"
@@ -70,22 +87,12 @@ ActiveRecord::Schema.define(version: 2022_08_14_080609) do
 
   create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "kind_of_question"
-    t.bigint "puzzles_id"
+    t.bigint "assessments_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "assessments_id"
+    t.bigint "puzzles_id"
     t.index ["assessments_id"], name: "index_questions_on_assessments_id"
     t.index ["puzzles_id"], name: "index_questions_on_puzzles_id"
-  end
-
-  create_table "quiz", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "question", null: false
-    t.string "option1", null: false
-    t.string "option2", null: false
-    t.string "option3", null: false
-    t.string "option4", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -114,4 +121,6 @@ ActiveRecord::Schema.define(version: 2022_08_14_080609) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "games", "assessments", column: "assessments_id"
+  add_foreign_key "questions", "assessments", column: "assessments_id"
 end

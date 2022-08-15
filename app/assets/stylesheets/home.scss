@@ -10,6 +10,9 @@
                 font-family: 'Raleway', sans-serif;
                 scroll-behavior: smooth;
             }
+            .navbar {
+                position:fixed;
+            }
 
             .home {
                 // background-image: url("working.jpg");
@@ -145,12 +148,10 @@
             }
 
             #login:hover {
-                color: #ff574e;
                 transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
             }
 
             .nav-item:hover {
-                background-color: #ff574e;
                 color: white;
                 border-radius: 10px;
             }
@@ -190,7 +191,7 @@
                 height: 50px;
                 width: 50px;
                 margin-left: 30px;
-                margin-top: 10px;
+                margin-top: 20px;
             }
             .pf_content {
                 margin-top:15%;
@@ -253,4 +254,38 @@
            .dropdown path {
             fill:white;
 
+           }
+        .navbar .nav-item #navbar-login {
+           margin-left: 70vh;
+            background:transparent;
+            color: white !important;
+            font-weight: bold;
+            font-size: 40px;
+            margin-top: 50px !important;
+            height: 40px;
+            width: 40px;
+           }
+           .navbar .nav-item {
+            height: 40px;
+            width: 40px;
+           }
+           .navbar .home  {
+           margin-left: 50px;
+           margin-top: 20px;
+           }
+           .assessment-game .navbar .nav-link  {
+            margin-left: 50px;
+            margin-top: 20px;
+            color:black !important;
+            }
+           .assessment-game #user-icon {
+                color:#175649 !important;
+                font-weight: bold;
+                font-size: 40px;
+                margin-top: 40px;
+               }
+           #user-icon {
+            color: white !important;
+            font-weight: bold;
+            font-size: 40px;
            }

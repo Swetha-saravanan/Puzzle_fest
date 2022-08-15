@@ -1,0 +1,22 @@
+<div class="display_gamepin">
+   <div class="display-content">
+    GAME PIN : <%= $game.random_no%>
+
+   </div>
+    <%players = Player.where(assessments_id: $game.assessments_id)%>
+   <%if players%>
+   <div class="display-players">
+      <p class="count"> <i class="fa-solid fa-user" id="player-icon"></i><%=players.count%></p>
+      <div class="players-name">
+      <%players.each do |t|%>
+      <%user= User.find(t.users_id)%>
+      <p><%=user.name%></p>
+       <%end%>
+      </div>
+    </div>
+    <%else%>
+    <div></div>
+    <%end%>
+
+
+</div>

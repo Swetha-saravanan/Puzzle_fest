@@ -2,7 +2,7 @@
 <input type="search"><button>search</button>
 <% logged_user = User.find(session[:id]) %>
 <%= logged_user["id"]%>
-<% assessments =Assessment.where(users_id: 4)%>
+<% assessments =Assessment.where(users_id: logged_user["id"])%>
 <%assessments.each do |t|%>
 <div class="assessment_name">
 

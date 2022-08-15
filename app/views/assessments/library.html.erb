@@ -1,0 +1,34 @@
+<div class="assessment-game">
+<%= render partial:"/home/header"%>
+</div>
+<div class="sidebar">
+<div><i class="fa-solid fa-earth-americas" id="sidebar-icon"></i><a href="/assessments/explore">Explore</a></div>
+<div><i class="fa-solid fa-book" id="sidebar-icon"></i><a href="">Library</a></div>
+<div><i class="fa-solid fa-chart-line" id="sidebar-icon"></i><a href="">Dashboard</a></div>
+</div>
+<div class="library">
+<%assessments = Assessment.where(users_id: session[:id])%>
+<%assessments.each do |t|%>
+<div class="library-content">
+<div class="library-img">
+<% if t.images%>
+<%= image_tag(t.images , class:"library-img")%>
+ <%else%>
+ <%= image_tag t.images,  class:"library-img"%>
+ <%end%>
+ </div><br>
+<div class="library-texts">
+<p class="head">
+<%= t.name%></p><br>
+<p class="count">
+<%=Puzzle.where(assessments_id: t.id).count%>
+<a href="/display_pin/<%=t.id%>"><button type="submit" class="quiz-start"> Start</button></a>
+
+</p>
+</div>
+
+<%# <%= image_tag t.images.variant(:thumb)%>
+</div>
+<%end%>
+
+</div>

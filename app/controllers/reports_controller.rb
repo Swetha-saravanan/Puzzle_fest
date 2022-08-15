@@ -14,10 +14,19 @@ class ReportsController < ApplicationController
   end
 
   def check
+    user = User.find(session[:id])
+    @users_id = user.id
     grandom = params[:g_random].to_i
     input_random = params[:input_random].to_i
+    @assessments_id = params[:id]
     if grandom == input_random
-      redirect_to '/assessments/display_questions'
+       @player_save = Player.create!(
+          users_id: @users_id,
+          assessments_id: @assessments_id
+       )
+       if @player_save.save
+        render plain:"Have you seen your name in board?"
+       end
     else
       redirect_to '/assessments/game_pin'
     end
