@@ -14,7 +14,10 @@ class PlayController < ApplicationController
     else
       render plain:"Failure"
     end
-
-
+  end
+  def host
+    id=params[:id]
+    $record = Puzzle.where(assessments_id: id)
+    redirect_to '/reports/display_questions'
   end
 end

@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get 'home/home_design'
   get 'quiz/index'
   get 'quiz/game1'
-  get 'assessments/display_questions'
+  get 'reports/display_questions'
   match '/reports_save', to: 'assessments#reports_save', via: :post
   get 'assessments/game_pin'
   match '/check_equal', to: 'reports#check', via: :post
@@ -51,5 +51,6 @@ Rails.application.routes.draw do
   get 'assessments/library'
   match 'display_pin/:id' , to: 'play#display_gamepin' , via: :get
   get 'assessments/display_gamepin'
+  match 'play/:id' , to: 'play#host' , via: :get
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

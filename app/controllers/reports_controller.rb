@@ -22,7 +22,8 @@ class ReportsController < ApplicationController
     if grandom == input_random
        @player_save = Player.create!(
           users_id: @users_id,
-          assessments_id: @assessments_id
+          assessments_id: @assessments_id,
+          random_no: grandom
        )
        if @player_save.save
         render plain:"Have you seen your name in board?"

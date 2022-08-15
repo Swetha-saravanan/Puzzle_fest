@@ -1,14 +1,32 @@
+<div class="answer-sidebar">
+<div class="reports">
+<%record = Report.last%>
 
+<%if record.score == 100%>
+<%= image_tag('Awards.png' ,class:"reports-img")%>
+<div class="report-content">
+Keep up !! <br>
+Rocking   <i class="fa-solid fa-star-and-crescent"></i><br>
+<% score = record.score.to_i%>
+<%= score+record.score%>
+</div>
+<%else%>
+<%= image_tag('encourage.png',class:"reports-img")%>
+<div class="report-content">
+Keep fighting!! <br>
+Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
+<% score = record.score.to_i%>
+<%= score+record.score%>
+</div>
+<%end%>
+</div>
+</div>
+<%# <div class="answer"> %>
 <div id="disp_questions">
-<div id="time_count">1
+<div id="time_count">1 '${con}'
 </div>
 <%for t in $record do %>
 <div class="disp_quiz" style="display:none;">
-<%= t.question%>
-<%=t.option1%>
-<%=t.option2%>
-<%=t.option3%>
-<%=t.option4%>
 <% if t.kind_of_question=="True or false"%>
 <form action="/reports_save" method="post" onsubmit="report()">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
@@ -35,7 +53,7 @@
 </div>
 <div class="disp_opts">
 <div class="disp_row_fillup">
-        <div class="disp opt1"><input type="text" name="user_answer"><button>Next</button></div>
+        <div class="disp opt1"><input type="text" name="user_answer"><button  type="submit" class="next-btn">Next</button></div>
 </div>
 </div>
 </form>
@@ -105,10 +123,10 @@ function display_show(){
 display_show();
 function timerss(){
   let timer = document.getElementById("time_count");
-  let con = 1
-
+   let con = 1
   let timers = setInterval(() => {
      timer.innerHTML = con++;
+     console.log(con)
 
   }, 1000);
 

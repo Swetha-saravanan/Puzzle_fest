@@ -1,9 +1,9 @@
 <div class="display_gamepin">
    <div class="display-content">
     GAME PIN : <%= $game.random_no%>
-
    </div>
-    <%players = Player.where(assessments_id: $game.assessments_id)%>
+    <a href="/play/<%=$game.assessments_id%>"><button type="submit"class="start-btn">Start</button></a>
+    <%players = Player.where(random_no: $game.random_no)%>
    <%if players%>
    <div class="display-players">
       <p class="count"> <i class="fa-solid fa-user" id="player-icon"></i><%=players.count%></p>

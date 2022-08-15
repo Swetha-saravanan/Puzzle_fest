@@ -64,7 +64,7 @@ class AssessmentsController < ApplicationController
       time_limit: time_limit
     )
     $record = Puzzle.where('id > ? AND assessments_id = ?', id.to_i, assessments_id) if reports.save
-    redirect_to '/assessments/display_questions'
+    redirect_to '/reports/display_questions'
   end
 
   def edit_page
