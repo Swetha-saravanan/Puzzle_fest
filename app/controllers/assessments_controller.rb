@@ -41,7 +41,7 @@ class AssessmentsController < ApplicationController
   end
 
   def reports_save
-    cur_userid = User.find_by(id: session[:users_id])
+    cur_userid = User.find_by(id: session[:id])
     id = params[:id]
     answer = params[:user_answer].to_s
     assessments_id = params[:assessments_id]
@@ -58,13 +58,34 @@ class AssessmentsController < ApplicationController
     time_limit = params[:time_limit]
     reports = Report.create!(
       user_answer: answer,
-      users_id: 1,
+      users_id: cur_userid.id,
       assessments_id: assessments_id,
       score: @score,
       time_limit: time_limit
     )
-    $record = Puzzle.where('id > ? AND assessments_id = ?', id.to_i, assessments_id) if reports.save
-    redirect_to '/reports/display_questions'
+    if reports.save
+      check(id , assessments_id)
+    # $record = Puzzle.where('id > ? AND assessments_id = ?', id.to_i, assessments_id)
+    end
+  end
+  def check(id , assessments_id)
+    puzzle_id = id
+    ass_id = assessments_id
+    $record = Puzzle.where('id > ? AND assessments_id = ?', puzzle_id.to_i, ass_id)
+      if $record
+        $record.all.each do |t|
+          @record = t
+        end
+            if @record
+              p "helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+              redirect_to '/assessments/game_pin'
+            else
+              $record = nil
+              p "nulllllllllllllll"
+              redirect_to '/assessments/dashboard'
+            end
+      end
+
   end
 
   def edit_page
