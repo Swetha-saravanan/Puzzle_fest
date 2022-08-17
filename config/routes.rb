@@ -53,5 +53,6 @@ Rails.application.routes.draw do
   get 'assessments/display_gamepin'
   match 'play/:id' , to: 'play#host' , via: :get
   get 'assessments/dashboard'
+  match 'reports/:id' , to: 'reports#display_reports' , via: :get
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -2,15 +2,13 @@
 
 class ReportsController < ApplicationController
   def display_reports
-    @data_keys = [
-      January,
-      February,
-      March,
-      April,
-      May,
-      June
-    ]
-    @data_values = [0, 10, 5, 2, 20, 30, 45]
+     id = params[:id]
+    $puzzle = User.joins("JOIN reports on reports.users_id = users.id ").map
+    Subscription.joins("INNER JOIN plans ON plans.id = subscriptions.plan_id
+      INNER JOIN roles ON roles.id = plans.role_id").where("roles.name = 'Gold'").first
+
+    p $puzzle
+    # redirect_to '/assessments/dashboard'
   end
 
 

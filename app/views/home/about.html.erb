@@ -1,7 +1,37 @@
 <%= render partial:"header"%>
-<div class="about">
-<div class="about_heading">
-Review is essential to evaluation <br> which is essential to progress
+<div class="row about-div">
+  <div class="col-6 about-pics-div">
+     <div class="cir-1"><%= image_tag("takingquiz.png", alt: "like" , class:"about-pic") %></div>
+     <div class="cir-2"><%= image_tag("createquiz.png", alt: "like" , class:"about-pic") %></div>
+     <div class="cir-3"><%= image_tag("results.png", alt: "like" , class:"about-pic") %></div>
+  </div>
+  <div class="col-4 about-cont-div">
+  <div><h1 class="about-head">Puzzle fest</h1></div>
+  <div class="pre-div"><pre class="about-pre">Solutions of puzzles often require the recognition of patterns and the
+  adherence to a particular kind of ordering. People with a high level of inductive
+  reasoning aptitude may be better at solving such puzzles than others. But puzzles
+  based upon inquiry and discovery may be solved more easily by those with good deduction
+  skills. Deductive reasoning improves with practice. Mathematical puzzles often involve
+   BODMAS. BODMAS is an acronym and it stands for Bracket, Of, Division, Multiplication,
+   Addition and Subtraction. In certain regions, PEMDAS (Parentheses, Exponents,
+   Multiplication, Division, Addition and Subtraction) is the synonym of BODMAS.
+   It explains the order of operations to solve an expression. Some mathematical
+   puzzles require Top to Bottom convention to avoid the ambiguity in the order of
+   operations. It is an elegantly simple idea that relies, as sudoku does, on the requirement
+  that numbers appear only once starting from top to bottom as coming along.</pre></div>
+  </div>
 </div>
+<div class="row review-div">
+   <div class="reviews"><textarea placeholder="write review...." class="text-area-review"></textarea></div>
 </div>
-<%= image_tag("about.webp", alt: "like" ,class: "bgimg") %>
+<!-- Footer -->
+<footer class="page-footer font-small">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="background-color:rgb(15, 36, 15);color:white;">© 2020 Copyright:
+    <a href="/" style="color:white;">   @puzzelfest.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
