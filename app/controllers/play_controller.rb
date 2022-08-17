@@ -17,15 +17,13 @@ class PlayController < ApplicationController
   end
   def host
     id=params[:id]
-    $record = Puzzle.where(assessments_id: id)
-    count = $record.count
+    @record = Puzzle.where(assessments_id: id)
+    count = @record.count
     p count
-    play()
-    # redirect_to '/reports/display_questions'
+    render 'assessments/game_pin'
+      # redirect_to '/reports/display_questions'
   end
-  def play
-    redirect_to '/assessments/game_pin'
-  end
+
 
   def check
     user = User.find(session[:id])

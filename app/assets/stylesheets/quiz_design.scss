@@ -82,11 +82,11 @@
     }
 
     .answer-type-area {
-        width: 100%;
-        height: 30%;
         margin-top: 2%;
         background-color: rgb(227, 255, 223);
         border-radius: 5px;
+        width: 100%;
+        height: 45%;
     }
 
     .question_type_area #text-area-question {
@@ -141,10 +141,7 @@
         font-size: 15px;
     }
 
-    .answer-type-area {
-        width: 100%;
-        height: 45%;
-    }
+
 
     .answer-type-area td {
         padding-left: 3%;

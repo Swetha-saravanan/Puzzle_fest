@@ -6,7 +6,7 @@
     <%players = Player.where(random_no: $game.random_no)%>
    <%if players%>
    <div class="display-players">
-      <p class="count"> <i class="fa-solid fa-user" id="player-icon"></i><%=players.count%></p>
+      <p class="count"> <em class="fa-solid fa-user" id="player-icon"></em><%=players.count%></p>
       <div class="players-name">
       <%players.each do |t|%>
       <%user= User.find(t.users_id)%>

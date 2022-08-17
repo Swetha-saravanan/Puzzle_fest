@@ -6,13 +6,13 @@
 <%= image_tag('Awards.png' ,class:"reports-img")%>
 <div class="report-content">
 Keep up !! <br>
-Rocking   <i class="fa-solid fa-star-and-crescent"></i><br>
+Rocking   <em class="fa-solid fa-star-and-crescent"></em><br>
 </div>
 <%else%>
 <%= image_tag('encourage.png',class:"reports-img")%>
 <div class="report-content">
 Keep fighting!! <br>
-Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
+Stay strong <em class="fa-solid fa-hand-back-fist"></em><br>
 </div>
 <%end%>
 </div>
@@ -20,7 +20,7 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 <%# <div class="answer"> %>
 <div id="disp_questions">
 
-<%for t in $record do %>
+<%for t in record do %>
 <div class="disp_quiz" style="display:none;">
 <% if t.kind_of_question=="True or false"%>
 <form action="/reports_save" method="post" onsubmit="report()">

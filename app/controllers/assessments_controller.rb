@@ -14,7 +14,7 @@ class AssessmentsController < ApplicationController
     random_no = 6.times.map { rand(10) }.join
     @assessment = Assessment.create!(
       name: name,
-      users_id: cur_userid,
+      users_id: cur_userid.id,
       random_no: random_no,
       category: category,
       description: description,

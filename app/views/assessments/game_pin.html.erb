@@ -1,5 +1,5 @@
-<%if $record %>
-<%= render partial: "disp_qtns"%>
+<%if @record %>
+<%= render partial:"disp_qtns", locals:{ record: @record}%>
 <%else%>
 <div id="gamepin-form" >
 <%= $random_no%>

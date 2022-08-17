@@ -8,7 +8,7 @@
         <input type="hidden" name="kind_of_question" value="<%=$puzzles.kind_of_question%>">
         <input type="hidden" name="correct_answer" value="<%=$puzzles.correct_answer%>">
         <input type="hidden" name="assessments_id" value="<%=$puzzles.assessments_id%>">
-           <div class="ques-icon-div" onclick="uploadPic()"><i class="fa-solid fa-image" id="img-icon"></i>
+           <div class="ques-icon-div" onclick="uploadPic()"><em class="fa-solid fa-image" id="img-icon"></em>
            </div>
            <div class="ques-textarea-div" id="txt-area"><textarea id="text-area-question"name="question" placeholder="Type your question here...."required><%= $puzzles.question%></textarea></div>
            <div  id="f-upload" class="display" style="display:none"><input type="file" name="images"></div>
@@ -47,7 +47,7 @@
         <div class="question_type_area">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
-           <div class="ques-icon-div" onclick="uploadPic()"><i class="fa-solid fa-image" id="img-icon"></i>
+           <div class="ques-icon-div" onclick="uploadPic()"><em class="fa-solid fa-image" id="img-icon"></em>
            </div>
            <div class="ques-textarea-div" id="txt-area"><textarea id="text-area-question"name="question" placeholder="Type your question here...." required></textarea></div>
            <div  id="f-upload" class="display" style="display: none;"><input type="file" name="images"></div>
