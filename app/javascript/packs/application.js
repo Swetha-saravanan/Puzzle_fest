@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import Chart from 'chart.js/auto';
+import "chartkick/chart.js"
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fas } from '@fortawesome/free-solid-svg-icons'
 // import { fab } from '@fortawesome/free-brands-svg-icons'

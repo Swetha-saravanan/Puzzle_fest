@@ -19,12 +19,13 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 </div>
 <%# <div class="answer"> %>
 <div id="disp_questions">
-<div id="time_count"><input type="text" value="1" id="timer-inp" name="time_limit">
-</div>
+
 <%for t in $record do %>
 <div class="disp_quiz" style="display:none;">
 <% if t.kind_of_question=="True or false"%>
 <form action="/reports_save" method="post" onsubmit="report()">
+<div id="time_count"><input type="text" value="1" id="timer-inp" name="time_limit">
+</div>
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 <input type="hidden" name="id" value ="<%= t.id%>">
 <input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>">
@@ -41,6 +42,8 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 </form>
 <%elsif t.kind_of_question=="Fillup"%>
 <form action="/reports_save"  onsubmit="report()"method="post">
+<div id="time_count"><input type="text" value="1" id="timer-inp" name="time_limit">
+</div>
 <input type="hidden" name="id" value ="<%= t.id%>">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 <div class="disp qtns">
@@ -55,6 +58,8 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 </form>
 <%else%>
        <form action ="/reports_save" method="post" >
+       <div id="time_count"><input type="text" value="1" id="timer-inp" name="time_limit">
+</div>
        <input type="hidden" name="id" value ="<%= t.id%>">
        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
       <div class="disp qtns">
