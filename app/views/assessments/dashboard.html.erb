@@ -1,6 +1,6 @@
 <div class="reports">
-<%= pie_chart Report.group(:score).count %>
-<%= line_chart User.group_by_day(:created_at).count %>
+<%= pie_chart Report.group(:score).count %><br>
+<%= line_chart User.group_by_day(:created_at).count %><br>
 
 <% logged_user = User.find(session[:id]) %>
 <% if logged_user %>

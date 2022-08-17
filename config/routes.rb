@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   root 'users#login'
+  get 'home/home_design'
   get 'play/display'
   get 'reports/display_reports'
   get 'assessments/display'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   match '/logout', to: 'session#logout', via: :get
   match '/display_questions/:id', to: 'assessments#quiz', via: :get
   match '/question', to: 'quiz#create', via: :post
-  get 'users/login'
+  # get 'users/login'
   get 'users/forgot_pwd'
   get 'home/about'
   get 'home/contact'
