@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'play/display'
   root 'home#home_design'
+  get 'play/display'
   get 'reports/display_reports'
   get 'assessments/display'
   get 'users/index'
@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   match '/show', to: 'quiz#show', via: :post
   get 'quiz/form'
   get 'home/profile'
-  get 'home/home_design'
   get 'quiz/index'
   get 'quiz/game1'
   get 'reports/display_questions'
