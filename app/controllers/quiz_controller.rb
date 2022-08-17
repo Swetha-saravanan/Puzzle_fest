@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 $cur_display_question = nil
 class QuizController < ApplicationController
   def index
@@ -19,6 +20,7 @@ class QuizController < ApplicationController
     opt4 = params[:option4]
     answer.push(opt4)
     ans = params[:option]
+    images = params[:images]
     case ans
     when 'a'
       @ans = opt1
@@ -29,7 +31,7 @@ class QuizController < ApplicationController
     when 'd'
       @ans = opt4
     end
-    assessment = Assessment.last
+    @assessment = Assessment.last
     question_type = Question.last
     if question_type
       case question_type.kind_of_question
@@ -40,8 +42,9 @@ class QuizController < ApplicationController
           option2: opt2,
           answer: ans,
           kind_of_question: question_type.kind_of_question,
-          assessments_id: assessment.id,
-          correct_answer: @ans
+          assessments_id: @assessment.id,
+          correct_answer: @ans,
+          images: images
         )
       when 'Fillup'
         @quiz = Puzzle.create!(
@@ -49,45 +52,48 @@ class QuizController < ApplicationController
           option1: opt1,
           answer: opt1,
           kind_of_question: question_type.kind_of_question,
-          assessments_id: assessment.id,
-          correct_answer: opt1
+          assessments_id: @assessment.id,
+          correct_answer: opt1,
+          images: images
         )
       else
         if answer != answer.uniq
-        flash[:error] = 'Duplicate Options'
+          flash[:error] = 'Duplicate Options'
         elsif ans.nil?
-        flash[:error] = 'Choose the answer'
+          flash[:error] = 'Choose the answer'
         else
-        @quiz = Puzzle.create!(
-          question: question,
-          option1: opt1,
-          option2: opt2,
-          option3: opt3,
-          option4: opt4,
-          answer: ans,
-          kind_of_question: question_type.kind_of_question,
-          assessments_id: assessment.id,
-          correct_answer: @ans
-        )
+          @quiz = Puzzle.create!(
+            question: question,
+            option1: opt1,
+            option2: opt2,
+            option3: opt3,
+            option4: opt4,
+            answer: ans,
+            kind_of_question: question_type.kind_of_question,
+            assessments_id: @assessment.id,
+            correct_answer: @ans,
+            images: images
+          )
         end
       end
     elsif answer != answer.uniq
       flash[:error] = 'Duplicate Options'
     elsif ans.nil?
-        flash[:error] = 'Choose the answer'
+      flash[:error] = 'Choose the answer'
     else
-        @quiz = Puzzle.create!(
-          question: question,
-          option1: opt1,
-          option2: opt2,
-          option3: opt3,
-          option4: opt4,
-          answer: ans,
-          assessments_id: assessment.id,
-          correct_answer: @ans
-        )
+      @quiz = Puzzle.create!(
+        question: question,
+        option1: opt1,
+        option2: opt2,
+        option3: opt3,
+        option4: opt4,
+        answer: ans,
+        assessments_id: @assessment.id,
+        correct_answer: @ans,
+        images: images
+      )
     end
-    redirect_to '/quiz/game'
+    redirect_to '/assessments/quiz_design'
   end
 
   def edit
@@ -132,21 +138,20 @@ class QuizController < ApplicationController
   end
 
   def show
-    question = params[:kind_of_question]
-    puts question
-    assessments = Assessment.last
+    @question = params[:kind_of_question]
+    puts @question
+    @assessments = Assessment.last
+    p @assessments.id
     @question_save = Question.create!(
-      kind_of_question: question,
-      assessments_id: assessments.id
+      kind_of_question: @question,
+      assessments_id: @assessments.id
     )
     if @question_save.save
       $question_records = Question.all
       $cur_display_question = nil
-      redirect_to '/game'
-
+      redirect_to '/assessments/quiz_design'
     else
       render plain: 'fail'
     end
   end
 end
-

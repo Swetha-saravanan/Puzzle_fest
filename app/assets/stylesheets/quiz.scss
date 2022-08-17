@@ -1,6 +1,7 @@
                         // Place all the styles related to the quiz controller here.
                         // They will automatically be included in application.css.
                         // You can use Sass (SCSS) here: https://sass-lang.com/
+
                         .vertical {
                             border-left: 6px solid #f1eac2;
                             height: 69%;
@@ -171,10 +172,8 @@
                         #kinds_of_questions {
                             background: #3e313547;
                             padding: 20px 20px;
-                            margin-left: 74%;
-                            margin-top: -15%;
                             border-radius: 20px;
-                            position: absolute;
+                            // position: absolute;
                         }
 
                         #kinds_of_questions input {
@@ -224,3 +223,33 @@
                             background-color: #f1eac2;
                             color: #2c4c3c
                         }
+// game page
+.sidebar {
+    background-color: #428957 ;
+    width: 20%;
+    margin-top: 5%;
+    height: 89vh;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    position:fixed;
+}
+.sidebar div {
+   padding: 20px 20px;
+    margin-left: 50px;
+    // margin-bottom: 50px;
+}
+.sidebar #sidebar-icon {
+    font-size: 20px;
+    color: white !important;
+}
+.sidebar a {
+    color: white !important;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    padding: 10px 10px;
+
+}
+
+

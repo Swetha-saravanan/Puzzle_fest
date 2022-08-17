@@ -10,6 +10,9 @@
                 font-family: 'Raleway', sans-serif;
                 scroll-behavior: smooth;
             }
+            .navbar {
+                position:fixed;
+            }
 
             .home {
                 // background-image: url("working.jpg");
@@ -27,8 +30,9 @@
                 top: 0;
                 left: 0;
                 z-index: -10;
-                filter: brightness(50%);
+               filter: brightness(50%);
             }
+
 
             .home::before {
                 background: rgba(0, 0, 0, 0.65);
@@ -42,7 +46,7 @@
 
             .navbar-light .navbar-nav .nav-link {
                 color: white !important;
-                font-size: 20px;
+                font-size: 25px;
                 font-weight: bold;
             }
 
@@ -144,12 +148,10 @@
             }
 
             #login:hover {
-                color: #ff574e;
                 transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
             }
 
             .nav-item:hover {
-                background-color: #ff574e;
                 color: white;
                 border-radius: 10px;
             }
@@ -176,3 +178,114 @@
             .container {
                 width: 1000px;
             }
+            .pf_homepage {
+                background-image: url('pf_homepage.png');
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: fixed;
+                min-height: 100%;
+                min-width: 100%;
+                position: fixed;
+            }
+            .pf_logo {
+                height: 50px;
+                width: 50px;
+                margin-left: 30px;
+                margin-top: 20px;
+            }
+            .pf_content {
+                margin-top:15%;
+                text-align:center;
+            }
+            .home_heading{
+                color:#428957;
+                font-size: 70px;
+            }
+            .home_subcontent {
+                color:#175649;
+                font-size: 25px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            #home_login {
+                margin-top: 2%;
+                background-color: #518942;
+                font-weight: bold;
+                width: 250px;
+                padding: 15px 15px;
+                border-radius: 10px;
+                font-size: 20px;
+            }
+
+            #home_login:hover {
+                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+            .home_navbar {
+                display:inline;
+                margin-left: 600px;
+                margin-top:100px;
+
+            }
+            .home_navbar a {
+                margin-left: 100px;
+                color:white;
+                font-weight: bold;
+                font-size: 25px;
+            }
+           .home_navbar svg {
+            height: 50px;
+            width:30px;
+            margin-left: 150px;
+           }
+           .home_navbar path {
+            fill:white;
+
+           }
+           .collapse:not(.show) {
+            margin-left: 900px;
+            margin-top: -40px;
+           }
+           .dropdown svg {
+            height: 50px;
+            width:40px;
+            margin-top:-20px !important;
+            margin-left: -20px;
+           }
+           .dropdown path {
+            fill:white;
+
+           }
+        .navbar .nav-item #navbar-login {
+           margin-left: 70vh;
+            background:transparent;
+            color: white !important;
+            font-weight: bold;
+            font-size: 40px;
+            margin-top: 50px !important;
+            height: 40px;
+            width: 40px;
+           }
+           .navbar .nav-item {
+            height: 40px;
+            width: 40px;
+           }
+           .navbar .home  {
+           margin-left: 50px;
+           margin-top: 20px;
+           }
+           .assessment-game .navbar .nav-link  {
+            margin-left: 50px;
+            margin-top: 20px;
+            color:black !important;
+            }
+           .assessment-game #user-icon {
+                color:#175649 !important;
+                font-weight: bold;
+                font-size: 40px;
+                margin-top: 40px;
+               }
+           #user-icon {
+            color: white !important;
+            font-weight: bold;
+            font-size: 40px;
+           }

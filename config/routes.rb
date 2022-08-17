@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'play/display'
+  root 'home#home_design'
   get 'reports/display_reports'
   get 'assessments/display'
-  root 'home#home'
   get 'users/index'
   get 'quiz/creategame'
   get 'home/load'
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'home/contact'
   get 'home/review'
-  get 'users/other_index'
   match '/update', to: 'quiz#edit', via: :get
   match '/game', to: 'quiz#game', via: :get
   match '/assessment', to: 'assessments#store', via: :post
@@ -28,15 +28,30 @@ Rails.application.routes.draw do
   get '/quiz/display1/:id', to: 'quiz#display1'
   match '/show', to: 'quiz#show', via: :post
   get 'quiz/form'
-  get 'quiz/game'
   get 'home/profile'
+  get 'home/home_design'
   get 'quiz/index'
   get 'quiz/game1'
-  get 'assessments/display_questions'
+  get 'reports/display_questions'
   match '/reports_save', to: 'assessments#reports_save', via: :post
   get 'assessments/game_pin'
-  match '/check_equal', to: 'reports#check', via: :post
+  match '/check_equal', to: 'play#check', via: :post
   get 'quiz/quiztemplate'
-
+  get 'assessments/quiz'
+  get 'assessments/quiz_design'
+  get 'assessments/tf_design'
+  get 'assessments/fillup_design'
+  get 'assessments/test'
+  match '/edit_page/:id' , to: "assessments#edit_page" , via: :get
+  match 'edit/:id' , to: "assessments#edit" , via: :post
+  match 'delete/:id' , to:"assessments#delete" , via: :get
+  get 'assessments/game'
+  get 'assessments/quiz_design1'
+  get 'assessments/explore'
+  get 'assessments/library'
+  match 'display_pin/:id' , to: 'play#display_gamepin' , via: :get
+  get 'assessments/display_gamepin'
+  match 'play/:id' , to: 'play#host' , via: :get
+  get 'assessments/dashboard'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

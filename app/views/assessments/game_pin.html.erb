@@ -1,12 +1,25 @@
-<div>
+<%if $record %>
+<%= render partial: "disp_qtns"%>
+<%else%>
+<div id="gamepin-form" >
 <%= $random_no%>
-<form action="/check_equal" method="post">
-<input type="hidden" value="<%= $random_no%>" name="g_random">
+<form action="/check_equal" method="post" onsubmit="toggle()">
+<input type="hidden" value="<%= $game.random_no%>" name="g_random">
+<input type="hidden" value="<%= $game.assessments_id%>" name="id">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-<input type="text" id="random_no" name="input_random"required>
+<div class="random-inputs">
+<input type="text" id="random_no" placeholder="Game pin"name="input_random"required><br>
 <button type="submit" >Enter</button>
+</div>
 </form>
 </div>
+<div id="aftgamepin-display" style="display:none">
+<div class="content">
+  <%= image_tag('board.png' , height:"500", width: "400")%>
+   Have you seen your name in board?
+</div>
+</div>
+<%end%>
 <script>
 function check() {
     str1 = parseInt("<%= $random_no%>");
@@ -21,5 +34,9 @@ function check() {
         console.log("game_pin")
         window.location.href="assessments/game_pin";
     }
+}
+function toggle() {
+    document.getElementById("gamepin-form").style.display="none";
+     document.getElementById("aftgamepin-display").style.display="block";
 }
 </script>

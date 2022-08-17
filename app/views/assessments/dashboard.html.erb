@@ -1,0 +1,31 @@
+<div class="reports">
+<%= pie_chart Report.group(:score).count %>
+<%= line_chart User.group_by_day(:created_at).count %>
+
+<% logged_user = User.find(session[:id]) %>
+<% if logged_user %>
+<div class="dashboard">Swetha</div>
+
+<div class="reports_table">
+<table class="table table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Correct answer</th>
+      <th scope="col">Wrong answers</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><a href="/reports/<%=logged_user.id%>"><%= logged_user.name%></a></th>
+      <td><%=Report.where("users_id=? AND score=?" , logged_user.id , 100).count%></td>
+      <td><%=Report.where("users_id=? AND score=?" , logged_user.id , 0).count%></td>
+      <td><%=Report.where("users_id=? AND score=?" , 1 , 100).sum(:score)%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<%else%>
+<%end%>

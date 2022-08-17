@@ -1,9 +1,14 @@
 <div class="host">
 <input type="search"><button>search</button>
-<% Assessment.all.each do |t|%>
+<% logged_user = User.find(session[:id]) %>
+<%= logged_user["id"]%>
+<% assessments =Assessment.where(users_id: logged_user["id"])%>
+<%assessments.each do |t|%>
 <div class="assessment_name">
+
 <%= t.name%><br>
 <%= Puzzle.where(assessments_id: t.id).count%>
+<%= t.random_no%>
 <%=image_tag( "puzzle.avif", alt: "like", height:"100",width:"120") %>
 
 <a href="/display_questions/<%=t.id%>"><button>start</button></a>

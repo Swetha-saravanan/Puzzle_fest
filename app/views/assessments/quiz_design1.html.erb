@@ -1,0 +1,67 @@
+<div class="container-fluid quiz_main_div" id="quiz-page">
+<div class="row" id="quiz-row-div">
+<div class="col-4" id="scroller-div">
+<% assessment= Assessment.last%>
+     <div class="question-header"><h1> Assessment title : <%=assessment.name%></h1><br><br></div>
+     <div class="scroll-questions">
+
+       <% qtn_type = Puzzle.where(assessments_id: assessment.id)%>
+      <% qtn_type.each do |t|%>
+       <div class="ques-div">
+          <%= t.question%>
+          <a href="/edit_page/<%=t.id%>">Edit</a>
+           <a href="/delete/<%=t.id%>">Delete</a>
+       </div>
+     <%end%>
+     <div class="add_qtn">
+        <button type="submit" id="add_question" onclick="display()">Add question</button>
+    </div>
+     <div id="kinds_of_questions" style="display:none;">
+    <form action="/show" method="post">
+        <div>
+            <%=image_tag( "quiz.png", alt: "like" , height:"100",width:"100") %>
+                <input type="submit" name="kind_of_question" value="Quiz"><br>
+
+        </div><br>
+        <div>
+            <%=image_tag( "tf.png", alt: "like" ,height:"100",width:"100") %>
+                <input type="submit" name="kind_of_question" value="True or false"><br>
+        </div><br>
+        <div>
+            <%=image_tag( "fillup.png", alt: "like" ,height:"100",width:"100") %>
+                <input type="submit" name="kind_of_question" value="Fillup">
+        </div><br>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    </form>
+</div>
+
+     </div>
+</div>
+<%case $puzzles.kind_of_question%>
+<% when "Quiz"%>
+<%= render partial:"quiz_template"%>
+<% when "True or false"%>
+<%= render partial:"tf_design"%>
+<% when "Fillup"%>
+<%= render partial:"fillup_design"%>
+<%else%>
+<%= render partial:"quiz_template"%>
+<%end%>
+
+
+
+<script>
+
+function uploadPic(){
+   document.getElementById("txt-area").classList.toggle("display");
+   document.getElementById("f-upload").classList.toggle("display");
+}
+
+    function display() {
+        let div = document.getElementById("kinds_of_questions");
+        div.style.display = "block";
+    }
+
+</script>
+
+

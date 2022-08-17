@@ -1,8 +1,25 @@
 <div class="assessment">
-<form action="/assessment" method="post">
-   <input type="text" name="name" placeholder="Assessment name ..." required><br>
-   <button type="submit" class="submit">Next</button>
-   <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+
+<div class="assessment-form">
+<form action="/assessment" method="post" enctype="multipart/form-data">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+   <div class="assessment-details">
+   <input type="text" name="name" placeholder="Assessment name ..." required>
+   <input type="text" name="category"  placeholder="Category"><br>
+   </div>
+   <textarea placeholder="    Assessment description" name="description" > </textarea><br>
+
+   <div class="upload">
+   <i class="fa-solid fa-image" id="icon"></i><br>
+   <input type="file"name="images" class="file-input" title="Select images here"><br>
+   </div><br>
+  <button type="submit" class="submit">Next</button>
+
+<br>
+
 </form>
+<div id="create_quiz">
+    <%= image_tag("create_quiz.png", alt: "like", id:"create" ) %>
+   </div>
 </div>
-<%=image_tag( "enroll.png", alt: "like" ,class: "reg-bg") %>
+</div>

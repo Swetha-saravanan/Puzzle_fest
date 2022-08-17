@@ -1,7 +1,7 @@
 <div class="signin" id="in">
 <div>
     <form class="form-box px-3" action="/create-session" method="post">
-        <input type="hidden" name="authenticity_token" value=" form_authenticity_token ">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
         <div class="form-input">
             <span><i class="fa fa-envelope-o"></i></span>
             <input type="email" name="email" placeholder="Mail Address" tabindex="10" required>

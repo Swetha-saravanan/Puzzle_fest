@@ -1,0 +1,20 @@
+<div class="assessment-game">
+<%= render partial:"/home/header"%>
+</div>
+<div class="sidebar">
+<div><i class="fa-solid fa-earth-americas" id="sidebar-icon"></i><a href="">Explore</a></div>
+<div><i class="fa-solid fa-book" id="sidebar-icon"></i><a href="">Library</a></div>
+<div><i class="fa-solid fa-chart-line" id="sidebar-icon"></i><a href="">Dashboard</a></div>
+
+</div>
+<div class="explore">
+<%= image_tag("create1.png", alt: "like" , id:"create") %><br>
+<button type="submit" id="create-quiz" onclick="redirect_toForm()"> Create Quiz</button>
+
+</div>
+
+<script>
+function redirect_toForm() {
+    window.location.href="/quiz/form";
+}
+</script>
