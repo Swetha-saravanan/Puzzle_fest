@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'home#home_design'
+  root 'users#login'
   get 'play/display'
   get 'reports/display_reports'
   get 'assessments/display'
