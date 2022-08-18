@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
-  def display; end
+  def display
+    render 'display'
+  end
 
   def library
     render 'library'
@@ -129,45 +131,45 @@ class AssessmentsController < ApplicationController
     @assessments_id = params[:assessments_id]
     @corect_ans = params[:correct_answer]
     @time = params[:time]
-    case @kind
-    when 'Quiz'
-      @edit_save = @find.update!(
-        question: @question,
-        option1: @option1,
-        option2: @option2,
-        option3: @option3,
-        option4: @option4,
-        # images: params[:images],
-        answer: @answer,
-        kind_of_question: @kind,
-        assessments_id: @assessments_id,
-        correct_answer: @correct_ans,
-        time: @time
-      )
-    when 'True or false'
-      @edit_save = @find.update!(
-        question: @question,
-        option1: @option1,
-        option2: @option2,
-        answer: @answer,
-        kind_of_question: @kind,
-        assessments_id: @assessments_id,
-        correct_answer: @correct_ans,
-        time: @time
-        # images: params[:images]
-      )
-    when 'Fillup'
-      @edit_save = @find.update!(
-        question: @question,
-        option1: @option1,
-        answer: @option1,
-        kind_of_question: @kind,
-        assessments_id: @assessments_id,
-        correct_answer: @correct_ans,
-        time: @time
-        # images: params[:images]
-      )
-    end
+    @edit_save = case @kind
+                 when 'True or false'
+                   @find.update!(
+                     question: @question,
+                     option1: @option1,
+                     option2: @option2,
+                     answer: @answer,
+                     kind_of_question: @kind,
+                     assessments_id: @assessments_id,
+                     correct_answer: @correct_ans,
+                     time: @time
+                     # images: params[:images]
+                   )
+                 when 'Fillup'
+                   @find.update!(
+                     question: @question,
+                     option1: @option1,
+                     answer: @option1,
+                     kind_of_question: @kind,
+                     assessments_id: @assessments_id,
+                     correct_answer: @correct_ans,
+                     time: @time
+                     # images: params[:images]
+                   )
+                 else
+                   @find.update!(
+                     question: @question,
+                     option1: @option1,
+                     option2: @option2,
+                     option3: @option3,
+                     option4: @option4,
+                     # images: params[:images],
+                     answer: @answer,
+                     kind_of_question: @kind,
+                     assessments_id: @assessments_id,
+                     correct_answer: @correct_ans,
+                     time: @time
+                   )
+                 end
     $puzzles = nil
     redirect_to '/game'
   end

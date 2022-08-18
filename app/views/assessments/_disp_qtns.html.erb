@@ -63,11 +63,11 @@ Stay strong <em class="fa-solid fa-hand-back-fist"></em><br>
        <div id="time_count"><input type="text" value="<%= t.time %>" id="timer-inp" name="time_limit">
        <span class="timer_quiz" id="time-span"> <%= t.time %> </span>
 </div>
-       <input type="hidden" name="id" value ="<%= t.id%>">
+       <input type="hidden" name="id" value ="<%= t.id%>" id="id">
        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
       <div class="disp qtns">
          <div class="disp_qtn"> <%=t.question%></div>
-         <input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>">
+         <input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>" id="ass-id">
          </div>
        <div class="disp_opts">
 
@@ -150,9 +150,9 @@ let time = document.getElementById("time-span").innerText;
         time--;
 
         if (countdownEl.innerHTML == 0) {
-                document.getElementById('time-span').style.display = "none";
-                // recognition.abort();
-                isListening = false;
+                qtn_id = document.getElementById("id").value
+                ass_id = document.getElementById("ass-id").value
+                window.location.href='/change/'+qtn_id+'/'+ass_id;
 
             }
     }

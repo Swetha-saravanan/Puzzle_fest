@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   match 'display_pin/:id', to: 'play#display_gamepin', via: :get
   match '/gamepin', to: 'assessments#display_gamepin', via: :get
   match 'play/:id', to: 'play#host', via: :get
-
+  match 'change/:id/:ass_id', to: 'play#change', via: :get
   # match 'reports/:id' , to: 'reports#display_reports' , via: :get
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
