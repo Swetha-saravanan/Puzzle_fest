@@ -1,7 +1,26 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
-  def display
+  def display; end
+
+  def library
+    render 'library'
+  end
+
+  def quiz_design1
+    render 'quiz_design1'
+  end
+
+  def explore
+    render 'explore'
+  end
+
+  def game
+    render 'game'
+  end
+
+  def game_pin
+    render 'game_pin'
   end
 
   def store
@@ -14,7 +33,7 @@ class AssessmentsController < ApplicationController
     random_no = 6.times.map { rand(10) }.join
     @assessment = Assessment.create!(
       name: name,
-      users_id: cur_userid,
+      users_id: cur_userid.id,
       random_no: random_no,
       category: category,
       description: description,
@@ -25,7 +44,7 @@ class AssessmentsController < ApplicationController
       assessment = Assessment.last
       $question_records = Question.where(assessments_id: assessment.id)
       p $question_records
-      redirect_to '/assessments/quiz_design'
+      redirect_to '/game'
     else
       redirect_to '/quiz/form'
     end
@@ -37,7 +56,7 @@ class AssessmentsController < ApplicationController
     # $quiz_record = record
 
     # p $record
-    redirect_to '/assessments/game_pin'
+    redirect_to '/pin'
   end
 
   def reports_save
@@ -64,91 +83,114 @@ class AssessmentsController < ApplicationController
       time_limit: time_limit
     )
     if reports.save
-      check(id , assessments_id)
-    # $record = Puzzle.where('id > ? AND assessments_id = ?', id.to_i, assessments_id)
+      check(id, assessments_id)
+      # $record = Puzzle.where('id > ? AND assessments_id = ?', id.to_i, assessments_id)
     end
   end
-  def check(id , assessments_id)
+
+  def check(id, assessments_id)
     puzzle_id = id
     ass_id = assessments_id
     $record = Puzzle.where('id > ? AND assessments_id = ?', puzzle_id.to_i, ass_id)
-      if $record
-        $record.all.each do |t|
-          @record = t
-        end
-            if @record
-              p "helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
-              redirect_to '/assessments/game_pin'
-            else
-              $record = nil
-              p "nulllllllllllllll"
-              redirect_to '/assessments/dashboard'
-            end
+    if $record
+      $record.all.each do |t|
+        @record = t
       end
-
+      if @record
+        p 'helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooo'
+        redirect_to '/pin'
+      else
+        $record = nil
+        p 'nulllllllllllllll'
+        redirect_to '/dashboard'
+      end
+    end
   end
 
   def edit_page
     $puzzles = Puzzle.find_by(id: params[:id])
     p $puzzles.question
-    redirect_to '/assessments/quiz_design1'
+    redirect_to '/edit'
+  end
+
+  def dashboard
+    render 'dashboard'
   end
 
   def edit
-    @find= Puzzle.find(params[:id])
+    @find = Puzzle.find(params[:id])
     @question = params[:question]
-      @option1 = params[:option1]
-      @option2 = params[:option2]
-      @option3 = params[:option3]
-      @option4 = params[:option4]
-     @kind = params[:kind_of_question]
-     @answer = params[:answer]
-     @assessments_id = params[:assessments_id]
-     @corect_ans = params[:correct_answer]
+    @option1 = params[:option1]
+    @option2 = params[:option2]
+    @option3 = params[:option3]
+    @option4 = params[:option4]
+    @kind = params[:kind_of_question]
+    @answer = params[:answer]
+    @assessments_id = params[:assessments_id]
+    @corect_ans = params[:correct_answer]
+    @time = params[:time]
     case @kind
-    when "Quiz"
-    @edit_save =@find.update!(
-      question: @question,
-      option1: @option1,
-      option2: @option2,
-      option3: @option3,
-      option4: @option4,
-      # images: params[:images],
-      answer: @answer,
-      kind_of_question: @kind,
-      assessments_id: @assessments_id,
-      correct_answer: @correct_ans
-    )
-    when "True or false"
-    @edit_save = @find.update!(
-      question: @question,
-      option1: @option1,
-      option2:@option2,
-      answer: @answer,
-      kind_of_question: @kind,
-      assessments_id: @assessments_id,
-      correct_answer: @correct_ans,
-      # images: params[:images]
-    )
-    when "Fillup"
-    @edit_save = @find.update!(
-      question: @question,
-      option1: @option1,
-      answer: @option1,
-      kind_of_question: @kind,
-      assessments_id: @assessments_id,
-      correct_answer: @correct_ans,
-      # images: params[:images]
-    )
+    when 'Quiz'
+      @edit_save = @find.update!(
+        question: @question,
+        option1: @option1,
+        option2: @option2,
+        option3: @option3,
+        option4: @option4,
+        # images: params[:images],
+        answer: @answer,
+        kind_of_question: @kind,
+        assessments_id: @assessments_id,
+        correct_answer: @correct_ans,
+        time: @time
+      )
+    when 'True or false'
+      @edit_save = @find.update!(
+        question: @question,
+        option1: @option1,
+        option2: @option2,
+        answer: @answer,
+        kind_of_question: @kind,
+        assessments_id: @assessments_id,
+        correct_answer: @correct_ans,
+        time: @time
+        # images: params[:images]
+      )
+    when 'Fillup'
+      @edit_save = @find.update!(
+        question: @question,
+        option1: @option1,
+        answer: @option1,
+        kind_of_question: @kind,
+        assessments_id: @assessments_id,
+        correct_answer: @correct_ans,
+        time: @time
+        # images: params[:images]
+      )
     end
-    $puzzles=nil
-    redirect_to '/assessments/quiz_design'
-    end
-  def delete
-    find= Puzzle.find_by(id: params[:id])
-    find.destroy
-    redirect_to 'assessments/quiz_design'
-
+    $puzzles = nil
+    redirect_to '/game'
   end
 
+  def delete
+    find = Puzzle.find_by(id: params[:id])
+    find.destroy
+    redirect_to '/game'
+  end
+
+  def quiz_design
+    render 'quiz_design'
+  end
+
+  def dashboard
+    render 'dashboard'
+  end
+
+  def displaygame_pin
+    render 'gamepin' if $record
+  end
+
+  def display_gamepin
+    render 'display_gamepin'
+  end
 end

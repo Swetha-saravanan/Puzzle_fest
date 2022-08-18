@@ -1,17 +1,83 @@
-.bgimg {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -10;
-    filter: brightness(40%);
-}
 
-.about_heading {
+.about-div{
+   width: 190vh;
+   height: 60vh;
+   background-color: rgb(210, 251, 210);
+}
+.review-div{
+    width: 190vh;
+    height: 25vh;
+    background-color: rgb(84, 140, 84);
+}
+.about-pics-div{
+    height: 100%;
+}
+.cir-1{
+    position: absolute;
+   border-radius: 50%;
+   width: 300px;
+   height: 300px;
+   margin-left: 60%;
+   background-color: rgb(189, 215, 189);
+   top: 1%;
+}
+.cir-2{
+    position: absolute;
+    border-radius: 50%;
+    width: 450px;
+    height: 450px;
+   margin-left: 10%;
+   background-color: rgb(189, 215, 189);
+   top: 7%;
+}
+.cir-3{
+    position: absolute;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+   margin-left: 53%;
+   background-color: rgb(189, 215, 189);
+   top: 57%;
+}
+.about-pic{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    padding-left:5%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.about-head{
+    font-family: 'Dancing Script', cursive;
     text-align: center;
-    color: white;
-    font-weight: bolder;
-    margin-top: 350px;
-    font-size: 60px;
+    font-size: 50px;
+    margin-top: 20%;
+    color:rgb(19, 41, 19);
+    margin-left: 25%;
+}
+.pre-div{
+    width: 93vh;
+    height: 70%;
+    padding-right: 30%;
+}
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
+.about-pre{
+    text-align: center;
+    font-size: 17px;
+    margin-top: 5%;
+    color:rgb(19, 41, 19);
+    font-family: 'EB Garamond', serif;
+}
+.text-area-review{
+    margin-left: 20%;
+    border: none;
+    color:rgb(19, 41, 19);
+    padding: 2%;
+    background-color: rgba(232, 240, 232, 0.967);
+    width: 100vh;
+    margin-top: 2%;
+    height: 13vh;
+    outline:none;
+}
+.text-area-review::placeholder{
+    color:rgb(19, 41, 19);
 }

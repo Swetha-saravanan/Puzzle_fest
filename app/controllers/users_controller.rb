@@ -1,9 +1,19 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  def index; end
+  def index
+    render 'index'
+  end
+
+  def login
+    render 'login'
+  end
 
   def other_index; end
+
+  def forgot_pwd
+    render 'forgot_pwd'
+  end
 
   def create
     user = User.new(user_params)

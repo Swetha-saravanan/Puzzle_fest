@@ -8,9 +8,10 @@
        <% qtn_type = Puzzle.where(assessments_id: assessment.id)%>
       <% qtn_type.each do |t|%>
        <div class="ques-div">
-          <%= t.question%>
-          <a href="/edit_page/<%=t.id%>">Edit</a>
-           <a href="/delete/<%=t.id%>">Delete</a>
+              <a href="/edit_page/<%=t.id%>" style="color:#2c4c3c;margin-left:90%;padding-right:2%;margin-top:10%;"><i class="fa-solid fa-pen"></i></a>
+           <a href="/delete/<%=t.id%>" style="color:#2c4c3c;"><i class="fa-solid fa-trash"></i></a>
+          <h2 style="padding:5%;color:#2c4c3c;text-align:center;"><%= t.question%></h2>
+
        </div>
      <%end%>
 
@@ -39,7 +40,6 @@
      </div>
 
 </div>
- <button type="submit" id="redirect-btn" onclick="redirect_tolibrary()">Done</button>
 <%type_of_qtn = Question.last%>
 <% if type_of_qtn%>
 <%case type_of_qtn.kind_of_question%>
@@ -57,6 +57,7 @@
 <%end%>
 
 
+ <button type="submit" id="redirect-btn" onclick="redirect_tolibrary()">Done</button>
 
 <script>
 
@@ -70,7 +71,7 @@ function uploadPic(){
         div.style.display = "block";
     }
     function redirect_tolibrary() {
-        window.location.href="/assessments/library";
+        window.location.href="/library";
     }
 
 </script>

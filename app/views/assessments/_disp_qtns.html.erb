@@ -1,18 +1,18 @@
 <div class="answer-sidebar">
 <div class="reports">
-<%record = Report.last%>
+<%reco = Report.last%>
 
-<%if record.score == 100%>
+<%if reco.score == 100%>
 <%= image_tag('Awards.png' ,class:"reports-img")%>
 <div class="report-content">
 Keep up !! <br>
-Rocking   <i class="fa-solid fa-star-and-crescent"></i><br>
+Rocking   <em class="fa-solid fa-star-and-crescent"></em><br>
 </div>
 <%else%>
 <%= image_tag('encourage.png',class:"reports-img")%>
 <div class="report-content">
 Keep fighting!! <br>
-Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
+Stay strong <em class="fa-solid fa-hand-back-fist"></em><br>
 </div>
 <%end%>
 </div>
@@ -20,11 +20,12 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 <%# <div class="answer"> %>
 <div id="disp_questions">
 
-<%for t in $record do %>
+<%$record.each do |t|%>
 <div class="disp_quiz" style="display:none;">
 <% if t.kind_of_question=="True or false"%>
 <form action="/reports_save" method="post" onsubmit="report()">
-<div id="time_count"><input type="text" value="1" id="timer-inp" name="time_limit">
+<div id="time_count"><input type="text" value="<%= t.time%>" id="timer-inp" name="time_limit">
+   <span class="timer_quiz" id="time-span"><%= t.time %> </span>
 </div>
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 <input type="hidden" name="id" value ="<%= t.id%>">
@@ -35,14 +36,15 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 <div class="disp_opts">
 <div class="disp_row">
 
-        <div class="disp opt1"><input type="submit" name="user_answer" value="<%=t.option1%>" ></div>
+        <div class="disp opt2"><input type="submit" name="user_answer" value="<%=t.option1%>" ></div>
         <div class="disp opt2"><input type="submit" name="user_answer" value="<%=t.option2%>"></div>
 </div>
 </div>
 </form>
 <%elsif t.kind_of_question=="Fillup"%>
 <form action="/reports_save"  onsubmit="report()"method="post">
-<div id="time_count"><input type="text" value="1" id="timer-inp" name="time_limit">
+<div id="time_count"><input type="text" value="<%= t.time%>"id="timer-inp" name="time_limit">
+   <span class="timer_quiz" id="time-span"><%= t.time %> </span>
 </div>
 <input type="hidden" name="id" value ="<%= t.id%>">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
@@ -52,13 +54,14 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 </div>
 <div class="disp_opts">
 <div class="disp_row_fillup">
-        <div class="disp opt1"><input type="text" name="user_answer"><button  type="submit" class="next-btn">Next</button></div>
+        <div class="disp opt1"><input id="fillup-ans" type="text" name="user_answer"><button  type="submit" class="next-btn">Next</button></div>
 </div>
 </div>
 </form>
 <%else%>
        <form action ="/reports_save" method="post" >
-       <div id="time_count"><input type="text" value="1" id="timer-inp" name="time_limit">
+       <div id="time_count"><input type="text" value="<%= t.time %>" id="timer-inp" name="time_limit">
+       <span class="timer_quiz" id="time-span"> <%= t.time %> </span>
 </div>
        <input type="hidden" name="id" value ="<%= t.id%>">
        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
@@ -70,7 +73,7 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
 
        <div class="disp_row">
 
-            <div class="disp opt1">
+            <div class="disp opt2">
               <input type="submit" name="user_answer" value="<%=t.option1%>" >
             </div>
 
@@ -90,11 +93,11 @@ Stay strong <i class="fa-solid fa-hand-back-fist"></i><br>
         </div>
 </div>
 
-<%end%>
+
 </div>
 
 
-<%end%>
+
 </div>
 
 
@@ -137,8 +140,26 @@ function timerss(){
 timerss();
     }, 30000);
 }
+let time = document.getElementById("time-span").innerText;
+    const countdownEl = document.getElementById("time-span");
+    setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+        const sec = time % 60;
+        countdownEl.innerHTML = `${sec}`;
+        time--;
+
+        if (countdownEl.innerHTML == 0) {
+                document.getElementById('time-span').style.display = "none";
+                // recognition.abort();
+                isListening = false;
+
+            }
+    }
 function report() {
   window.location.href="/reports_save";
 }
 
 </script>
+<%end%>
+<%end%>

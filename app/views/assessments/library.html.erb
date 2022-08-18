@@ -2,9 +2,9 @@
 <%= render partial:"/home/header"%>
 </div>
 <div class="sidebar">
-<div><i class="fa-solid fa-earth-americas" id="sidebar-icon"></i><a href="/assessments/explore">Explore</a></div>
-<div><i class="fa-solid fa-book" id="sidebar-icon"></i><a href="">Library</a></div>
-<div><i class="fa-solid fa-chart-line" id="sidebar-icon"></i><a href="">Dashboard</a></div>
+<div><em class="fa-solid fa-earth-americas" id="sidebar-icon"></em><a href="/quiz">Explore</a></div>
+<div><em class="fa-solid fa-book" id="sidebar-icon"></em><a href="#">Library</a></div>
+<div><em class="fa-solid fa-chart-line" id="sidebar-icon"></em><a href="/dashboard">Dashboard</a></div>
 </div>
 <div class="library">
 <%assessments = Assessment.where(users_id: session[:id])%>

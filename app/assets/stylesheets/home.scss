@@ -10,7 +10,11 @@
                 font-family: 'Raleway', sans-serif;
                 scroll-behavior: smooth;
             }
+          
             .navbar {
+                box-shadow: none !important;
+                background-color: transparent!important;
+                color: white !important;
                 position:fixed;
             }
 
@@ -38,11 +42,7 @@
                 background: rgba(0, 0, 0, 0.65);
             }
 
-            .navbar {
-                box-shadow: none !important;
-                background-color: transparent!important;
-                color: white !important;
-            }
+
 
             .navbar-light .navbar-nav .nav-link {
                 color: white !important;

@@ -1,7 +1,9 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class PlayControllerTest < ActionDispatch::IntegrationTest
-  test "should get display" do
+  test 'should get display' do
     get play_display_url
     assert_response :success
   end

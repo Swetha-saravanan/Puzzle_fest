@@ -21,6 +21,7 @@ class QuizController < ApplicationController
     answer.push(opt4)
     ans = params[:option]
     images = params[:images]
+    time = params[:time]
     case ans
     when 'a'
       @ans = opt1
@@ -44,7 +45,8 @@ class QuizController < ApplicationController
           kind_of_question: question_type.kind_of_question,
           assessments_id: @assessment.id,
           correct_answer: @ans,
-          images: images
+          images: images,
+          time: time
         )
       when 'Fillup'
         @quiz = Puzzle.create!(
@@ -54,7 +56,8 @@ class QuizController < ApplicationController
           kind_of_question: question_type.kind_of_question,
           assessments_id: @assessment.id,
           correct_answer: opt1,
-          images: images
+          images: images,
+          time: time
         )
       else
         if answer != answer.uniq
@@ -72,7 +75,8 @@ class QuizController < ApplicationController
             kind_of_question: question_type.kind_of_question,
             assessments_id: @assessment.id,
             correct_answer: @ans,
-            images: images
+            images: images,
+            time: time
           )
         end
       end
@@ -90,10 +94,11 @@ class QuizController < ApplicationController
         answer: ans,
         assessments_id: @assessment.id,
         correct_answer: @ans,
-        images: images
+        images: images,
+        time: time
       )
     end
-    redirect_to '/assessments/quiz_design'
+    redirect_to '/game'
   end
 
   def edit
@@ -149,7 +154,7 @@ class QuizController < ApplicationController
     if @question_save.save
       $question_records = Question.all
       $cur_display_question = nil
-      redirect_to '/assessments/quiz_design'
+      redirect_to '/game'
     else
       render plain: 'fail'
     end
