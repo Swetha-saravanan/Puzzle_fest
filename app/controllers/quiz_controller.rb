@@ -22,16 +22,16 @@ class QuizController < ApplicationController
     ans = params[:option]
     images = params[:images]
     time = params[:time]
-    case ans
-    when 'a'
-      @ans = opt1
-    when 'b'
-      @ans = opt2
-    when 'c'
-      @ans = opt3
-    when 'd'
-      @ans = opt4
-    end
+    @ans = case ans
+           when 'a'
+             opt1
+           when 'b'
+             opt2
+           when 'c'
+             opt3
+           when 'd'
+             opt4
+           end
     @assessment = Assessment.last
     question_type = Question.last
     if question_type

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class PlayController < ApplicationController
-  def display; end
+  def display
+    p 'Hello'
+  end
 
   def display_gamepin
     id = params[:id]
@@ -39,6 +41,25 @@ class PlayController < ApplicationController
         assessments_id: @assessments_id,
         random_no: grandom
       )
+    end
+  end
+
+  def change
+    puzzle_id = params[:id]
+    ass_id = params[:ass_id]
+    $record = Puzzle.where('id > ? AND assessments_id = ?', puzzle_id.to_i, ass_id)
+    if $record
+      $record.all.each do |t|
+        @record = t
+      end
+      if @record
+        p 'helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooo'
+        redirect_to '/pin'
+      else
+        $record = nil
+        p 'nulllllllllllllll'
+        redirect_to '/dashboard'
+      end
     end
   end
 end

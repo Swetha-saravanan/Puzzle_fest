@@ -56,9 +56,7 @@ body {
     color: white;
 }
 
-.form-input input:focus::placeholder {
-    color: white;
-}
+
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #1A8367 !important;
@@ -84,10 +82,10 @@ body {
     background: #ff574e;
 }
 
-.custom-control-label {
-    color: white;
-    font-weight: bold;
-}
+// .custom-control-label {
+//     color: white;
+//     font-weight: bold;
+// }
 
 .register_side {
     margin-left: 600px;

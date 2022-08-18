@@ -9,7 +9,9 @@ class UsersController < ApplicationController
     render 'login'
   end
 
-  def other_index; end
+  def other_index
+    p 'Hello'
+  end
 
   def forgot_pwd
     render 'forgot_pwd'
