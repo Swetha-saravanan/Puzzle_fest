@@ -8,7 +8,7 @@ class SessionController < ApplicationController
 
       p '-------------------'
       p session[:id]
-      redirect_to '/home/home_design'
+      redirect_to '/home'
     else
       flash[:error] = 'Invalid emailId or Password'
       render plain: 'Failure'

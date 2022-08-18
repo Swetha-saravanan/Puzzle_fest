@@ -1,6 +1,10 @@
 <%if $puzzles%>
 <form action="/edit/<%=$puzzles.id%>" method="post" enctype="multipart/form-data">
 <div class="col-7" id="question_div">
+  <div class="sec-div">
+  <em class="fa-solid fa-stopwatch" id="timer"></em>
+  <input type="number" placeholder="Seconds" name="time" id="timer-input" value="<%=$puzzles.time%>">
+</div>
         <div class="question_type_area">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
         <input type="hidden" name="kind_of_question" value="<%=$puzzles.kind_of_question%>">
@@ -34,6 +38,10 @@
 <%else%>
 <form action="/question" method="post" enctype="multipart/form-data">
 <div class="col-7" id="question_div">
+<div class="sec-div">
+  <em class="fa-solid fa-stopwatch" id="timer"></em>
+  <input type="number" placeholder="Seconds" name="time" id="timer-input">
+</div>
         <div class="question_type_area">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
@@ -41,7 +49,9 @@
            </div>
            <div class="ques-textarea-div" id="txt-area"><textarea id="text-area-question"name="question" placeholder="Type your question here...."required></textarea></div>
            <div  id="f-upload" class="display" style="display: none;"><input type="file" name="images"></div>
+
            </div>
+
 
         <div class="answer-type-area-fillup">
         <div class="disp_opts">

@@ -1,5 +1,5 @@
-<%if @record %>
-<%= render partial:"disp_qtns", locals:{ record: @record}%>
+<%if $record %>
+<%= render partial:"disp_qtns"%>
 <%else%>
 <div id="gamepin-form" >
 <%= $random_no%>
@@ -20,23 +20,17 @@
 </div>
 </div>
 <%end%>
+
+
 <script>
-function check() {
-    str1 = parseInt("<%= $random_no%>");
-    console.log(str1)
-    str2 = parseInt(document.getElementById("random_no").value);
-    console.log(str2)
-    if (str1 ==str2) {
-        console.log("swetha");
-        window.location.href="assessments/display_questions";
-    }
-    else {
-        console.log("game_pin")
-        window.location.href="assessments/game_pin";
-    }
-}
+
 function toggle() {
     document.getElementById("gamepin-form").style.display="none";
      document.getElementById("aftgamepin-display").style.display="block";
 }
+
+function report() {
+  window.location.href="/reports_save";
+}
+
 </script>
