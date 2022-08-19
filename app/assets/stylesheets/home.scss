@@ -10,12 +10,19 @@
                 font-family: 'Raleway', sans-serif;
                 scroll-behavior: smooth;
             }
-          
+
             .navbar {
                 box-shadow: none !important;
                 background-color: transparent!important;
                 color: white !important;
-                position:fixed;
+                position:fixed !important;
+            }
+            .assessment-game .navbar {
+                box-shadow: none !important;
+                background-color: transparent!important;
+                color: white !important;
+                position:fixed !important;
+                margin-top: -100px;
             }
 
             .home {
@@ -288,4 +295,5 @@
             color: white !important;
             font-weight: bold;
             font-size: 40px;
+            margin-left: 300px;
            }

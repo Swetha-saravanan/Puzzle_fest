@@ -68,7 +68,8 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 50px;
-    background: #ff574e;
+    // background-color: #1A8367;
+    background-color: #5c7859 !important;
     color: #fff;
     font-size: 90%;
     font-weight: bold;
@@ -79,7 +80,7 @@ body {
 }
 
 .form-box button[type="submit"]:hover {
-    background: #ff574e;
+    background: #21502f
 }
 
 // .custom-control-label {

@@ -6,6 +6,24 @@
 <div><em class="fa-solid fa-book" id="sidebar-icon"></em><a href="#">Library</a></div>
 <div><em class="fa-solid fa-chart-line" id="sidebar-icon"></em><a href="/dashboard">Dashboard</a></div>
 </div>
+
+<%if $questions%>
+<div class="library">
+    <button type="submit" class="submit-btn" onclick="redirect_tolibrary()">Save</button>
+   <div class="library-scroll">
+
+    <%$questions.all.each do |t|%>
+    <div class="display-qtn">
+
+    <%= t.question%>
+    <a href="/edit_page/<%=t.id%>" style="color:#2c4c3c;margin-left:90%;padding-right:2%;margin-top:10%;"><em class="fa-solid fa-pen"></em></a>
+    <a href="/delete/<%=t.id%>" style="color:#2c4c3c;"><em class="fa-solid fa-trash"></em></a>
+    </div>
+    <%end%>
+    </div>
+
+ </div>
+<%else%>
 <div class="library">
 <%assessments = Assessment.where(users_id: session[:id])%>
 <%assessments.each do |t|%>
@@ -18,17 +36,22 @@
  <%end%>
  </div><br>
 <div class="library-texts">
-<p class="head">
-<%= t.name%></p><br>
+<a href = "display/<%=t.id%>"><p class="head">
+<%= t.name%></p></a><br>
 <p class="count">
 <%=Puzzle.where(assessments_id: t.id).count%>
 <a href="/display_pin/<%=t.id%>"><button type="submit" class="quiz-start"> Start</button></a>
-
 </p>
 </div>
-
+</div>
 <%# <%= image_tag t.images.variant(:thumb)%>
 </div>
 <%end%>
+<%end%>
 
 </div>
+<script>
+    function redirect_tolibrary()
+{
+    window.location.href="/red_library"
+}    </script>

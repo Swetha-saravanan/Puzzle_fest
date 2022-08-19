@@ -2,13 +2,30 @@
 
 class ReportsController < ApplicationController
   def display_reports
-    #  id = params[:id]
-    # $puzzle = User.joins("JOIN reports on reports.users_id = users.id ").map
-    # Subscription.joins("INNER JOIN plans ON plans.id = subscriptions.plan_id
-    #   INNER JOIN roles ON roles.id = plans.role_id").where("roles.name = 'Gold'").first
+    @@record = Report.where(users_id: session[:id])
+    if @@record
+      @@record.all.each do |t|
+        @ass_id = t.assessments_id
+        p @ass_id
+      end
+      if @ass_id
+        $questions = Puzzle.where(assessments_id: @ass_id)
+        # reports = Report.all
+        # reports = nil
+      end
+    end
+    render 'assessments/dashboard'
+  end
 
-    # p $puzzle
-    # # redirect_to '/assessments/dashboard'
-    render 'display_reports'
+  def display_qtn
+    id = params[:id]
+    $questions = Puzzle.where(assessments_id: id)
+
+    redirect_to '/library'
+  end
+
+  def library
+    $questions = nil
+    redirect_to '/library'
   end
 end
