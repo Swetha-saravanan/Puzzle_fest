@@ -13,11 +13,31 @@
 <div class="reports">
 <% logged_user = User.find(session[:id]) %>
 <% if logged_user %>
-
-
 <div class="reports_table">
 <table class="table table-hover">
   <caption style="display:none">Dashboard</caption>
+  <% if $question%>
+  <thead>
+    <tr>
+      <th scope="col">Question</th>
+      <th scope="col">Correct answer</th>
+      <th scope="col">User answer</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% $question.all.each do |t|%>
+      <% @@record.all.each do |l|%>
+    <tr>
+      <th scope="row"><%=t.question%></th>
+      <td><%=t.correct_answer%></td>
+      <td><%=l.time_limit%></td>
+      <td><%=l.score%></td>
+    </tr>
+    <%end%>
+    <%end%>
+  </tbody>
+  <%else%>
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -34,6 +54,7 @@
       <td><%=Report.where("users_id=? AND score=?" , logged_user.id , 100).sum(:score)%></td>
     </tr>
   </tbody>
+<%end%>
 </table>
 </div>
 </div>

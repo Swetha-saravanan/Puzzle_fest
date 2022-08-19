@@ -4,13 +4,13 @@
 <% assessment= Assessment.last%>
      <div class="question-header"><h1> Assessment title : <%=assessment.name%></h1><br><br></div>
      <div class="scroll-questions">
-
        <% qtn_type = Puzzle.where(assessments_id: assessment.id)%>
       <% qtn_type.each do |t|%>
        <div class="ques-div">
-          <%= t.question%>
-          <a href="/edit_page/<%=t.id%>">Edit</a>
-           <a href="/delete/<%=t.id%>">Delete</a>
+              <a href="/edit_page/<%=t.id%>" style="color:#2c4c3c;margin-left:90%;padding-right:2%;margin-top:10%;"><em class="fa-solid fa-pen"></em></a>
+           <a href="/delete/<%=t.id%>" style="color:#2c4c3c;"><em class="fa-solid fa-trash"></em></a>
+          <h2 style="padding:5%;color:#2c4c3c;text-align:center;"><%= t.question%></h2>
+
        </div>
      <%end%>
      <div class="add_qtn">
