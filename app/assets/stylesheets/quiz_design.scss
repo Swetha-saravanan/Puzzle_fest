@@ -315,7 +315,7 @@
         text-indent: 20px;
         padding: 10px 10px;
         width: 30%;
-        // height: 5%;
+        height: 5%;
         font-size: 1.5rem;
         text-align: center;
         margin-left: 70%;
@@ -386,9 +386,12 @@
     margin-top: 5%;
 }
 .assessments {
-    margin-left: 25%;
+    margin-left: 30%;
     margin-top: 5%;
-    display:flex;
+    padding-top: 5%;
+    height: 300px;
+    width: 800px;
+    display: block;
 }
 #redirect-btn {
     position: absolute;
@@ -403,33 +406,39 @@
     color: white;
     font-size: 20px;
 }
-.library .library-content {
-    background-color: rgb(227, 255, 223);
-   display: inline-block;
+.library-content {
+    background-color: rgba(25, 53, 21, 0.132);
     margin-left: 10px;
-    height: 300px;
-    width: 300px;
-    margin-bottom: 20px;font-size: 20px;
-    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 10px;
     // text-align: center;
+    display: flex;
 }
-// .library .library-img {
-//      margin-left:5%;
-//     width: 200px;
-//     height: 200px;
-
-// }
+.library-img {
+     margin-left:5%;
+     margin-top: 3%;
+    width: 150px;
+     height: 150px;
+ }
 .library-texts {
     // display:inline-flex;
     text-align: right;
     color:black !important;
+    margin-top: 10%;
+    margin-left: 5%;
 
 }
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
 .library-texts .head {
     text-align: left;
     font-weight: bold;
     margin-left: 20px;
-    font-size: 20px;
+    font-size: 30px;
+    color:#104930;
+    font-family: 'DynaPuff', cursive;
 }
 .library-texts .count {
     text-align: left;
@@ -437,6 +446,8 @@
     // font-size: 0px;
     margin-top: -40px;
     margin-left: 10px;
+    color:#104930;
+    font-family: 'DynaPuff', cursive;
 }
 .librar-content{
     display:flex;
@@ -447,12 +458,13 @@
     border: none;
     outline:none;
     border-radius: 10px;
-    margin-left: 200px;
+    margin-left: 100px;
     background-color: #21502f;
     color:white;
     font-weight: bold;
-
-
+    margin-top: 35%;
+    width:200px;
+    font-family: 'DynaPuff', cursive;
 
 }
 .add_qtn{
