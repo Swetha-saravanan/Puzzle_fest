@@ -92,8 +92,8 @@ class AssessmentsController < ApplicationController
 
   def check(id, assessments_id)
     puzzle_id = id
-    ass_id = assessments_id
-    $record = Puzzle.where('id > ? AND assessments_id = ?', puzzle_id.to_i, ass_id)
+    ass_id = assessments_id.to_i
+    $record = Puzzle.where('id > ? AND assessments_id = ?', puzzle_id.to_i, 2)
     if $record
       $record.all.each do |t|
         @record = t

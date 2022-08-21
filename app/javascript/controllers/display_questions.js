@@ -34,6 +34,6 @@ function getTimeRemaining(endtime) {
   }
 
 function deadlineFromMinutes(minutes) {
-    var currentTime = Date.parse(new Date());
+    let currentTime = Date.parse(new Date());
     return new Date(currentTime + timeInSeconds*1000);
   }

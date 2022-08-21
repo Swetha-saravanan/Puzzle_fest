@@ -24,28 +24,25 @@
 
  </div>
 <%else%>
-<div class="library">
+<div class="assessments">
 <%assessments = Assessment.where(users_id: session[:id])%>
 <%assessments.each do |t|%>
-<div class="library-content">
-<div class="library-img">
-<% if t.images%>
-<%= image_tag(t.images , class:"library-img")%>
- <%else%>
- <%= image_tag t.images,  class:"library-img"%>
- <%end%>
- </div><br>
-<div class="library-texts">
-<a href = "display/<%=t.id%>"><p class="head">
-<%= t.name%></p></a><br>
-<p class="count">
-<%=Puzzle.where(assessments_id: t.id).count%>
-<a href="/display_pin/<%=t.id%>"><button type="submit" class="quiz-start"> Start</button></a>
-</p>
+ <div class="library-content">
+    <div class="library-img">
+   <% if t.images%>
+   <%= image_tag(t.images , class:"library-img" , height:"100" , width:"100")%>
+   <%else%>
+   <%= image_tag t.images,  class:"library-img"%>
+   <%end%>
+   </div>  <br>
+   <div class="library-texts">
+      <a href = "display/<%=t.id%>"><p class="head"><%= t.name%></p></a><br>
+    <p class="count"><%=Puzzle.where(assessments_id: t.id).count%></p>
+    <a href="/display_pin/<%=t.id%>"><button type="submit" class="quiz-start"> Start</button></a>
+   </div>
 </div>
-</div>
-<%# <%= image_tag t.images.variant(:thumb)%>
-</div>
+
+
 <%end%>
 <%end%>
 
