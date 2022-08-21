@@ -1,165 +1,173 @@
 <div class="answer-sidebar">
-<div class="reports">
-<%reco = Report.last%>
+  <div class="reports">
+    <%reco=Report.last%>
 
-<%if reco.score == 100%>
-<%= image_tag('Awards.png' ,class:"reports-img")%>
-<div class="report-content">
-Keep up !! <br>
-Rocking   <em class="fa-solid fa-star-and-crescent"></em><br>
-</div>
-<%else%>
-<%= image_tag('encourage.png',class:"reports-img")%>
-<div class="report-content">
-Keep fighting!! <br>
-Stay strong <em class="fa-solid fa-hand-back-fist"></em><br>
-</div>
-<%end%>
-</div>
+      <%if reco.score==100%>
+        <%= image_tag('Awards.png' ,class:"reports-img")%>
+          <div class="report-content">
+            Keep up !! <br>
+            Rocking <em class="fa-solid fa-star-and-crescent"></em><br>
+          </div>
+          <%else%>
+            <%= image_tag('encourage.png',class:"reports-img")%>
+              <div class="report-content">
+                Keep fighting!! <br>
+                Stay strong <em class="fa-solid fa-hand-back-fist"></em><br>
+              </div>
+              <%end%>
+  </div>
 </div>
 <%# <div class="answer"> %>
-<div id="disp_questions">
+  <div id="disp_questions">
 
-<%$record.each do |t|%>
-<div class="disp_quiz" style="display:none;">
-<% if t.kind_of_question=="True or false"%>
-<form action="/reports_save" method="post" onsubmit="report()">
-<div id="time_count"><input type="text" value="<%= t.time%>" id="timer-inp" name="time_limit">
-   <span class="timer_quiz" id="time-span"><%= t.time %> </span>
-</div>
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-<input type="hidden" name="id" value ="<%= t.id%>">
-<input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>">
-<div class="disp qtns">
-        <div class="disp_qtn"> <%=t.question%></div>
-</div>
-<div class="disp_opts">
-<div class="disp_row">
-
-        <div class="disp opt2"><input type="submit" name="user_answer" value="<%=t.option1%>" ></div>
-        <div class="disp opt2"><input type="submit" name="user_answer" value="<%=t.option2%>"></div>
-</div>
-</div>
-</form>
-<%elsif t.kind_of_question=="Fillup"%>
-<form action="/reports_save"  onsubmit="report()"method="post">
-<div id="time_count"><input type="text" value="<%= t.time%>"id="timer-inp" name="time_limit">
-   <span class="timer_quiz" id="time-span"><%= t.time %> </span>
-</div>
-<input type="hidden" name="id" value ="<%= t.id%>">
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-<div class="disp qtns">
-<input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>">
-        <div class="disp_qtn"> <%=t.question%></div>
-</div>
-<div class="disp_opts">
-<div class="disp_row_fillup">
-        <div class="disp opt1"><input id="fillup-ans" type="text" name="user_answer"><button  type="submit" class="next-btn">Next</button></div>
-</div>
-</div>
-</form>
-<%else%>
-       <form action ="/reports_save" method="post" >
-       <div id="time_count"><input type="text" value="<%= t.time %>" id="timer-inp" name="time_limit">
-       <span class="timer_quiz" id="time-span"> <%= t.time %> </span>
-</div>
-       <input type="hidden" name="id" value ="<%= t.id%>" id="id">
-       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-      <div class="disp qtns">
-         <div class="disp_qtn"> <%=t.question%></div>
-         <input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>" id="ass-id">
-         </div>
-       <div class="disp_opts">
-
-       <div class="disp_row">
-
-            <div class="disp opt2">
-              <input type="submit" name="user_answer" value="<%=t.option1%>" >
+    <%$record.each do |t|%>
+      <div class="disp_quiz" style="display:none;">
+        <% if t.kind_of_question=="True or false" %>
+          <form action="/reports_save" method="post" onsubmit="report()">
+            <div id="time_count"><input type="text" value="<%= t.time%>" id="timer-inp" name="time_limit">
+              <span class="timer_quiz" id="time-span">
+                <%= t.time %>
+              </span>
             </div>
-
-            <div class="disp opt2">
-           <input type="submit" name="user_answer" value="<%=t.option2%>" >
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+            <input type="hidden" name="id" value="<%= t.id%>">
+            <input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>">
+            <div class="disp qtns">
+              <div class="disp_qtn">
+                <%=t.question%>
+              </div>
             </div>
-        </div>
-        <div class="disp_row">
-        <div class="disp opt3">
-        <input type="submit" name="user_answer" value="<%=t.option3%>" >
-        </div>
+            <div class="disp_opts">
+              <div class="disp_row">
 
-        <div class="disp opt4">
-        <input type="submit" name="user_answer" value="<%=t.option4%>" >
-        </div>
-        </form>
-        </div>
-</div>
+                <div class="disp opt2"><input type="submit" name="user_answer" value="<%=t.option1%>"></div>
+                <div class="disp opt2"><input type="submit" name="user_answer" value="<%=t.option2%>"></div>
+              </div>
+            </div>
+          </form>
+          <%elsif t.kind_of_question=="Fillup" %>
+            <form action="/reports_save" onsubmit="report()" method="post">
+              <div id="time_count"><input type="text" value="<%= t.time%>" id="timer-inp" name="time_limit">
+                <span class="timer_quiz" id="time-span">
+                  <%= t.time %>
+                </span>
+              </div>
+              <input type="hidden" name="id" value="<%= t.id%>">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+              <div class="disp qtns">
+                <input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>">
+                <div class="disp_qtn">
+                  <%=t.question%>
+                </div>
+              </div>
+              <div class="disp_opts">
+                <div class="disp_row_fillup">
+                  <div class="disp opt1"><input id="fillup-ans" type="text" name="user_answer"><button type="submit"
+                      class="next-btn">Next</button></div>
+                </div>
+              </div>
+            </form>
+            <%else%>
+              <form action="/reports_save" method="post">
+                <div id="time_count"><input type="text" value="<%= t.time %>" id="timer-inp" name="time_limit">
+                  <span class="timer_quiz" id="time-span">
+                    <%= t.time %>
+                  </span>
+                </div>
+                <input type="hidden" name="id" value="<%= t.id%>" id="id">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+                <div class="disp qtns">
+                  <div class="disp_qtn">
+                    <%=t.question%>
+                  </div>
+                  <input type="hidden" , name="assessments_id" value="<%= t.assessments_id%>" id="ass-id">
+                </div>
+                <div class="disp_opts">
+
+                  <div class="disp_row">
+
+                    <div class="disp opt2">
+                      <input type="submit" name="user_answer" value="<%=t.option1%>">
+                    </div>
+
+                    <div class="disp opt2">
+                      <input type="submit" name="user_answer" value="<%=t.option2%>">
+                    </div>
+                  </div>
+                  <div class="disp_row">
+                    <div class="disp opt3">
+                      <input type="submit" name="user_answer" value="<%=t.option3%>">
+                    </div>
+
+                    <div class="disp opt4">
+                      <input type="submit" name="user_answer" value="<%=t.option4%>">
+                    </div>
+              </form>
+      </div>
+  </div>
+  </div>
+  </div>
 
 
-</div>
+  <script>
+    function display_show() {
+      let divs = document.getElementById("disp_questions");
+      let len = divs.getElementsByClassName("disp_quiz").length;
+      for (let index = 0; index < len; index++) {
+        setTimeout(() => {
+          if (index == 0) {
+            divs.getElementsByClassName("disp_quiz")[index].style.display = "block";
+          } else {
+            for (let i = (index - 1); i >= 0; i--) {
+              console.log(i);
+              divs.getElementsByClassName("disp_quiz")[i].style.display = "none";
+              divs.getElementsByClassName("disp_quiz")[index].style.display = "block";
+              if (i == len - 4) {
 
-
-
-</div>
-
-
-<script>
-function display_show(){
-  let divs = document.getElementById("disp_questions");
-  let len = divs.getElementsByClassName("disp_quiz").length;
-  for (let index = 0; index < len; index++) {
-    setTimeout(() => {
-      if(index==0){
-        divs.getElementsByClassName("disp_quiz")[index].style.display="block";
-      }else{
-        for (let i = (index-1); i >=0; i--) {
-          console.log(i);
-          divs.getElementsByClassName("disp_quiz")[i].style.display="none";
-          divs.getElementsByClassName("disp_quiz")[index].style.display="block";
-          if(i == len-4){
-
+              }
+            }
           }
-        }
+
+        }, 30000 * index);
       }
+      timerss();
+    }
+    display_show();
+    function timerss() {
+      let timer = document.getElementById("timer-inp");
+      let con = 1
+      let timers = setInterval(() => {
+        //  timer.innerHTML = con++;
+        timer.value = con++
+        console.log(con)
 
-  }, 30000*index);
-  }
-     timerss();
-}
-display_show();
-function timerss(){
-  let timer = document.getElementById("timer-inp");
-   let con = 1
-  let timers = setInterval(() => {
-    //  timer.innerHTML = con++;
-    timer.value = con++
-     console.log(con)
+      }, 1000);
 
-  }, 1000);
-
-  setTimeout(() => {
-    clearInterval(timers);
-timerss();
-    }, 30000);
-}
-let time = document.getElementById("time-span").innerText;
+      setTimeout(() => {
+        clearInterval(timers);
+        timerss();
+      }, 30000);
+    }
+    let time = document.getElementById("time-span").innerText;
     const countdownEl = document.getElementById("time-span");
     setInterval(updateCountdown, 1000);
 
     function updateCountdown() {
-        const sec = time % 60;
-        countdownEl.innerHTML = `${sec}`;
-        time--;
+      const sec = time % 60;
+      countdownEl.innerHTML = `${sec}`;
+      time--;
 
-        if (countdownEl.innerHTML == 0) {
-                qtn_id = document.getElementById("id").value
-                ass_id = document.getElementById("ass-id").value
-                window.location.href='/change/'+qtn_id+'/'+ass_id;
+      // if (countdownEl.innerHTML == 0) {
+      //   qtn_id = document.getElementById("id").value
+      //   ass_id = document.getElementById("ass-id").value
+      //   window.location.href = '/change/' + qtn_id + '/' + ass_id;
 
-            }
+      // }
     }
-function report() {
-  window.location.href="/reports_save";
-}
+    // function report() {
+    //   window.location.href = "/reports_save";
+    // }
 
-</script>
-<%end%>
-<%end%>
+  </script>
+  <%end%>
+    <%end%>

@@ -29,8 +29,6 @@ https://sonarcloud.io/project/overview?id=Swetha-saravanan_Puzzle_fest
 - All inputs are required .
 - Emailid and Password must be in the register table .
 - If everything is validated , redirect to main page.
-## Forgot password page
--
 
 ## Creating assessments
 - All inputs are required .

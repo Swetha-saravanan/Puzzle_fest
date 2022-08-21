@@ -16,15 +16,15 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
-// document.addEventListener('turbolinks:load', () => {
-//     let ctx = document.getElementById('myChart').getContext('2d');
-//     let myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//       labels: JSON.parse(ctx.canvas.dataset.labels),
-//       datasets: [{
-//         data: JSON.parse(ctx.canvas.dataset.data),
-//       }]
-//     },
-//     });
-//   })
+document.addEventListener('turbolinks:load', () => {
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: JSON.parse(ctx.canvas.dataset.labels),
+      datasets: [{
+        data: JSON.parse(ctx.canvas.dataset.data),
+      }]
+    },
+    });
+  })
