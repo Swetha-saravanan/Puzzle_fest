@@ -28,13 +28,13 @@ class AssessmentsController < ApplicationController
   def store
     cur_userid = User.find_by(id: session[:id])
     id = params[:id]
-    name = params[:name]
+    @name = params[:name]
     category = params[:category]
     description = params[:description]
     images = params[:images]
     random_no = 6.times.map { rand(10) }.join
     @assessment = Assessment.create!(
-      name: name,
+      name: @name,
       users_id: cur_userid.id,
       random_no: random_no,
       category: category,
@@ -42,9 +42,11 @@ class AssessmentsController < ApplicationController
       images: images
     )
     if @assessment.save
-      session[:cur_assessment] = name
-      assessment = Assessment.last
-      $question_records = Question.where(assessments_id: assessment.id)
+      @test = Assessment.find_by(name: @name)
+      $test = Assessment.where(name: @name)
+      # session[:assessment_id] = assessment.id
+      # p $test["name"]
+      $question_records = Question.where(assessments_id: @test["id"])
       p $question_records
       redirect_to '/game'
     else
