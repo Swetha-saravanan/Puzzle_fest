@@ -6,12 +6,8 @@
 <nav class="navbar navbar-expand-lg navbar-light " aria-labelledby="open">
 <%= image_tag("pf_logo.png", alt: "like" ,  class: "pf_logo") %>
   <div class="container-fluid lib_color">
-
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Navbar brand -->
-      <!-- Left links -->
+    <div class="collapse navbar-collapse" id="  ">
+      <div class="nav-links">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item home">
           <a class="nav-link" href="/home">Home</a>
@@ -22,44 +18,33 @@
         <li class="nav-item home">
           <a class="nav-link" href="/quiz">Quiz</a>
         </li>
-        <li class="nav-item home">
-          <a class="nav-link" href="#">Review</a>
+
+        <li class="nav-item home dropdown-profile">
+          <a class="nav-link" href="#">
+            <em class="fa-solid fa-user" id="user-icon"></em>
+          </a>
+          <ul class="dropdown">
+            <li>
+              <a href="">Name</a>
+            </li>
+            <li>
+              <a href="">Logout</a>
+            </li>
+          </ul>
         </li>
       </ul>
-      <!-- Left links -->
     </div>
-
-
+    </div>
     <div class="d-flex align-items-center">
-    <!-- Avatar -->
-     <div class="dropdown" >
-        <a
-          class="dropdown-toggle d-flex align-items-center hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuAvatar"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-        <em class="fa-solid fa-user" id="user-icon"></em>
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuAvatar"
-        >
-          <li>
-            <a class="dropdown-item" href="/home/profile"><%= logged_user["name"]%></a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Settings</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="/logout">Logout</a>
-          </li>
 
-        </ul>
-      </div>
-    </div>
+
+
+
+
+
+
+
+   </div>
     <!-- Right elements -->
   </div>
   <!-- Container wrapper -->
@@ -87,6 +72,18 @@ user.classList.toggle("user-register")
 console.log("ace");
 }
 function redirect_login() {
-  window.location.href='/users/login';
+  window.location.href='/login';
 }
 </script>
+
+<style>
+  .d-flex {
+    margin-left: 100px;
+    width: 50px;
+  }
+
+  .d-flex .dropdown {
+    width: 50px;
+    /* margin-left: 100px; */
+  }
+</style>

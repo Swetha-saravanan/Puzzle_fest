@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   root 'home#home_design'
-  match '/register', to: 'users#index', via: :get
+  post '/register', to: 'users#create'
+  match '/register' , to: "users#index" , via: :get
   match '/login', to: 'users#login', via: :get
   match '/home', to: 'home#home_design', via: :get
   match '/about', to: 'home#about', via: :get

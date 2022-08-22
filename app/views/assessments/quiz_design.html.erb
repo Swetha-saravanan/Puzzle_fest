@@ -1,8 +1,14 @@
+
+
+
+
 <div class="container-fluid quiz_main_div" id="quiz-page">
 <div class="row" id="quiz-row-div">
 <div class="col-4" id="scroller-div">
-    <%$test.each do |test|%>
-     <div class="question-header"><h1> Assessment title : <%=test.name%></h1><br><h3>Questions</h3></div>
+
+ <% if $test%>
+    <%$test.all.each do |test|%>
+     <div class="question-header"><h1> Assessment title : <%= test.name%></h1><br><h3>Questions</h3></div>
      <div class="scroll-questions">
 
        <% qtn_type = Puzzle.where(assessments_id: test.id )%>
@@ -15,8 +21,6 @@
        </div>
      <%end%>
      <%end%>
-
-
      <div class="add_qtn">
         <button type="submit" id="add_question" onclick="display()">Add question</button>
     </div>
@@ -40,7 +44,6 @@
 </div>
 
      </div>
-
 </div>
 <%type_of_qtn = Question.last%>
 <% if type_of_qtn%>
@@ -57,9 +60,10 @@
 <%else%>
 <%= render partial:"quiz_template"%>
 <%end%>
-
-
  <button type="submit" id="redirect-btn" onclick="redirect_tolibrary()">Done</button>
+<%end%>
+
+
 
 <script>
 

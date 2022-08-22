@@ -18,8 +18,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    if user_params[:password] == params[:Confirm_Password]
     user = User.new(user_params)
-    redirect_to '/users/login' if user.save
+    redirect_to '/login' if user.save
     # user = User.create!(
     #   name: params[:name],
     #   email: params[:email],
@@ -27,7 +28,16 @@ class UsersController < ApplicationController
     #   password: params[:password]
     # )
     #   redirect_to '/users/login'
+      p "===================================="
+      p params[:Confirm_Password]
+      p user_params[:password]
+    else
+      render :plain => "error"
+      p "===================================="
+      p params[:Confirm_Password]
+      p user_params[:password]
   end
+end
 
   private
 

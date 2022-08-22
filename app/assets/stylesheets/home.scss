@@ -20,20 +20,23 @@
             .assessment-game .navbar {
                 box-shadow: none !important;
                 background-color: transparent!important;
-                color: white !important;
                 position:fixed !important;
                 margin-top: -100px;
+                color:#21502f !important;
             }
 
             .home {
                 // background-image: url("working.jpg");
                 // background-size: 100% 100%;
                 font-weight: bold;
-                color: white;
                 height: 800px;
                 text-align: center;
+                color:#175649;
             }
-
+            .home a {
+                color:#175649;
+                // font-family: 'DynaPuff', cursive;
+            }
             .bg-img {
                 position: absolute;
                 height: 100%;
@@ -283,7 +286,7 @@
            .assessment-game .navbar .nav-link  {
             margin-left: 50px;
             margin-top: 20px;
-            color:black !important;
+            color:#175649 !important;
             }
            .assessment-game #user-icon {
                 color:#175649 !important;
@@ -291,9 +294,53 @@
                 font-size: 40px;
                 margin-top: 40px;
                }
+
            #user-icon {
             color: white !important;
             font-weight: bold;
             font-size: 40px;
-            margin-left: 300px;
            }
+
+           .nav-links{
+            position: relative;
+            margin-left: 50%;
+           }
+
+
+          .dropdown-profile{
+            position: relative;
+          }
+
+          .dropdown {
+            border-radius: 10%;
+            padding: 1em 0;
+            position: absolute;
+            display: none;
+            width: 200px;
+            background-color: white;
+          }
+
+          .dropdown a:hover{
+            text-decoration: underline 1px green;
+            color: green;
+          }
+
+          .dropdown li + li {
+            margin-top: 10px;
+          }
+
+          .dropdown li {
+            padding: 0.5em 1em;
+            width: 8em;
+            text-align: center;
+            text-decoration: none;
+            list-style: none;
+          }
+
+          .dropdown li:hover {
+            text-decoration: none;
+          }
+
+          .dropdown-profile:hover .dropdown{
+            display: block;
+          }
