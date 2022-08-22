@@ -227,16 +227,21 @@
 .sidebar {
     background-color: #428957 ;
     width: 20%;
-    margin-top: 5%;
-    height: 89vh;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    height: 95vh;
     position:fixed;
 }
 .sidebar div {
    padding: 20px 20px;
-    margin-left: 50px;
+  text-align: left;
     // margin-bottom: 50px;
+}
+.sidebar div:hover{
+    background-color: #2c4c3c;
+    color:white;
+}
+.sidebar div a:hover{
+    text-decoration: none;
+
 }
 .sidebar #sidebar-icon {
     font-size: 20px;

@@ -223,18 +223,27 @@
         background-color:#88c681;
         margin-bottom: 10px;
         // background-color: #21502f;
-        color: white !important;
+        color:#21502f !important;
         font-weight: bold;
         font-size: 20px;
-
     }
+    .assessment-form textarea::placeholder { /* Firefox 18- */
+        color:black;
+        font-size: 20px ;
+        text-indent: 25px;
+        // margin-top: 10px;
+        }
+
     .assessment-form textarea {
         background-color:#88c681;
         border: none;
         height: 100px;
         width: 700px;
-        color: black !important;
+        color:#21502f !important;
         resize:none;
+        font-weight: bold;
+        text-indent: 25px;
+
     }
     .assessment-form .upload {
         background-color: #88c681;
@@ -321,6 +330,7 @@
     margin-top: 120px;
     width: 500px;
     margin-left: -300px;
+    color:#21502f;
   }
 //   .assessment .category {
 

@@ -4,10 +4,11 @@
 <form action="/assessment" method="post" enctype="multipart/form-data">
    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
    <div class="assessment-details">
-   <input type="text" name="name" placeholder="Assessment name ..." required>
-   <input type="text" name="category"  placeholder="Category"><br>
+   <input type="text" name="name" placeholder="Assessment name ..." pattern="[A-Za-z]{3,255}"required>
+   <input type="text" name="category"  placeholder="Category" pattern="[A-Za-z]{3,255}" required><br>
    </div>
-   <textarea placeholder="    Assessment description" name="description" > </textarea><br>
+   <textarea placeholder="Assessment description" pattern="[A-Za-z]{3,255}" name="description" required>
+</textarea>
 
    <div class="upload">
    <em class="fa-solid fa-image" id="icon"></em><br>

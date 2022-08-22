@@ -1,30 +1,30 @@
 <div class="signin" id="up">
-    <form class="form-box px-3" action="/save" method="post" onsubmit="check()">
+    <form action="/register" class="form-box px-3" method="post" onsubmit="check()">
 
         <div class="form-input">
             <span><em class="fa-solid fa-user"></em></span>
-            <input type="text" name="users[name]" placeholder="Username" tabindex="10" required>
+            <input type="text" name="users[name]" placeholder="Username" pattern="[A-Za-z]{3,255}" title="User name must be greater than 3 characters" tabindex="10" required>
         </div>
         <div class="form-input">
             <span><em class="fa fa-envelope-o"></em></span>
-            <input type="email" name="users[email]" placeholder="Mail Address" tabindex="10" required>
+            <input type="email" name="users[email]" placeholder="Mail Address" pattern="[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,}$" tabindex="10" required>
         </div>
         <div class="form-input">
             <span><em class="fa-solid fa-mobile"></em></span>
-            <input type="tel" name="users[phone_no]" placeholder="Phone number" tabindex="10" required>
+            <input type="tel" name="users[phone_no]" placeholder="Phone number" title="Value must be less than or equal to 9999999999" min="6000000000" max="9999999999"tabindex="10" required>
         </div>
         <div class="form-input">
             <span><em class="fa-solid fa-key"></em></span>
-            <input type="password" name="users[password]" placeholder="Create Password" required>
+            <input type="password" id="pwd" name="users[password]"  pattern="[A-Za-z0-9]{5,12}"title="Password should contain upcase , downcase letters and numbers"  placeholder="Create Password" required>
         </div>
         <div class="form-input">
             <span><em class="fa-solid fa-key"></em></span>
-            <input type="password" name="" placeholder="Confirm Password" required>
+            <input type="password" id="cpwd" name="Confirm_Password" pattern="[A-Za-z0-9]{5,12}" title="Password should contain upcase , downcase letters and numbers"placeholder="Confirm Password" required>
         </div>
         <div class="mb-3">
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="cb1" name="">
-                <label class="custom-control-label" for="cb1">Show password</label>
+                <input type="checkbox"  id="check" onchange="toggle()" name=""><p>Show password</p>
+                <%# <label class="custom-control-label" for="cb1">Show password</label> %>
             </div>
         </div>
         <div class="mb-3">
@@ -49,3 +49,46 @@ Login
         <%=image_tag( "signup_img.webp", alt: "like", class:"signup_image" ) %>
     </div>
 </div>
+<style>
+    .custom-checkbox {
+        display:flex;
+        text-align:center;
+        /* margin-top: 10px; */
+    }
+      .custom-checkbox p {
+
+
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+
+    </style>
+<script>
+function check() {
+    let pwd = document.getElementById("pwd").value;
+    let cpwd = document.getElementById("cpwd").value;
+    let result
+    if (pwd == cpwd) {
+        result=  true;
+        w
+    } else {
+        result = false;
+    }
+    return result;
+}
+
+function toggle() {
+    let pwd = document.getElementById("pwd");
+    let cpwd = document.getElementById("cpwd");
+
+    let box= document.getElementById("check");
+
+    if (box.checked) {
+        document.getElementById("pwd").type = "text";
+        document.getElementById("cpwd").type = "text"
+    } else {
+        document.getElementById("pwd").type = "password";
+        document.getElementById("cpwd").type = "password"
+    }
+}
+</script>

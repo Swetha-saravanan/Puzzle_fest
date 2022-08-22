@@ -36,7 +36,8 @@
    <%end%>
    </div>  <br>
    <div class="library-texts">
-      <a href = "display/<%=t.id%>"><p class="head"><%= t.name%></p></a><br>
+       <a href="/display/<%=t.id%>" style="color:#2c4c3c;margin-left:00px;padding-right:2%;margin-top:10%;"><em class="fa-solid fa-pen"></em></a>
+      <p class="head"><%= t.name%></p><br>
     <p class="count">number of questions:<%=Puzzle.where(assessments_id: t.id).count%></p>
    </div><br>
 
