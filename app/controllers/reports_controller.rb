@@ -19,9 +19,9 @@ class ReportsController < ApplicationController
 
   def display_qtn
     id = params[:id]
+    $assessment = Assessment.where(id: id)
     $questions = Puzzle.where(assessments_id: id)
-
-    redirect_to '/library'
+    redirect_to '/game'
   end
 
   def library

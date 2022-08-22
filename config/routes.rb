@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   match 'play/:id', to: 'play#host', via: :get
   match 'change/:id/:ass_id', to: 'play#change', via: :get
   match 'reports/:id', to: 'reports#display_reports', via: :get
-  match 'display/:id', to: 'reports#display_qtn', via: :get
+  match '/display/:id', to: 'reports#display_qtn', via: :get
   match '/red_library', to: 'reports#library', via: :get
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
