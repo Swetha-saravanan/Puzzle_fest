@@ -1,0 +1,61 @@
+<div class="container-fluid quiz_main_div" id="quiz-page">
+<div class="row" id="quiz-row-div">
+<div class="col-4" id="scroller-div">
+
+<% if $assessment%>
+    <%$assessment.all.each do |test|%>
+     <div class="question-header"><h1> Assessment title : <%= test.name%></h1><br><h3>Questions</h3></div>
+     <div class="scroll-questions">
+
+       <% qtn_type = Puzzle.where(assessments_id: test.id )%>
+      <% qtn_type.each do |t|%>
+       <div class="ques-div">
+              <a href="/edit_page/<%=t.id%>" style="color:#2c4c3c;margin-left:90%;padding-right:2%;margin-top:10%;"><em class="fa-solid fa-pen"></em></a>
+           <a href="/delete/<%=t.id%>" style="color:#2c4c3c;"><em class="fa-solid fa-trash"></em></a>
+          <h2 style="padding:5%;color:#2c4c3c;text-align:center;"><%= t.question%></h2>
+
+       </div>
+     <%end%>
+
+     <div class="add_qtn">
+        <button type="submit" id="add_question" onclick="display()">Add question</button>
+    </div>
+     <div id="kinds_of_questions" style="display:none;">
+    <form action="/show" method="post">
+        <div>
+            <%=image_tag( "quiz.png", alt: "like" , height:"100",width:"100") %>
+                <input type="submit" name="kind_of_question" value="Quiz"><br>
+
+        </div><br>
+        <div>
+            <%=image_tag( "tf.png", alt: "like" ,height:"100",width:"100") %>
+                <input type="submit" name="kind_of_question" value="True or false"><br>
+        </div><br>
+        <div>
+            <%=image_tag( "fillup.png", alt: "like" ,height:"100",width:"100") %>
+                <input type="submit" name="kind_of_question" value="Fillup">
+        </div><br>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    </form>
+</div>
+
+     </div>
+</div>
+<%type_of_qtn = Question.last%>
+<% if type_of_qtn%>
+<%case type_of_qtn.kind_of_question%>
+<% when "Quiz"%>
+<%= render partial:"quiz_template"%>
+<% when "True or false"%>
+<%= render partial:"tf_design"%>
+<% when "Fillup"%>
+<%= render partial:"fillup_design"%>
+<%else%>
+<%= render partial:"quiz_template"%>
+<%end%>
+<%else%>
+<%= render partial:"quiz_template"%>
+<%end%>
+ <button type="submit" id="redirect-btn" onclick="redirect_tolibrary()">Done</button>
+<%end%>
+<%end%>

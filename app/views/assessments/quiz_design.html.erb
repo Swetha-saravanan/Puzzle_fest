@@ -1,6 +1,11 @@
+<% if $questions = nil%>
 <div class="container-fluid quiz_main_div" id="quiz-page">
 <div class="row" id="quiz-row-div">
 <div class="col-4" id="scroller-div">
+
+
+
+
 
  <% if $test%>
     <%$test.all.each do |test|%>
@@ -45,7 +50,7 @@
 <% if type_of_qtn%>
 <%case type_of_qtn.kind_of_question%>
 <% when "Quiz"%>
-<%= render partial:"quiz_template"%>
+<%= render partial:"quiz_template" %>
 <% when "True or false"%>
 <%= render partial:"tf_design"%>
 <% when "Fillup"%>
@@ -59,7 +64,9 @@
  <button type="submit" id="redirect-btn" onclick="redirect_tolibrary()">Done</button>
 <%end%>
 
-
+<%else%>
+<%= render partial:"qtn_edit"%>
+<%end%>
 
 
 

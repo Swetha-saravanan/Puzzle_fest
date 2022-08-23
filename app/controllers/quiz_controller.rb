@@ -32,7 +32,11 @@ class QuizController < ApplicationController
            when 'd'
              opt4
            end
-    @assessment = Assessment.last
+    if params[:assessments_id]
+      @assessment = params[:assessments_id].to_i
+    else
+      @assessment = Assessment.last
+    end
     question_type = Question.last
     if question_type
       case question_type.kind_of_question
@@ -43,7 +47,7 @@ class QuizController < ApplicationController
           option2: opt2,
           answer: ans,
           kind_of_question: question_type.kind_of_question,
-          assessments_id: @assessment.id,
+          assessments_id: @assessment,
           correct_answer: @ans,
           images: images,
           time: time
