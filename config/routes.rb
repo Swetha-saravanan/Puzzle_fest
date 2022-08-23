@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'home#login'
+  root 'users#index'
   post '/register', to: 'users#create'
   match '/register' , to: "users#index" , via: :get
   match '/login', to: 'users#login', via: :get
