@@ -5,7 +5,24 @@
 <p class="home_subcontent">A FULLY ONLINE BASED ASSESSMENT APPLICATION<br>
 TO ASSEST YOURSELF
 </p>
-<button type="button" class="btn btn-primary me-3" id="home_login" onclick="redirect_login()">GET STARTED</button>
+<% if session[:id]%>
+          <button type="button" class="btn btn-primary me-3" id="log" onclick="redirect_pin()">ENTER PIN</button>
+
+ <%else%>
+         <button type="button" class="btn btn-primary me-3" id="log" onclick="redirect_login()">GET STARTED</button>
+ <%end%>
 </div>
 </div>
 
+<style>
+       #log {
+              background-color:#518942;
+              color: white !important;
+              text-decoration: none;
+       }
+</style>
+<script>
+          function redirect_pin() {
+                                window.location.href="/pin";
+                            }
+ </script>

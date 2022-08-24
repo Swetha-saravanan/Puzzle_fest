@@ -46,7 +46,7 @@ class AssessmentsController < ApplicationController
       $test = Assessment.where(name: @name)
       # session[:assessment_id] = assessment.id
       # p $test["name"]
-      $question_records = Question.where(assessments_id: @test["id"])
+      $question_records = Question.where(assessments_id: @test['id'])
       p $question_records
       redirect_to '/game'
     else
@@ -95,7 +95,7 @@ class AssessmentsController < ApplicationController
   def check(id, assessments_id)
     puzzle_id = id
     ass_id = assessments_id.to_i
-    $record = Puzzle.where('id > ? AND assessments_id = ?', puzzle_id.to_i, 2)
+    $record = Puzzle.where('id > ? AND assessments_id = ?', puzzle_id.to_i, ass_id)
     if $record
       $record.all.each do |t|
         @record = t

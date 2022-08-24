@@ -1,20 +1,27 @@
 <div class="answer-sidebar">
   <div class="reports">
     <%reco=Report.last%>
-
+    <%if reco%>
       <%if reco.score==100%>
         <%= image_tag('Awards.png' ,class:"reports-img")%>
           <div class="report-content">
             Keep up !! <br>
             Rocking <em class="fa-solid fa-star-and-crescent"></em><br>
           </div>
-          <%else%>
+      <%else%>
             <%= image_tag('encourage.png',class:"reports-img")%>
               <div class="report-content">
                 Keep fighting!! <br>
                 Stay strong <em class="fa-solid fa-hand-back-fist"></em><br>
               </div>
-              <%end%>
+      <%end%>
+    <%else%>
+      <%= image_tag('encourage.png',class:"reports-img")%>
+              <div class="report-content">
+                Keep fighting!! <br>
+                Stay strong <em class="fa-solid fa-hand-back-fist"></em><br>
+              </div>
+    <%end%>
   </div>
 </div>
 <%# <div class="answer"> %>
@@ -62,8 +69,7 @@
               </div>
               <div class="disp_opts">
                 <div class="disp_row_fillup">
-                  <div class="disp opt1"><input id="fillup-ans" type="text" name="user_answer"><button type="submit"
-                      class="next-btn">Next</button></div>
+                  <div class="disp opt1"><input id="fillup-ans" type="text" name="user_answer"><button type="submit" class="next-btn">Next</button></div>
                 </div>
               </div>
             </form>
@@ -107,6 +113,8 @@
   </div>
   </div>
   </div>
+   <%end%>
+  <%end%>
 
 
   <script>
@@ -169,5 +177,3 @@
     // }
 
   </script>
-  <%end%>
-    <%end%>
